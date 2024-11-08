@@ -36,7 +36,7 @@ void player_update()
         //////// ‰Šúİ’è ////////
 
         //ƒvƒŒƒCƒ„[‚Ì‰æ‘œ‚ğ“Ç‚İ‚İ
-        sprPlayer = sprite_load(L"./Data/Images/player_2.png");
+        sprPlayer = sprite_load(L"./Data/Images/player_01.png");
 
         ++player_state;
         /*fallthrough*/

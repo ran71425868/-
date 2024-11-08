@@ -35,7 +35,7 @@ void game_deinit() {
 void game_update() {
 	switch (game_state) {
 	case 0:
-		sprBack = sprite_load(L"./Data/Images/map_1.png");
+		sprBack = sprite_load(L"./Data/Images/map_01.png");
 
 		audio_init();
 		player_init();

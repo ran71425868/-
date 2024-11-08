@@ -174,6 +174,9 @@ void enemy_moveX() {
 
         if (enemy[i].type == 0)
         {
+           /* if (player.pos.x - enemy[i].pos.x < 30) {
+                enemy[i].pos.x = player.pos.x;
+            }*/
             if (enemy[i].pos.x > SCREEN_W / 2) {
                 if (kill > 100)
                     enemy[i].pos.x -= speed[7];
@@ -222,6 +225,9 @@ void enemy_moveY() {
 
         if (enemy[i].type == 0)
         {
+           /* if (player.pos.y - enemy[i].pos.y < 30) {
+                enemy[i].pos.y = player.pos.y;
+            }*/
             if (enemy[i].pos.y < SCREEN_H / 2) {
                 if (kill > 100)
                     enemy[i].pos.y += speed[7];

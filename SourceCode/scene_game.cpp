@@ -4,6 +4,14 @@
 int game_state;
 int game_timer;
 
+float cameraX;
+float cameraY;
+
+float screen_centerX = SCREEN_W / 2.0f;
+float screen_centerY = SCREEN_H / 2.0f;
+
+
+
 int score;
 int kill;
 float comboscore;
@@ -35,7 +43,7 @@ void game_deinit() {
 void game_update() {
 	switch (game_state) {
 	case 0:
-		sprBack = sprite_load(L"./Data/Images/map_01.png");
+		sprBack = sprite_load(L"./Data/Images/map_02.png");
 
 		audio_init();
 		player_init();
@@ -58,6 +66,23 @@ void game_update() {
 			nextScene = SCENE_TITLE;
 			break;
 		}
+
+		if (player.pos.y > cameraY + screen_centerY) {
+			cameraY = player.pos.y - screen_centerY; // プレイヤーが下に移動したら下にスクロール
+		}
+		else if (player.pos.y < cameraY + screen_centerY) {
+			cameraY = player.pos.y - screen_centerY; // プレイヤーが上に移動したら上にスクロール
+		}
+
+		// カメラの範囲を制限
+		/*if (cameraY < 0) cameraY = 0;
+		if (cameraY > MAP_HEIGHT * 64 - SCREEN_H) cameraY = MAP_HEIGHT * 64 - SCREEN_H;*/
+		/*if (cameraX < 0) cameraX = 0;
+		if (cameraX > MAP_WIDTH * 64 - SCREEN_W) cameraX = MAP_WIDTH * 64 - SCREEN_W;*/
+
+
+
+
 
 		player_update();
 		enemy_update();

@@ -80,12 +80,12 @@ void player_update()
             player.pos.x = WALL_LEFT;
         }
 
-        if (player.pos.y < 0 + WALL_UP) {
+        /*if (player.pos.y < 0 + WALL_UP) {
             player.pos.y = 0 + WALL_UP;
         }
         if (player.pos.y > WALL_DOWN) {
             player.pos.y = WALL_DOWN;
-        }
+        }*/
 
         break;
     }

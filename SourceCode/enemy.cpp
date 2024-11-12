@@ -46,7 +46,7 @@ enemySet[] = {
 //--------------------------------------
 void enemy_init()
 {
-    //player_state‚ğ0
+    //enemy_state‚ğ0
     enemy_state = 0;
 
     srand((unsigned)time(NULL));

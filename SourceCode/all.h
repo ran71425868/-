@@ -11,6 +11,7 @@
 #include "obj2d.h"
 #include "player.h"
 #include "enemy.h"
+#include "obstacle.h"
 #include "judge.h"
 
 #include "scene_game.h"

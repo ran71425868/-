@@ -134,6 +134,12 @@ void player_moveY()
 
     if (player.speed.y <= -PLAYER_SPEED_Y_MAX)
         player.speed.y = -PLAYER_SPEED_Y_MAX;
+    if (STATE(0) & PAD_DOWN && !(STATE(0) & PAD_UP)) {
+        player.speed.y += PLAYER_ACCEL_Y;
+        player.scale.y = 1.0f;
+
+
+    }
 }
 
 

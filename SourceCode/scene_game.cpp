@@ -8,8 +8,7 @@ float playerX;
 float playerY;
 
 
-float cameraX;
-float cameraY;
+
 
 float screen_centerX = SCREEN_W / 2.0f;
 float screen_centerY = SCREEN_H / 2.0f;
@@ -22,6 +21,9 @@ int combo;
 extern int player_state;
 extern int enemy_state;
 extern OBJ2D enemy[ENEMY_MAX];
+bool playerR = false;
+bool playerL = false;
+bool playerM = true;
 
 Sprite* sprBack;
 
@@ -73,12 +75,12 @@ void game_update() {
 			break;
 		}
 
-		if (playerY > cameraY + screen_centerY) {
-			cameraY = playerY - screen_centerY; // プレイヤーが下に移動したら下にスクロール
-		}
-		else if (playerY < cameraY + screen_centerY) {
-			cameraY = playerY - screen_centerY; // プレイヤーが上に移動したら上にスクロール
-		}
+		//if (playerY > cameraY + screen_centerY) {
+		//	cameraY = playerY - screen_centerY; // プレイヤーが下に移動したら下にスクロール
+		//}
+		//else if (playerY < cameraY + screen_centerY) {
+		//	cameraY = playerY - screen_centerY; // プレイヤーが上に移動したら上にスクロール
+		//}
 
 
 
@@ -87,10 +89,31 @@ void game_update() {
 		if (cameraY > MAP_01_HEIGHT * 64 - SCREEN_H) cameraY = MAP_01_HEIGHT * 64 - SCREEN_H;
 		if (cameraX < 0) cameraX = 0;
 		if (cameraX > MAP_01_WIDTH * 64 - SCREEN_W) cameraX = MAP_01_WIDTH * 64 - SCREEN_W;*/
-		
+		//float screenCenterX = SCREEN_W / 2.0f; // 画面中央のX座標
+		//float screenScrollBoundary = 100.0f;   // スクロールし始める閾値
+		//float screenCenterY = SCREEN_H / 2.0f;
+
+		//// プレイヤーが画面中央を超えたらカメラをスクロール
+		//if (playerX > cameraX + screenCenterX - screenScrollBoundary)
+		//{
+		//	cameraX += cameraSpeed; // 右スクロール
+		//}
+		//if (playerX < cameraX + screenCenterX + screenScrollBoundary)
+		//{
+		//	cameraX -= cameraSpeed; // 左スクロール
+		//}
+		//if (playerY > cameraY + screenCenterY) {
+		//	cameraY = playerY - screenCenterY; // プレイヤーが下に移動したら下にスクロール
+		//}
+		//else if (playerY < cameraY + screenCenterY) {
+		//	cameraY = playerY - screenCenterY; // プレイヤーが上に移動したら上にスクロール
+		//}
 
 
-
+		//if (cameraY < 0) cameraY = 0;
+		//if (cameraY > MAP_HEIGHT * 64 - SCREEN_H) cameraY = MAP_HEIGHT * 64 - SCREEN_H;
+		//if (cameraX < 0) cameraX = 0;
+		//if (cameraX > MAP_WIDTH * 64 - SCREEN_W) cameraX = MAP_WIDTH * 64 - SCREEN_W;
 
 		player_update();
 		enemy_update();
@@ -104,8 +127,8 @@ void game_update() {
 void game_render() {
 	GameLib::clear(0, 0, 1);
 	sprite_render(sprBack, 0, 0);
-
-
+	
+	
 	text_out(4, "Up:W Down:S Right: D Left: A", 0, 0, 1, 1);
 	text_out(4, "angle++:Up Key angle--:Down Key", 0, 30, 1, 1);
 	text_out(0, "score", 1100, 0, 2, 2);

@@ -97,7 +97,7 @@ void player_render()
 {
     //ÉvÉåÉCÉÑÅ[ÇÃï`âÊ
     sprite_render(sprPlayer, player.pos.x, player.pos.y, player.scale.x, player.scale.y, player.texPos.x, player.texPos.y, player.texSize.x, player.texSize.y, player.pivot.x, player.pivot.y,
-        ToRadian(player.angle), player.color.x, player.color.y);
+        ToRadian(angle), player.color.x, player.color.y);
     primitive::rect(player.pos.x-100, player.pos.y-150, 200 * hp / 100, 15, 0, 0, ToRadian(0), 0, 1, 0);
 }
 
@@ -181,20 +181,11 @@ void player_moveX()
         player.speed.x = -PLAYER_SPEED_X_MAX;
 }
 void player_radian() {
-  /*  if (STATE(0) & PAD_TRG2 && !(STATE(0) & PAD_TRG3)) {
+    if (STATE(0) & PAD_TRG2 && !(STATE(0) & PAD_TRG3)) {
         angle += 3;
     }
     else if (STATE(0) & PAD_TRG3 && !(STATE(0) & PAD_TRG2)) {
         angle -= 3;
-    }*/
-
-}
-
-void player_boost()
-{
-    if (TRG(0) & PAD_TRG1) {
-
     }
-    player.pos.x += cosf(ToRadian(player.angle - 90)) * 10;
-    player.pos.y += sinf(ToRadian(player.angle - 90)) * 10;
+
 }

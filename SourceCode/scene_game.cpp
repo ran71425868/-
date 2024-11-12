@@ -87,7 +87,7 @@ void game_update() {
 		if (cameraY > MAP_01_HEIGHT * 64 - SCREEN_H) cameraY = MAP_01_HEIGHT * 64 - SCREEN_H;
 		if (cameraX < 0) cameraX = 0;
 		if (cameraX > MAP_01_WIDTH * 64 - SCREEN_W) cameraX = MAP_01_WIDTH * 64 - SCREEN_W;*/
-
+		
 
 
 

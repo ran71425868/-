@@ -1,7 +1,10 @@
 #include "all.h"
 
 int player_state;
+int hp;
 float angle = 0.0f;
+int scroll_position_X=150;
+int scroll_position_Y;
 
 //OBJ2D型の変数playerを宣言
 OBJ2D player;
@@ -15,6 +18,7 @@ void player_init()
 {
     //player_stateを0
     player_state = 0;
+    hp = 100;
 }
 //--------------------------------------
 //  プレイヤーの終了処理
@@ -80,12 +84,12 @@ void player_update()
             player.pos.x = WALL_LEFT;
         }
 
-        if (player.pos.y < 0 + WALL_UP) {
+        /*if (player.pos.y < 0 + WALL_UP) {
             player.pos.y = 0 + WALL_UP;
         }
         if (player.pos.y > WALL_DOWN) {
             player.pos.y = WALL_DOWN;
-        }
+        }*/
 
         break;
     }
@@ -94,8 +98,9 @@ void player_update()
 void player_render()
 {
     //プレイヤーの描画
-    sprite_render(sprPlayer, player.pos.x, player.pos.y, player.scale.x, player.scale.y, player.texPos.x, player.texPos.y, player.texSize.x, player.texSize.y, player.pivot.x, player.pivot.y,
+    sprite_render(sprPlayer, player.pos.x + scroll_position_X, player.pos.y + scroll_position_Y, player.scale.x, player.scale.y, player.texPos.x, player.texPos.y, player.texSize.x, player.texSize.y, player.pivot.x, player.pivot.y,
         ToRadian(angle), player.color.x, player.color.y);
+    primitive::rect(player.pos.x-100, player.pos.y-150, 200 * hp / 100, 15, 0, 0, ToRadian(0), 0, 1, 0);
 }
 
 void player_moveY()
@@ -131,6 +136,12 @@ void player_moveY()
 
     if (player.speed.y <= -PLAYER_SPEED_Y_MAX)
         player.speed.y = -PLAYER_SPEED_Y_MAX;
+    if (STATE(0) & PAD_DOWN && !(STATE(0) & PAD_UP)) {
+        player.speed.y += PLAYER_ACCEL_Y;
+        player.scale.y = 1.0f;
+
+
+    }
 }
 
 

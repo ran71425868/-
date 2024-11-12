@@ -47,7 +47,7 @@ void title_update() {
 }
 void title_render() {
 	GameLib::clear(0, 0, 0);
-	sprite_render(sprTitle, 0, 0);
+	sprite_render(sprTitle, 0,0,1.5f,1.5f);
 
 	GameLib::text_out(3, "repel it", 225, 80, 5, 5, 1, 1, 0);
 	GameLib::text_out(3, "the aliens", 404, 180, 5, 5, 1, 1, 0);

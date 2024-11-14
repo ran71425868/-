@@ -27,4 +27,6 @@ void obstacle_deinit();
 void obstacle_update();
 void obstacle_render();
 
+void Obstacle0(OBJ2D* obj);
+
 #endif

@@ -3,7 +3,7 @@
 int player_state;
 int hp;
 float angle = 0.0f;
-int scroll_position_X=150;
+int scroll_position_X;
 int scroll_position_Y;
 
 //OBJ2DŒ^‚Ì•Ï”player‚ğéŒ¾

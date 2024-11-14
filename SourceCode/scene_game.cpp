@@ -45,6 +45,7 @@ void game_deinit() {
 	music::stop(0);
 	player_deinit();
 	enemy_deinit();
+	obstacle_deinit();
 	
 }
 void game_update() {
@@ -55,6 +56,7 @@ void game_update() {
 		audio_init();
 		player_init();
 		enemy_init();
+		obstacle_init();
 
 		game_state++;
 		/*fallthrough*/
@@ -116,6 +118,7 @@ void game_update() {
 
 		player_update();
 		enemy_update();
+		obstacle_update();
 
 		judge();
 		break;
@@ -140,6 +143,7 @@ void game_render() {
 
 	player_render();
 	enemy_render();
+	obstacle_render();
 	
 }
 void game_score() {

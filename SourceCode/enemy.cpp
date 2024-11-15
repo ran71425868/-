@@ -130,8 +130,8 @@ void enemy_update()
             enemySet[i].pos.y = rndY;
         }
 
-        enemy_moveX();
-        enemy_moveY();
+      /*  enemy_moveX();
+        enemy_moveY();*/
 
 
         for (int i = 0; i < ENEMY_MAX; i++) {
@@ -283,11 +283,25 @@ void moveEnemy0(OBJ2D* obj)
         obj->pivot = enemyData[0].pivot;
         obj->radius = enemyData[0].radius;
 
+
         ++obj->state;
         /*fallthrough*/
 
     case 1:
         ////////�ʏ펞////////
+        {
+            VECTOR2 pos = player.pos + player.offset;
+
+            float dx = pos.x - obj->pos.x;
+
+            float dy = pos.y - obj->pos.y;
+
+            float dist = sqrtf(dx * dx + dy * dy);
+
+            obj->speed = { dx / dist * 1, dy / dist * 1 };
+        }
+        obj->pos += obj->speed;
+
         break;
     }
 }

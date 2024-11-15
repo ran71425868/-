@@ -282,13 +282,14 @@ void moveEnemy0(OBJ2D* obj)
         obj->texSize = enemyData[0].texSize;
         obj->pivot = enemyData[0].pivot;
         obj->radius = enemyData[0].radius;
-
+        obj->speed = enemy[3].speed;
 
         ++obj->state;
         /*fallthrough*/
 
     case 1:
         ////////�ʏ펞////////
+
         {
             VECTOR2 pos = player.pos + player.offset;
 

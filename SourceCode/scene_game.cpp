@@ -7,13 +7,19 @@ int game_timer;
 float playerX;
 float playerY;
 
-float cameraX=0.0f;
-float cameraY=0.0f;
-float cameraSpeed=4.0f;
+ float cameraX = 0.0f;
+ float cameraY = 0.0f;
 
+// カメラの追従範囲
+const float followRange_X = 100.0f;
+const float followRange_Y = 100.0f;
 
-float screen_centerX = SCREEN_W / 2.0f;
-float screen_centerY = SCREEN_H / 2.0f;
+// 画面の中心座標
+const float screenCenterX = SCREEN_W / 2.0f;
+const float screenCenterY = SCREEN_H / 2.0f; 
+
+const int MAP_HEIGHT = 1920;
+const int MAP_WIDTH = 1080;
 
 int score;
 int kill;
@@ -27,8 +33,31 @@ extern OBJ2D enemy[ENEMY_MAX];
 Sprite* sprBack;
 
 std::ostringstream oss;                                 // 文字列ストリーム
-POINT point;
+POINT point; 
 
+// 現在のスクロール量
+float scrollValue = 0.0f;
+
+void updateCamera() {
+	// プレイヤーが画面中央を超えたらカメラをスクロール
+	
+
+	// 縦方向のスクロール（必要に応じて追加）
+	if (abs(playerY - (cameraY + screenCenterY)) > followRange_Y) {
+		if (playerY > cameraY + screenCenterY + followRange_Y) {
+			cameraY += player.speed.y; // 下スクロール
+		}
+		else if (playerY < cameraY + screenCenterY - followRange_Y) {
+			cameraY -= player.speed.y; // 上スクロール
+		}
+	}
+
+	// カメラの範囲を制限
+	if (cameraX < 0) cameraX = 0;
+	if (cameraX > MAP_WIDTH * 64 - SCREEN_W) cameraX = MAP_WIDTH * 64 - SCREEN_W;
+	if (cameraY < 0) cameraY = 0;
+	if (cameraY > MAP_HEIGHT * 64 - SCREEN_H) cameraY = MAP_HEIGHT * 64 - SCREEN_H;
+}
 void game_init() {
 	game_state = 0;
 	game_timer = 0;
@@ -76,50 +105,11 @@ void game_update() {
 			break;
 		}
 
-		//if (player.pos.y > cameraY + screen_centerY) {
-		//	cameraY = player.pos.y - screen_centerY; // プレイヤーが下に移動したら下にスクロール
-		//}
-		//else if (player.pos.y < cameraY + screen_centerY) {
-		//	cameraY = player.pos.y - screen_centerY; // プレイヤーが上に移動したら上にスクロール
-		//}
-
-
-
-		// カメラの範囲を制限
-		/*if (cameraY < 0) cameraY = 0;
-		if (cameraY > MAP_01_HEIGHT * 64 - SCREEN_H) cameraY = MAP_01_HEIGHT * 64 - SCREEN_H;
-		if (cameraX < 0) cameraX = 0;
-		if (cameraX > MAP_01_WIDTH * 64 - SCREEN_W) cameraX = MAP_01_WIDTH * 64 - SCREEN_W;*/
-		float screenCenterX = SCREEN_W / 2.0f; // 画面中央のX座標
-		float screenScrollBoundary = 100.0f;   // スクロールし始める閾値
-		float screenCenterY = SCREEN_H / 2.0f;
-
-		// プレイヤーが画面中央を超えたらカメラをスクロール
-		//if (player.pos.x > cameraX + screenCenterX - screenScrollBoundary)
-		//{
-		//	cameraX += cameraSpeed; // 右スクロール
-		//}
-		//if (player.pos.x < cameraX + screenCenterX + screenScrollBoundary)
-		//{
-		//	cameraX -= cameraSpeed; // 左スクロール
-		//}
-		//if (player.pos.y > cameraY + screenCenterY) {
-		//	cameraY = player.pos.y - screenCenterY; // プレイヤーが下に移動したら下にスクロール
-		//}
-		//else if (player.pos.y < cameraY + screenCenterY) {
-		//	cameraY = player.pos.y - screenCenterY; // プレイヤーが上に移動したら上にスクロール
-		//}
-
-
-		/*if (cameraY < 0) cameraY = 0;
-		if (cameraY > MAP_HEIGHT * 64 - SCREEN_H) cameraY = MAP_HEIGHT * 64 - SCREEN_H;
-		if (cameraX < 0) cameraX = 0;
-		if (cameraX > MAP_WIDTH * 64 - SCREEN_W) cameraX = MAP_WIDTH * 64 - SCREEN_W;*/
-
+		updateCamera();
 		player_update();
 		enemy_update();
 		obstacle_update();
-
+		
 		judge();
 		break;
 	}
@@ -127,8 +117,8 @@ void game_update() {
 	game_timer++;
 }
 void game_render() {
-	GameLib::clear(0, 0, 1);
-	sprite_render(sprBack, 0, 0);
+	
+	
 	
 	
 	text_out(4, "Up:W Down:S Right: D Left: A", 0, 0, 1, 1);
@@ -140,7 +130,7 @@ void game_render() {
 	text_out(0, "combo", 0, 150, 2, 2);
 	text_out(0, std::to_string(combo), 0, 200, 2, 2);
 
-
+	sprite_render(sprBack, 0.0f, scrollValue); // 背景をカメラの位置に合わせて描画
 	player_render();
 	enemy_render();
 	obstacle_render();

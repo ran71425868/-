@@ -6,7 +6,7 @@ void game_init();
 void game_deinit();
 void game_update();
 void game_render();
-
+void updateCamera();
 void game_score();
 
 

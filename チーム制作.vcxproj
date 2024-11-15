@@ -176,6 +176,7 @@
     <ClInclude Include="GameLib\view_settings.h" />
     <ClInclude Include="SourceCode\all.h" />
     <ClInclude Include="SourceCode\audio.h" />
+    <ClInclude Include="SourceCode\camera.h" />
     <ClInclude Include="SourceCode\common.h" />
     <ClInclude Include="SourceCode\enemy.h" />
     <ClInclude Include="SourceCode\judge.h" />

@@ -18,6 +18,7 @@
 #include "scene_title.h"
 #include "scene_result.h"
 
+
 using namespace GameLib;// using ディレクティブ
 using namespace input;
 

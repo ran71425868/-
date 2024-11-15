@@ -6,6 +6,8 @@ float angle = 0.0f;
 int scroll_position_X;
 int scroll_position_Y;
 
+float boost = 0.0f;
+
 //OBJ2DŒ^‚Ì•Ï”player‚ðéŒ¾
 OBJ2D player;
 
@@ -108,13 +110,13 @@ void player_moveY()
     if (STATE(0) & PAD_DOWN && !(STATE(0) & PAD_UP)) {
         player.speed.y += PLAYER_ACCEL_Y;
         player.scale.y = 1.0f;
-
+        
 
     }
     else if (STATE(0) & PAD_UP && !(STATE(0) & PAD_DOWN)) {
         player.speed.y -= PLAYER_ACCEL_Y;
         player.scale.y = 1.0f;
-
+        
     }
     else {
         if (player.speed.y > 0) {
@@ -132,10 +134,10 @@ void player_moveY()
         }
     }
     if (player.speed.y >= PLAYER_SPEED_Y_MAX)
-        player.speed.y = PLAYER_SPEED_Y_MAX;
+        player.speed.y = PLAYER_SPEED_Y_MAX+boost;
 
     if (player.speed.y <= -PLAYER_SPEED_Y_MAX)
-        player.speed.y = -PLAYER_SPEED_Y_MAX;
+        player.speed.y = -PLAYER_SPEED_Y_MAX-boost;
     if (STATE(0) & PAD_DOWN && !(STATE(0) & PAD_UP)) {
         player.speed.y += PLAYER_ACCEL_Y;
         player.scale.y = 1.0f;
@@ -149,16 +151,22 @@ void player_moveX()
 {
 
     //”CˆÓ‚Ì‘€ì‚É‚æ‚éˆÚ“®
+    if (TRG(0) & PAD_TRG1)
+    {
+        boost = 5.0f;
 
+
+    }
+    boost = 0.0;
     if (STATE(0) & PAD_LEFT && !(STATE(0) & PAD_RIGHT)) {
         player.speed.x -= PLAYER_ACCEL_X;
         player.scale.x = 1.0f;
-
+        
     }
     else if (STATE(0) & PAD_RIGHT && !(STATE(0) & PAD_LEFT)) {
         player.speed.x += PLAYER_ACCEL_X;
         player.scale.x = 1.0f;
-
+       
     }
     else {
         if (player.speed.x > 0) {
@@ -177,10 +185,10 @@ void player_moveX()
 
     }
     if (player.speed.x >= PLAYER_SPEED_X_MAX)
-        player.speed.x = PLAYER_SPEED_X_MAX;
+        player.speed.x = PLAYER_SPEED_X_MAX+boost;
 
     if (player.speed.x <= -PLAYER_SPEED_X_MAX)
-        player.speed.x = -PLAYER_SPEED_X_MAX;
+        player.speed.x = -PLAYER_SPEED_X_MAX-boost;
 }
 void player_radian() {
     if (STATE(0) & PAD_TRG2 && !(STATE(0) & PAD_TRG3)) {

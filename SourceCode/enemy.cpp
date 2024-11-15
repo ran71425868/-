@@ -4,7 +4,7 @@
 
 int rndX, rndY;
 int enemy_state;
-float speed[8] = { 1,1.25,1.5,2,2.5,3,5,7 };
+float speed[8] = { 1,1.25,1.5,2,2.5,3,5,100 };
 
 extern float angle;
 extern int kill;
@@ -282,7 +282,7 @@ void moveEnemy0(OBJ2D* obj)
         obj->texSize = enemyData[0].texSize;
         obj->pivot = enemyData[0].pivot;
         obj->radius = enemyData[0].radius;
-        obj->speed = enemy[3].speed;
+        
 
         ++obj->state;
         /*fallthrough*/
@@ -301,7 +301,7 @@ void moveEnemy0(OBJ2D* obj)
 
             obj->speed = { dx / dist * 1, dy / dist * 1 };
         }
-        obj->pos += obj->speed;
+        obj->pos += obj->speed*5;
 
         break;
     }

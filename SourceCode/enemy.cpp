@@ -4,7 +4,7 @@
 
 int rndX, rndY;
 int enemy_state;
-float speed[8] = { 1,1.25,1.5,2,2.5,3,5,7 };
+float speed[8] = { 1,1.25,1.5,2,2.5,3,5,100 };
 
 extern float angle;
 extern int kill;
@@ -130,8 +130,8 @@ void enemy_update()
             enemySet[i].pos.y = rndY;
         }
 
-        enemy_moveX();
-        enemy_moveY();
+      /*  enemy_moveX();
+        enemy_moveY();*/
 
 
         for (int i = 0; i < ENEMY_MAX; i++) {
@@ -282,12 +282,27 @@ void moveEnemy0(OBJ2D* obj)
         obj->texSize = enemyData[0].texSize;
         obj->pivot = enemyData[0].pivot;
         obj->radius = enemyData[0].radius;
+        
 
         ++obj->state;
         /*fallthrough*/
 
     case 1:
         ////////�ʏ펞////////
+
+        {
+            VECTOR2 pos = player.pos + player.offset;
+
+            float dx = pos.x - obj->pos.x;
+
+            float dy = pos.y - obj->pos.y;
+
+            float dist = sqrtf(dx * dx + dy * dy);
+
+            obj->speed = { dx / dist * 1, dy / dist * 1 };
+        }
+        obj->pos += obj->speed*5;
+
         break;
     }
 }

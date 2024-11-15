@@ -23,4 +23,4 @@ using namespace GameLib;// using ディレクティブ
 using namespace input;
 
 //インクルードガード終了
-#endif//ALL_H
+#endif//ALL_

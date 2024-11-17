@@ -7,7 +7,7 @@ int scroll_position_X;
 int scroll_position_Y;
 
 float boost = 0.0f;
-
+extern float scrollValue;
 //OBJ2DŒ^‚Ì•Ï”player‚ðéŒ¾
 OBJ2D player;
 
@@ -92,6 +92,7 @@ void player_update()
         if (player.pos.y > WALL_DOWN) {
             player.pos.y = WALL_DOWN;
         }*/
+        
 
         break;
     }
@@ -103,19 +104,31 @@ void player_render()
     sprite_render(sprPlayer, player.pos.x + scroll_position_X, player.pos.y + scroll_position_Y, player.scale.x, player.scale.y, player.texPos.x, player.texPos.y, player.texSize.x, player.texSize.y, player.pivot.x, player.pivot.y,
         ToRadian(angle), player.color.x, player.color.y);
     primitive::rect(player.pos.x-100, player.pos.y-150, 200 * hp / 100, 15, 0, 0, ToRadian(0), 0, 1, 0);
+    
 }
 
 void player_moveY()
 {
-    if (STATE(0) & PAD_DOWN && !(STATE(0) & PAD_UP)) {
+    
+    if (STATE(0) & PAD_DOWN && !(STATE(0) & PAD_UP)) 
+    {
         player.speed.y += PLAYER_ACCEL_Y;
         player.scale.y = 1.0f;
-        
+        if (player.pos.y > SCREEN_H / 3.0f)
+        {
+            scrollValue -= player.speed.y;
+            player.pos -= player.speed;
+        }
 
     }
-    else if (STATE(0) & PAD_UP && !(STATE(0) & PAD_DOWN)) {
+    else if (STATE(0) & PAD_UP && !(STATE(0) & PAD_DOWN)) 
+    {
         player.speed.y -= PLAYER_ACCEL_Y;
         player.scale.y = 1.0f;
+        if (player.pos.y < SCREEN_H / 1.5f) {
+            scrollValue -= player.speed.y;
+            player.pos -= player.speed;
+        }
         
     }
     else {
@@ -141,9 +154,9 @@ void player_moveY()
     if (STATE(0) & PAD_DOWN && !(STATE(0) & PAD_UP)) {
         player.speed.y += PLAYER_ACCEL_Y;
         player.scale.y = 1.0f;
-
-
     }
+
+    
 }
 
 

@@ -77,8 +77,10 @@ void game_deinit() {
 	obstacle_deinit();
 	
 }
-void game_update() {
-	switch (game_state) {
+void game_update()
+{
+	switch (game_state)
+	{
 	case 0:
 		sprBack = sprite_load(L"./Data/Images/map_01.png");
 
@@ -109,7 +111,7 @@ void game_update() {
 		player_update();
 		enemy_update();
 		obstacle_update();
-		
+
 		judge();
 		break;
 	}
@@ -132,11 +134,12 @@ void game_render() {
 
 	sprite_render(sprBack, 0.0f, scrollValue); // ”wŒi‚ðƒJƒƒ‰‚ÌˆÊ’u‚É‡‚í‚¹‚Ä•`‰æ
 	player_render();
-	enemy_render();
-	obstacle_render();
+	/*enemy_render();
+	obstacle_render();*/
 	
 }
-void game_score() {
+void game_score()
+{
 	if (combo >= 30)
 		comboscore = 2.5f;
 	else if (combo >= 20)

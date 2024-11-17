@@ -23,8 +23,8 @@
 #define GRAVITY                     1.0f
 
 //ÉvÉåÉCÉÑÅ[ÇÃâ¡å∏ë¨ÇÃíËêî
-#define PLAYER_ACCEL_X      0.3f
-#define PLAYER_ACCEL_Y      0.3f
+#define PLAYER_ACCEL_X      1.0f
+#define PLAYER_ACCEL_Y      1.0f
 #define PLAYER_DECEL_X      0.4f
 #define PLAYER_DECEL_Y      0.4f
 #define PLAYER_SPEED_X_MAX      6.0f

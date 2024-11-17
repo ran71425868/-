@@ -4,7 +4,7 @@
 
 int rndX, rndY;
 int enemy_state;
-float speed[8] = { 1,1.25,1.5,2,2.5,3,5,100 };
+float speed[8] = { 1,1,1,1,1,1,1,1 };
 
 extern float angle;
 extern int kill;

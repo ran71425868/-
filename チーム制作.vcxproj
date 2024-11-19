@@ -148,6 +148,7 @@
     <ClCompile Include="SourceCode\judge.cpp" />
     <ClCompile Include="SourceCode\main.cpp" />
     <ClCompile Include="SourceCode\OBJ2D.cpp" />
+    <ClCompile Include="SourceCode\obstacle.cpp" />
     <ClCompile Include="SourceCode\player.cpp" />
     <ClCompile Include="SourceCode\scene_game.cpp" />
     <ClCompile Include="SourceCode\scene_result.cpp" />
@@ -175,10 +176,12 @@
     <ClInclude Include="GameLib\view_settings.h" />
     <ClInclude Include="SourceCode\all.h" />
     <ClInclude Include="SourceCode\audio.h" />
+    <ClInclude Include="SourceCode\camera.h" />
     <ClInclude Include="SourceCode\common.h" />
     <ClInclude Include="SourceCode\enemy.h" />
     <ClInclude Include="SourceCode\judge.h" />
     <ClInclude Include="SourceCode\obj2d.h" />
+    <ClInclude Include="SourceCode\obstacle.h" />
     <ClInclude Include="SourceCode\player.h" />
     <ClInclude Include="SourceCode\scene_game.h" />
     <ClInclude Include="SourceCode\scene_result.h" />

@@ -32,10 +32,10 @@ void judge()
 
         if (hitCheck(&player, &enemy[i])) {
 
-            for (int stn = 0; stn < 10; stn++) {
+            /*for (int stn = 0; stn < 10; stn++) {
                 player.speed.x = 0;
                 player.speed.y = 0;
-            }
+            }*/
 
             game_score();
             combo = 0;

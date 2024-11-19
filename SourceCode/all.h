@@ -11,14 +11,16 @@
 #include "obj2d.h"
 #include "player.h"
 #include "enemy.h"
+#include "obstacle.h"
 #include "judge.h"
 
 #include "scene_game.h"
 #include "scene_title.h"
 #include "scene_result.h"
 
+
 using namespace GameLib;// using ディレクティブ
 using namespace input;
 
 //インクルードガード終了
-#endif//ALL_H
+#endif//ALL_

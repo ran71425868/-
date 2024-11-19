@@ -38,26 +38,6 @@ POINT point;
 // 現在のスクロール量
 float scrollValue = 0.0f;
 
-void updateCamera() {
-	// プレイヤーが画面中央を超えたらカメラをスクロール
-	
-
-	// 縦方向のスクロール（必要に応じて追加）
-	if (abs(playerY - (cameraY + screenCenterY)) > followRange_Y) {
-		if (playerY > cameraY + screenCenterY + followRange_Y) {
-			cameraY += player.speed.y; // 下スクロール
-		}
-		else if (playerY < cameraY + screenCenterY - followRange_Y) {
-			cameraY -= player.speed.y; // 上スクロール
-		}
-	}
-
-	// カメラの範囲を制限
-	if (cameraX < 0) cameraX = 0;
-	if (cameraX > MAP_WIDTH * 64 - SCREEN_W) cameraX = MAP_WIDTH * 64 - SCREEN_W;
-	if (cameraY < 0) cameraY = 0;
-	if (cameraY > MAP_HEIGHT * 64 - SCREEN_H) cameraY = MAP_HEIGHT * 64 - SCREEN_H;
-}
 void game_init() {
 	game_state = 0;
 	game_timer = 0;
@@ -107,7 +87,6 @@ void game_update()
 			break;
 		}
 
-		updateCamera();
 		player_update();
 		enemy_update();
 		obstacle_update();
@@ -124,7 +103,7 @@ void game_render() {
 	
 	
 	text_out(4, "Up:W Down:S Right: D Left: A", 0, 0, 1, 1);
-	text_out(4, "angle++:Up Key angle--:Down Key", 0, 30, 1, 1);
+	//text_out(4, "angle++:Up Key angle--:Down Key", 0, 30, 1, 1);
 	text_out(0, "score", 1100, 0, 2, 2);
 	text_out(0, std::to_string(score), 1100, 50, 2, 2);
 	text_out(0, "kill", 0, 80, 2, 2);
@@ -134,8 +113,8 @@ void game_render() {
 
 	sprite_render(sprBack, 0.0f, scrollValue); // 背景をカメラの位置に合わせて描画
 	player_render();
-	/*enemy_render();
-	obstacle_render();*/
+	enemy_render();
+	obstacle_render();
 	
 }
 void game_score()

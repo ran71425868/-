@@ -15,6 +15,8 @@ int cooldown;
 int cooldown_timer;
 
 extern float scrollValue;
+extern OBJ2D enemy[ENEMY_MAX];
+
 //OBJ2DŒ^‚Ì•Ï”player‚ğéŒ¾
 OBJ2D player;
 
@@ -200,6 +202,7 @@ void player_moveY()
 }
 
 
+
 void player_moveX()
 {
 
@@ -254,4 +257,26 @@ void player_moveX()
         }
         player_boost = 0.0f;
     }
+}
+
+void player_hp()
+{
+    for (int i = 0; i < 3; i++) {
+        if (enemy[i].moveAlg == -1) {
+            hp -= 10;
+        }
+    }
+    
+    for (int i = 3; i < 6; i++) {
+        if (enemy[i].moveAlg == -1) {
+            hp -= 10;
+        }
+    }
+
+    for (int i = 6; i < 8; i++) {
+        if (enemy[i].moveAlg == -1) {
+            hp -= 10;
+        }
+    }
+
 }

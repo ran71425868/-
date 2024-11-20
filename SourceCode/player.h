@@ -55,5 +55,7 @@ void player_render();
 void player_moveX();
 void player_moveY();
 
+void player_hp();
+
 
 #endif//PLAYER_H

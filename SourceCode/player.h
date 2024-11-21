@@ -17,6 +17,8 @@
 #define PLAYER_PIVOT_X               52.5f
 #define PLAYER_PIVOT_Y               103.0f
 
+#define COOL_DOWN_MAX				3	
+
 
 
 
@@ -52,6 +54,8 @@ void player_render();
 
 void player_moveX();
 void player_moveY();
-void player_radian();
+
+void player_hp();
+
 
 #endif//PLAYER_H

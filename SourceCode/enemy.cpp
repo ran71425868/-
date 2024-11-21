@@ -4,10 +4,14 @@
 
 int rndX, rndY;
 int enemy_state;
-float speed[8] = { 1,1,1,1,1,1,1,1 };
 
 extern float angle;
 extern int kill;
+
+int enemy_scroll_position_X;
+int enemy_scroll_position_Y;
+
+extern float scrollValue;
 
 
 struct ENEMY_DATA {
@@ -163,111 +167,11 @@ void enemy_render()
         if (enemy[i].moveAlg == -1)continue;
 
         // エネミーの描画
-        sprite_render(enemy[i].spr, enemy[i].pos.x, enemy[i].pos.y, enemy[i].scale.x, enemy[i].scale.y, enemy[i].texPos.x, enemy[i].texPos.y, enemy[i].texSize.x, enemy[i].texSize.y, enemy[i].pivot.x, enemy[i].pivot.y, ToRadian(0), enemy[i].color.x, enemy[i].color.y, enemy[i].color.z, enemy[i].color.w);
+        sprite_render(enemy[i].spr, enemy[i].pos.x+ enemy_scroll_position_X, enemy[i].pos.y+enemy_scroll_position_Y, enemy[i].scale.x, enemy[i].scale.y, enemy[i].texPos.x, enemy[i].texPos.y, enemy[i].texSize.x, enemy[i].texSize.y, enemy[i].pivot.x, enemy[i].pivot.y, ToRadian(0), enemy[i].color.x, enemy[i].color.y, enemy[i].color.z, enemy[i].color.w);
 
     }
 }
-void enemy_moveX() {
 
-
-    for (int i = 0; i < ENEMY_MAX; i++) {
-
-        if (enemy[i].type == 0)
-        {
-           /* if (player.pos.x - enemy[i].pos.x < 30) {
-                enemy[i].pos.x = player.pos.x;
-            }*/
-            if (enemy[i].pos.x > SCREEN_W / 2) {
-                if (kill > 100)
-                    enemy[i].pos.x -= speed[7];
-                else if (kill > 80)
-                    enemy[i].pos.x -= speed[6];
-                else if (kill > 60)
-                    enemy[i].pos.x -= speed[5];
-                else if (kill > 40)
-                    enemy[i].pos.x -= speed[4];
-                else if (kill > 30)
-                    enemy[i].pos.x -= speed[3];
-                else if (kill > 20)
-                    enemy[i].pos.x -= speed[2];
-                else if (kill > 10)
-                    enemy[i].pos.x -= speed[1];
-                else
-                    enemy[i].pos.x -= speed[0];
-
-            }
-            else if (enemy[i].pos.x <= SCREEN_W / 2) {
-                if (kill > 100)
-                    enemy[i].pos.x += speed[7];
-                else if (kill > 80)
-                    enemy[i].pos.x += speed[6];
-                else if (kill > 60)
-                    enemy[i].pos.x += speed[5];
-                else if (kill > 40)
-                    enemy[i].pos.x += speed[4];
-                else if (kill > 30)
-                    enemy[i].pos.x += speed[3];
-                else if (kill > 20)
-                    enemy[i].pos.x += speed[2];
-                else if (kill > 10)
-                    enemy[i].pos.x += speed[1];
-                else
-                    enemy[i].pos.x += speed[0];
-            }
-
-
-        }
-
-    }
-}
-void enemy_moveY() {
-    for (int i = 0; i < ENEMY_MAX; i++) {
-
-        if (enemy[i].type == 0)
-        {
-           /* if (player.pos.y - enemy[i].pos.y < 30) {
-                enemy[i].pos.y = player.pos.y;
-            }*/
-            if (enemy[i].pos.y < SCREEN_H / 2) {
-                if (kill > 100)
-                    enemy[i].pos.y += speed[7];
-                else if (kill > 80)
-                    enemy[i].pos.y += speed[6];
-                else if (kill > 60)
-                    enemy[i].pos.y += speed[5];
-                else if (kill > 40)
-                    enemy[i].pos.y += speed[4];
-                else if (kill > 30)
-                    enemy[i].pos.y += speed[3];
-                else if (kill > 20)
-                    enemy[i].pos.y += speed[2];
-                else if (kill > 10)
-                    enemy[i].pos.y += speed[1];
-                else
-                    enemy[i].pos.y += speed[0];
-            }
-            else if (enemy[i].pos.y >= SCREEN_H / 2) {
-                if (kill > 100)
-                    enemy[i].pos.y -= speed[7];
-                else if (kill > 80)
-                    enemy[i].pos.y -= speed[6];
-                else if (kill > 60)
-                    enemy[i].pos.y -= speed[5];
-                else if (kill > 40)
-                    enemy[i].pos.y -= speed[4];
-                else if (kill > 30)
-                    enemy[i].pos.y -= speed[3];
-                else if (kill > 20)
-                    enemy[i].pos.y -= speed[2];
-                else if (kill > 10)
-                    enemy[i].pos.y -= speed[1];
-                else
-                    enemy[i].pos.y -= speed[0];
-            }
-        }
-
-    }
-}
 
 void moveEnemy0(OBJ2D* obj)
 {
@@ -303,6 +207,7 @@ void moveEnemy0(OBJ2D* obj)
         }
         obj->pos += obj->speed*5;
 
+        
         break;
     }
 }
@@ -325,6 +230,18 @@ void moveEnemy1(OBJ2D* obj)
 
     case 1:
         ////////通常時////////
+    {
+        VECTOR2 pos = player.pos + player.offset;
+
+        float dx = pos.x - obj->pos.x;
+
+        float dy = pos.y - obj->pos.y;
+
+        float dist = sqrtf(dx * dx + dy * dy);
+
+        obj->speed = { dx / dist * 1, dy / dist * 1 };
+    }
+    obj->pos += obj->speed * 3;
         break;
     }
 }
@@ -347,6 +264,18 @@ void moveEnemy2(OBJ2D* obj)
 
     case 1:
         ////////通常時////////
+    {
+        VECTOR2 pos = player.pos + player.offset;
+
+        float dx = pos.x - obj->pos.x;
+
+        float dy = pos.y - obj->pos.y;
+
+        float dist = sqrtf(dx * dx + dy * dy);
+
+        obj->speed = { dx / dist * 1, dy / dist * 1 };
+    }
+    obj->pos += obj->speed * 3;
         break;
     }
 }

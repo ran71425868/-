@@ -2,7 +2,6 @@
 
 int player_state;
 int hp;
-float angle = 0.0f;
 
 int scroll_position_X;
 int scroll_position_Y;
@@ -127,7 +126,7 @@ void player_render()
 {
     //ƒvƒŒƒCƒ„[‚Ì•`‰æ
     sprite_render(sprPlayer, player.pos.x + scroll_position_X, player.pos.y + scroll_position_Y, player.scale.x, player.scale.y, player.texPos.x, player.texPos.y, player.texSize.x, player.texSize.y, player.pivot.x, player.pivot.y,
-        ToRadian(angle), player.color.x, player.color.y);
+        ToRadian(0), player.color.x, player.color.y);
     primitive::rect(player.pos.x-100, player.pos.y-150, 200 * hp / 100, 15, 0, 0, ToRadian(0), 0, 1, 0);
     
     text_out(0, "boost", 0, 500, 2, 2);
@@ -147,7 +146,7 @@ void player_moveY()
         if (player.pos.y > SCREEN_H / 3.0f)
         {
             scrollValue -= player.speed.y;
-            player.pos -= player.speed;
+            player.pos -= player.speed/2;
         }
 
     }
@@ -157,7 +156,7 @@ void player_moveY()
         player.scale.y = 1.0f;
         if (player.pos.y < SCREEN_H / 1.5f) {
             scrollValue -= player.speed.y;
-            player.pos -= player.speed;
+            player.pos -= player.speed/2;
         }
         
     }
@@ -278,5 +277,7 @@ void player_hp()
             hp -= 10;
         }
     }
+
+   
 
 }

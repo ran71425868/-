@@ -30,6 +30,8 @@ extern int player_state;
 extern int enemy_state;
 extern OBJ2D enemy[ENEMY_MAX];
 
+extern int hp;
+
 Sprite* sprBack;
 
 std::ostringstream oss;                                 // •¶š—ñƒXƒgƒŠ[ƒ€
@@ -85,6 +87,11 @@ void game_update()
 		if (TRG(0) & PAD_SELECT) {
 			nextScene = SCENE_TITLE;
 			break;
+		}
+
+		if (hp <= 0)
+		{
+			nextScene = SCENE_RESULT;
 		}
 
 		player_update();

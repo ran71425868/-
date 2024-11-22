@@ -32,6 +32,7 @@ extern OBJ2D enemy[ENEMY_MAX];
 
 Sprite* sprBack;
 
+
 std::ostringstream oss;                                 // 文字列ストリーム
 POINT point; 
 
@@ -67,8 +68,8 @@ void game_init() {
 	comboscore = 1.0f;
 
 
-	playerX = SCREEN_W * 0.5f;
-	playerY = SCREEN_H * 0.5f;
+	playerX = SCREEN_W /2.0f;
+	playerY = SCREEN_H /2.0f;
 }
 void game_deinit() {
 	music::stop(0);
@@ -134,8 +135,8 @@ void game_render() {
 
 	sprite_render(sprBack, 0.0f, scrollValue); // 背景をカメラの位置に合わせて描画
 	player_render();
-	/*enemy_render();
-	obstacle_render();*/
+	enemy_render();
+	obstacle_render();
 	
 }
 void game_score()

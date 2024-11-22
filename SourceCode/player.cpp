@@ -55,7 +55,7 @@ void player_update()
         //////// ‰ŠúÝ’è ////////
 
         //ƒvƒŒƒCƒ„[‚Ì‰æ‘œ‚ð“Ç‚Ýž‚Ý
-        sprPlayer = sprite_load(L"./Data/Images/player_01.png");
+        sprPlayer = sprite_load(L"./Data/Images/player_02.png");
 
         ++player_state;
         /*fallthrough*/
@@ -67,7 +67,7 @@ void player_update()
         player = {};
         player.timer = 0;
         player.pos = { SCREEN_W * 0.5f,SCREEN_H * 0.5f };
-        player.scale = { 1.0f,1.0f };
+        player.scale = { 0.5f,0.5f };
         player.texPos = { 0,0 };
         player.texSize = { PLAYER_TEX_W ,PLAYER_TEX_H };
         player.pivot = { PLAYER_PIVOT_X,PLAYER_PIVOT_Y };
@@ -142,21 +142,21 @@ void player_moveY()
     if (STATE(0) & PAD_DOWN && !(STATE(0) & PAD_UP)) 
     {
         player.speed.y += PLAYER_ACCEL_Y;
-        player.scale.y = 1.0f;
+        player.scale.y = 0.5f;
         if (player.pos.y > SCREEN_H / 3.0f)
         {
             scrollValue -= player.speed.y;
-            player.pos -= player.speed/2;
+            player.pos -= player.speed*0.85;
         }
 
     }
     else if (STATE(0) & PAD_UP && !(STATE(0) & PAD_DOWN)) 
     {
         player.speed.y -= PLAYER_ACCEL_Y;
-        player.scale.y = 1.0f;
+        player.scale.y = 0.5f;
         if (player.pos.y < SCREEN_H / 1.5f) {
-            scrollValue -= player.speed.y;
-            player.pos -= player.speed/2;
+            //scrollValue -= player.speed.y;
+            //player.pos -= player.speed/2;
         }
         
     }
@@ -208,12 +208,12 @@ void player_moveX()
     //”CˆÓ‚Ì‘€ì‚É‚æ‚éˆÚ“®
     if (STATE(0) & PAD_LEFT && !(STATE(0) & PAD_RIGHT)) {
         player.speed.x -= PLAYER_ACCEL_X;
-        player.scale.x = 1.0f;
+        player.scale.x = 0.5f;
         
     }
     else if (STATE(0) & PAD_RIGHT && !(STATE(0) & PAD_LEFT)) {
         player.speed.x += PLAYER_ACCEL_X;
-        player.scale.x = 1.0f;
+        player.scale.x = 0.5f;
        
     }
     else {
@@ -260,9 +260,9 @@ void player_moveX()
 
 void player_hp()
 {
-    for (int i = 0; i < 3; i++) {
+  /*  for (int i = 0; i < 3; i++) {
         if (enemy[i].moveAlg == -1) {
-            hp -= 10;
+            hp -= 5;
         }
     }
     
@@ -274,10 +274,7 @@ void player_hp()
 
     for (int i = 6; i < 8; i++) {
         if (enemy[i].moveAlg == -1) {
-            hp -= 10;
+            hp -= 30;
         }
-    }
-
-   
-
+    }*/
 }

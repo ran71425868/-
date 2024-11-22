@@ -12,10 +12,10 @@
 
 
 //プレイヤーの画像定義
-#define PLAYER_TEX_W                 105.0f
-#define PLAYER_TEX_H                 206.0f
-#define PLAYER_PIVOT_X               52.5f
-#define PLAYER_PIVOT_Y               103.0f
+#define PLAYER_TEX_W                 180.0f
+#define PLAYER_TEX_H                 350.0f
+#define PLAYER_PIVOT_X               90.0f
+#define PLAYER_PIVOT_Y               175.0f
 
 #define COOL_DOWN_MAX				3	
 

@@ -23,9 +23,9 @@ struct ENEMY_DATA {
     float            radius;
 }
 enemyData[] = {
-       {NULL,   L"./Data/Images/monster.png", { 0,0 }, { 160, 160 }, { 80, 80 }, {20}},
-       {NULL,   L"./Data/Images/Green_monster.png", { 0,0 }, { 160, 160 }, { 80, 80 }, {20}},
-       {NULL,   L"./Data/Images/Red_monster.png", { 0,0 }, { 160, 160 }, { 80, 80 }, {20}},
+       {NULL,   L"./Data/Images/rabit_01.png", { 0,0 }, { 70, 70 }, { 35, 35 }, {20}},
+       {NULL,   L"./Data/Images/wolf_01.png", { 0,0 }, { 130, 80 }, { 65, 40 }, {10}},
+       {NULL,   L"./Data/Images/bear_01.png", { 0,0 }, { 80, 75 }, { 40, 37.5 }, {10}},
 };
 OBJ2D enemy[ENEMY_MAX];
 
@@ -179,7 +179,7 @@ void moveEnemy0(OBJ2D* obj)
     switch (obj->state) {
     case 0:
 
-        obj->scale = { 1.0f, 1.0f };
+        obj->scale = { 1.2f, 1.2f };
         obj->color = { 1, 1, 1, 1 };
         obj->spr = enemyData[0].spr;
         obj->texPos = enemyData[0].texPos;
@@ -205,7 +205,8 @@ void moveEnemy0(OBJ2D* obj)
 
             obj->speed = { dx / dist * 1, dy / dist * 1 };
         }
-        obj->pos += obj->speed*5;
+        obj->pos += obj->speed*4;
+        obj->pos -= obj->speed*4*0.85;
 
         
         break;
@@ -217,7 +218,7 @@ void moveEnemy1(OBJ2D* obj)
     switch (obj->state) {
     case 0:
 
-        obj->scale = { 1.0f, 1.0f };
+        obj->scale = { 1.2f, 1.2f };
         obj->color = { 1, 1, 1, 1 };
         obj->spr = enemyData[1].spr;
         obj->texPos = enemyData[1].texPos;
@@ -241,7 +242,9 @@ void moveEnemy1(OBJ2D* obj)
 
         obj->speed = { dx / dist * 1, dy / dist * 1 };
     }
-    obj->pos += obj->speed * 3;
+    obj->pos += obj->speed * 5;
+    obj->pos -= obj->speed*5*0.85;
+   
         break;
     }
 }
@@ -251,7 +254,7 @@ void moveEnemy2(OBJ2D* obj)
     switch (obj->state) {
     case 0:
 
-        obj->scale = { 1.0f, 1.0f };
+        obj->scale = { 1.3f, 1.3f };
         obj->color = { 1, 1, 1, 1 };
         obj->spr = enemyData[2].spr;
         obj->texPos = enemyData[2].texPos;
@@ -275,7 +278,8 @@ void moveEnemy2(OBJ2D* obj)
 
         obj->speed = { dx / dist * 1, dy / dist * 1 };
     }
-    obj->pos += obj->speed * 3;
+    obj->pos += obj->speed * 2;
+    obj->pos -= obj->speed*2*0.85;
         break;
     }
 }

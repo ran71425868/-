@@ -116,6 +116,15 @@ void player_update()
            }
         }
         
+        player.speed.y += PLAYER_ACCEL_Y;
+        player.scale.y = 0.5f;
+        if (player.pos.y > SCREEN_H / 3.0f)
+        {
+            scrollValue -= player.speed.y;
+            player.pos -= player.speed * 0.85;
+        }
+
+
         cooldown_timer++;
         
         break;
@@ -143,23 +152,9 @@ void player_moveY()
     {
         player.speed.y += PLAYER_ACCEL_Y;
         player.scale.y = 0.5f;
-        if (player.pos.y > SCREEN_H / 3.0f)
-        {
-            scrollValue -= player.speed.y;
-            player.pos -= player.speed*0.85;
-        }
 
     }
-    else if (STATE(0) & PAD_UP && !(STATE(0) & PAD_DOWN)) 
-    {
-        player.speed.y -= PLAYER_ACCEL_Y;
-        player.scale.y = 0.5f;
-        if (player.pos.y < SCREEN_H / 1.5f) {
-            //scrollValue -= player.speed.y;
-            //player.pos -= player.speed/2;
-        }
-        
-    }
+    
     else {
         if (player.speed.y > 0) {
             player.speed.y -= PLAYER_DECEL_Y;

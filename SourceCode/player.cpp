@@ -2,7 +2,6 @@
 
 int player_state;
 int hp;
-float angle = 0.0f;
 
 int scroll_position_X;
 int scroll_position_Y;
@@ -56,7 +55,7 @@ void player_update()
         //////// 初期設定 ////////
 
         //プレイヤーの画像を読み込み
-        sprPlayer = sprite_load(L"./Data/Images/player_01.png");
+        sprPlayer = sprite_load(L"./Data/Images/player_02.png");
 
         ++player_state;
         /*fallthrough*/
@@ -68,7 +67,7 @@ void player_update()
         player = {};
         player.timer = 0;
         player.pos = { SCREEN_W * 0.5f,SCREEN_H * 0.5f };
-        player.scale = { 1.0f,1.0f };
+        player.scale = { 0.5f,0.5f };
         player.texPos = { 0,0 };
         player.texSize = { PLAYER_TEX_W ,PLAYER_TEX_H };
         player.pivot = { PLAYER_PIVOT_X,PLAYER_PIVOT_Y };
@@ -117,6 +116,15 @@ void player_update()
            }
         }
         
+        player.speed.y += PLAYER_ACCEL_Y;
+        player.scale.y = 0.5f;
+        if (player.pos.y > SCREEN_H / 3.0f)
+        {
+            scrollValue -= player.speed.y;
+            player.pos -= player.speed * 0.85;
+        }
+
+
         cooldown_timer++;
         
         break;
@@ -127,7 +135,7 @@ void player_render()
 {
     //プレイヤーの描画
     sprite_render(sprPlayer, player.pos.x + scroll_position_X, player.pos.y + scroll_position_Y, player.scale.x, player.scale.y, player.texPos.x, player.texPos.y, player.texSize.x, player.texSize.y, player.pivot.x, player.pivot.y,
-        ToRadian(angle), player.color.x, player.color.y);
+        ToRadian(0), player.color.x, player.color.y);
     primitive::rect(player.pos.x-100, player.pos.y-150, 200 * hp / 100, 15, 0, 0, ToRadian(0), 0, 1, 0);
     
     text_out(0, "boost", 0, 500, 2, 2);
@@ -143,24 +151,10 @@ void player_moveY()
     if (STATE(0) & PAD_DOWN && !(STATE(0) & PAD_UP)) 
     {
         player.speed.y += PLAYER_ACCEL_Y;
-        player.scale.y = 1.0f;
-        if (player.pos.y > SCREEN_H / 3.0f)
-        {
-            scrollValue -= player.speed.y;
-            player.pos -= player.speed;
-        }
+        player.scale.y = 0.5f;
 
     }
-    else if (STATE(0) & PAD_UP && !(STATE(0) & PAD_DOWN)) 
-    {
-        player.speed.y -= PLAYER_ACCEL_Y;
-        player.scale.y = 1.0f;
-        if (player.pos.y < SCREEN_H / 1.5f) {
-            scrollValue -= player.speed.y;
-            player.pos -= player.speed;
-        }
-        
-    }
+    
     else {
         if (player.speed.y > 0) {
             player.speed.y -= PLAYER_DECEL_Y;
@@ -209,12 +203,12 @@ void player_moveX()
     //任意の操作による移動
     if (STATE(0) & PAD_LEFT && !(STATE(0) & PAD_RIGHT)) {
         player.speed.x -= PLAYER_ACCEL_X;
-        player.scale.x = 1.0f;
+        player.scale.x = 0.5f;
         
     }
     else if (STATE(0) & PAD_RIGHT && !(STATE(0) & PAD_LEFT)) {
         player.speed.x += PLAYER_ACCEL_X;
-        player.scale.x = 1.0f;
+        player.scale.x = 0.5f;
        
     }
     else {
@@ -261,9 +255,9 @@ void player_moveX()
 
 void player_hp()
 {
-    for (int i = 0; i < 3; i++) {
+  /*  for (int i = 0; i < 3; i++) {
         if (enemy[i].moveAlg == -1) {
-            hp -= 10;
+            hp -= 5;
         }
     }
     
@@ -275,8 +269,7 @@ void player_hp()
 
     for (int i = 6; i < 8; i++) {
         if (enemy[i].moveAlg == -1) {
-            hp -= 10;
+            hp -= 30;
         }
-    }
-
+    }*/
 }

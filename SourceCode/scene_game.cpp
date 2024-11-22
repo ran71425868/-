@@ -30,7 +30,10 @@ extern int player_state;
 extern int enemy_state;
 extern OBJ2D enemy[ENEMY_MAX];
 
+extern int hp;
+
 Sprite* sprBack;
+
 
 std::ostringstream oss;                                 // ï∂éöóÒÉXÉgÉäÅ[ÉÄ
 POINT point; 
@@ -47,8 +50,8 @@ void game_init() {
 	comboscore = 1.0f;
 
 
-	playerX = SCREEN_W * 0.5f;
-	playerY = SCREEN_H * 0.5f;
+	playerX = SCREEN_W /2.0f;
+	playerY = SCREEN_H /2.0f;
 }
 void game_deinit() {
 	music::stop(0);
@@ -62,7 +65,7 @@ void game_update()
 	switch (game_state)
 	{
 	case 0:
-		sprBack = sprite_load(L"./Data/Images/map_01.png");
+		sprBack = sprite_load(L"./Data/Images/map_04.png");
 
 		audio_init();
 		player_init();
@@ -87,6 +90,11 @@ void game_update()
 			break;
 		}
 
+		if (hp <= 0)
+		{
+			nextScene = SCENE_RESULT;
+		}
+
 		player_update();
 		enemy_update();
 		obstacle_update();
@@ -94,6 +102,8 @@ void game_update()
 		judge();
 		break;
 	}
+
+	
 
 	game_timer++;
 }

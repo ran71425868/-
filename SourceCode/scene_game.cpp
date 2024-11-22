@@ -34,6 +34,7 @@ extern int hp;
 
 Sprite* sprBack;
 
+
 std::ostringstream oss;                                 // •¶š—ñƒXƒgƒŠ[ƒ€
 POINT point; 
 
@@ -49,8 +50,8 @@ void game_init() {
 	comboscore = 1.0f;
 
 
-	playerX = SCREEN_W * 0.5f;
-	playerY = SCREEN_H * 0.5f;
+	playerX = SCREEN_W /2.0f;
+	playerY = SCREEN_H /2.0f;
 }
 void game_deinit() {
 	music::stop(0);

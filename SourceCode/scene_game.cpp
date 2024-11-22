@@ -102,6 +102,8 @@ void game_update()
 		break;
 	}
 
+	
+
 	game_timer++;
 }
 void game_render() {

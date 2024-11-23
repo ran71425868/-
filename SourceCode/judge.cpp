@@ -1,4 +1,5 @@
 #include "all.h"
+#include <math.h>
 
 extern OBJ2D player;
 extern OBJ2D avalanche;
@@ -51,11 +52,4 @@ void judge()
 
        
     }
-
-    if (hitCheck(&player, &avalanche)) {
-
-        nextScene = SCENE_RESULT;
-
-    }
-
 }

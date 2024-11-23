@@ -90,6 +90,8 @@ void game_update()
 		obstacle_update();
 		avalanche_update();
 
+
+		game_over();
 		judge();
 		break;
 	}
@@ -151,4 +153,19 @@ void game_score()
 	}
 	kill++;
 	combo++;
+}
+
+void game_clear()
+{
+
+}
+
+void game_over()
+{
+	if (player.pos.y < 300.0f)
+	{
+		nextScene = SCENE_RESULT;
+	}
+
+
 }

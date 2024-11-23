@@ -57,7 +57,7 @@ void avalanche_update()
         avalanche.texSize = { AVALANCHE_TEX_W ,AVALANCHE_TEX_H };
         avalanche.pivot = { AVALANCHE_PIVOT_X,AVALANCHE_PIVOT_Y };
         avalanche.color = { 1.0f,1.0f,1.0f,1.0f };
-        avalanche.radius = 80.0f;
+        avalanche.radius = 100.0f;
         avalanche.offset = { 0,0 };
 
 

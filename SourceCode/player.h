@@ -19,17 +19,12 @@
 
 #define COOL_DOWN_MAX				3	
 
-
-
-
-#define GRAVITY                     1.0f
-
 //プレイヤーの加減速の定数
-#define PLAYER_ACCEL_X      0.85f
+#define PLAYER_ACCEL_X      0.95f
 #define PLAYER_ACCEL_Y      1.0f
 #define PLAYER_DECEL_X      0.4f
 #define PLAYER_DECEL_Y      0.4f
-#define PLAYER_SPEED_X_MAX      5.1f
+#define PLAYER_SPEED_X_MAX      6.0f
 #define PLAYER_SPEED_Y_MAX      6.0f
 
 //壁の判定
@@ -37,10 +32,6 @@
 #define WALL_RIGHT          PLAYER_TEX_W * 0.5f
 #define WALL_DOWN          SCREEN_H - PLAYER_TEX_H * 0.5f
 #define WALL_UP             PLAYER_TEX_H * 0.5f
-
-
-//地面の高さ
-#define GROUND_Y                    600.0f
 
 //------< 変数 >----------------------------------------------------------------
 

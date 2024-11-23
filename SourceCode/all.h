@@ -11,6 +11,7 @@
 #include "obj2d.h"
 #include "player.h"
 #include "enemy.h"
+#include "avalanche.h"
 #include "obstacle.h"
 #include "judge.h"
 

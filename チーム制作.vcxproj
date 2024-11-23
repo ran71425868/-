@@ -143,6 +143,7 @@
     <ClCompile Include="GameLib\view_settings.cpp" />
     <ClCompile Include="GameLib\wnd_proc.cpp" />
     <ClCompile Include="SourceCode\audio.cpp" />
+    <ClCompile Include="SourceCode\avalanche.cpp" />
     <ClCompile Include="SourceCode\common.cpp" />
     <ClCompile Include="SourceCode\enemy.cpp" />
     <ClCompile Include="SourceCode\judge.cpp" />
@@ -176,7 +177,7 @@
     <ClInclude Include="GameLib\view_settings.h" />
     <ClInclude Include="SourceCode\all.h" />
     <ClInclude Include="SourceCode\audio.h" />
-    <ClInclude Include="SourceCode\camera.h" />
+    <ClInclude Include="SourceCode\avalanche.h" />
     <ClInclude Include="SourceCode\common.h" />
     <ClInclude Include="SourceCode\enemy.h" />
     <ClInclude Include="SourceCode\judge.h" />

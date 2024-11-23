@@ -91,11 +91,11 @@ void player_update()
         player.pos += player.speed;
 
         // プレイヤーの上下左右のエリアチェック
-        if (player.pos.x < 0 + WALL_RIGHT) {
-            player.pos.x = 0 + WALL_RIGHT;
+        if (player.pos.x < 100 + WALL_RIGHT) {
+            player.pos.x = 100 + WALL_RIGHT;
         }
-        if (player.pos.x > WALL_LEFT) {
-            player.pos.x = WALL_LEFT;
+        if (player.pos.x > WALL_LEFT-100) {
+            player.pos.x = WALL_LEFT-100;
         }
 
         if (boost_timer>=boost_timer_max)
@@ -116,13 +116,13 @@ void player_update()
            }
         }
         
-        player.speed.y += PLAYER_ACCEL_Y;
-        player.scale.y = 0.5f;
+        //player.speed.y += PLAYER_ACCEL_Y;
+        /*player.scale.y = 0.5f;
         if (player.pos.y > SCREEN_H / 3.0f)
         {
             scrollValue -= player.speed.y;
             player.pos -= player.speed * 0.85;
-        }
+        }*/
 
 
         cooldown_timer++;
@@ -154,15 +154,14 @@ void player_moveY()
         player.scale.y = 0.5f;
 
     }
-    
+    else if (STATE(0) & PAD_UP)
+    {
+        player.speed.y -= PLAYER_ACCEL_Y;
+        player.scale.y = 0.5f;
+
+    }
     else {
-        if (player.speed.y > 0) {
-            player.speed.y -= PLAYER_DECEL_Y;
-            if (player.speed.y < 0)
-                player.speed.y = 0.0f;
-
-        }
-
+       
         if (player.speed.y < 0) {
             player.speed.y += PLAYER_DECEL_Y;
             if (player.speed.y > 0)

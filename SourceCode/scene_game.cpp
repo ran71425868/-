@@ -7,24 +7,12 @@ int game_timer;
 float playerX;
 float playerY;
 
- float cameraX = 0.0f;
- float cameraY = 0.0f;
-
-// ƒJƒƒ‰‚Ì’Ç]”ÍˆÍ
-const float followRange_X = 100.0f;
-const float followRange_Y = 100.0f;
-
-// ‰æ–Ê‚Ì’†SÀ•W
-const float screenCenterX = SCREEN_W / 2.0f;
-const float screenCenterY = SCREEN_H / 2.0f; 
-
-const int MAP_HEIGHT = 1920;
-const int MAP_WIDTH = 1080;
-
 int score;
 int kill;
 float comboscore;
 int combo;
+
+
 
 extern int player_state;
 extern int enemy_state;
@@ -33,6 +21,7 @@ extern OBJ2D enemy[ENEMY_MAX];
 extern int hp;
 
 Sprite* sprBack;
+
 
 
 std::ostringstream oss;                                 // •¶š—ñƒXƒgƒŠ[ƒ€
@@ -49,7 +38,6 @@ void game_init() {
 	combo = 0;
 	comboscore = 1.0f;
 
-
 	playerX = SCREEN_W /2.0f;
 	playerY = SCREEN_H /2.0f;
 }
@@ -58,6 +46,7 @@ void game_deinit() {
 	player_deinit();
 	enemy_deinit();
 	obstacle_deinit();
+	avalanche_deinit();
 	
 }
 void game_update()
@@ -71,6 +60,7 @@ void game_update()
 		player_init();
 		enemy_init();
 		obstacle_init();
+		avalanche_init();
 
 		game_state++;
 		/*fallthrough*/
@@ -98,12 +88,13 @@ void game_update()
 		player_update();
 		enemy_update();
 		obstacle_update();
+		avalanche_update();
 
 		judge();
 		break;
 	}
 
-	
+	scrollValue-=3;
 
 	game_timer++;
 }
@@ -121,10 +112,16 @@ void game_render() {
 	text_out(0, "combo", 0, 150, 2, 2);
 	text_out(0, std::to_string(combo), 0, 200, 2, 2);
 
+
+
 	sprite_render(sprBack, 0.0f, scrollValue); // ”wŒi‚ğƒJƒƒ‰‚ÌˆÊ’u‚É‡‚í‚¹‚Ä•`‰æ
+	sprite_render(sprBack, 0.0f, 10000.0f+scrollValue); // ”wŒi‚ğƒJƒƒ‰‚ÌˆÊ’u‚É‡‚í‚¹‚Ä•`‰æ
+
+	
 	player_render();
 	enemy_render();
 	obstacle_render();
+	avalanche_render();
 	
 }
 void game_score()

@@ -8,5 +8,7 @@ void game_update();
 void game_render();
 void game_score();
 
+void game_clear();
+void game_over();
 
 #endif//SCENE_GAME_H

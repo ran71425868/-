@@ -4,7 +4,6 @@ int result_state;
 int result_timer;
 
 Sprite* sprResult;
-Sprite* sprClear;
 
 extern int score;
 
@@ -22,7 +21,7 @@ void result_update() {
 	case 0:
 		////////‰Šúİ’è////////
 		sprResult = sprite_load(L"./Data/Images/title_2png.png");
-		sprClear = sprite_load(L"./Data/Images/gameclear.png");
+
 		audio_init();
 		result_state++;
 		/*fallthrough*/
@@ -50,7 +49,6 @@ void result_update() {
 void result_render() {
 	GameLib::clear(0, 0, 2);
 	sprite_render(sprResult, 0, 0);
-	sprite_render(sprClear, 0, 0);
 
 	text_out(4, "score", 490, 250, 3, 3);
 	text_out(0, std::to_string(score), 570, 320, 3, 3);

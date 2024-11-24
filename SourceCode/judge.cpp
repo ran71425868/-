@@ -1,6 +1,8 @@
 #include "all.h"
+#include <math.h>
 
 extern OBJ2D player;
+extern OBJ2D avalanche;
 extern OBJ2D obstacle[OBSTACLE_MAX];
 extern OBJ2D enemy[ENEMY_MAX];
 
@@ -36,6 +38,7 @@ void judge()
             enemy[i].moveAlg = -1;
 
             player_hp();
+            player.speed.y = -20.0f;
             combo = 0;
 
         }

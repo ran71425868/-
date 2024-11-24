@@ -5,6 +5,7 @@ extern OBJ2D player;
 extern OBJ2D avalanche;
 extern OBJ2D obstacle[OBSTACLE_MAX];
 extern OBJ2D enemy[ENEMY_MAX];
+extern OBJ2D flag[FLAG_MAX];
 
 extern int combo;
 extern int hp;
@@ -52,5 +53,30 @@ void judge()
         }
 
        
+    }
+
+    for (int i = 0; i < FLAG_MAX; i++) {
+        if (flag[i].moveAlg == -1)continue;
+        if (hitCheck(&player, &flag[i])) {
+            flag[i].moveAlg = -1;
+
+            game_score();
+        }
+
+
+    }
+
+
+    for (int i = 0; i < ENEMY_MAX; i++) {
+        if (enemy[i].moveAlg == -1)continue;
+
+        for (int j = 0; j < OBSTACLE_MAX; j++) {
+            if (hitCheck(&obstacle[j], &enemy[i])) {
+                enemy[i].moveAlg = -1;
+
+
+            }
+        }
+        
     }
 }

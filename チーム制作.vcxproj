@@ -181,6 +181,7 @@
     <ClInclude Include="SourceCode\avalanche.h" />
     <ClInclude Include="SourceCode\common.h" />
     <ClInclude Include="SourceCode\enemy.h" />
+    <ClInclude Include="SourceCode\flag.h" />
     <ClInclude Include="SourceCode\judge.h" />
     <ClInclude Include="SourceCode\obj2d.h" />
     <ClInclude Include="SourceCode\obstacle.h" />

@@ -4,6 +4,10 @@
 int curScene = SCENE_NONE;
 int nextScene = SCENE_TITLE;
 int nextScene1 = SCENE_SENNTAKU;
+int nextScene2 = SCENE_GAME;
+int nextScene3 = SCENE_NORMAL;
+int nextScene4 = SCENE_EASY;
+int nextScene5 = SCENE_TUTORIAL;
 void setFullScreenMode()
 {
 	HWND hwnd = GetForegroundWindow();  // 現在のウィンドウを取得
@@ -50,6 +54,16 @@ int APIENTRY wWinMain(HINSTANCE, HINSTANCE, LPWSTR, int) {
 			case SCENE_SENNTAKU:
 				senntaku_deinit();
 				break;
+			case SCENE_NORMAL:
+				normal_deinit();
+				break;
+			case SCENE_EASY:
+				easy_deinit();
+				break;
+			case SCENE_TUTORIAL:
+				tutorial_deinit();
+				break;
+			
 			}
 
 			// 次のシーンに応じた初期設定処理
@@ -67,6 +81,15 @@ int APIENTRY wWinMain(HINSTANCE, HINSTANCE, LPWSTR, int) {
 				break;
 			case SCENE_SENNTAKU:
 				senntaku_init();
+				break;
+			case SCENE_NORMAL:
+				normal_init();
+				break;
+			case SCENE_EASY:
+				easy_init();
+				break;
+			case SCENE_TUTORIAL:
+				tutorial_init();
 				break;
 			
 			}
@@ -98,6 +121,18 @@ int APIENTRY wWinMain(HINSTANCE, HINSTANCE, LPWSTR, int) {
 			senntaku_update();
 			senntaku_render();
 			break;
+		case SCENE_NORMAL:
+					normal_update();
+					normal_render();
+					break;
+		case SCENE_EASY:
+					easy_update();
+					easy_render();
+					break;
+		case SCENE_TUTORIAL:
+					tutorial_update();
+					tutorial_render();
+					break;
 
 		}
 
@@ -124,6 +159,15 @@ int APIENTRY wWinMain(HINSTANCE, HINSTANCE, LPWSTR, int) {
 		break;
 	case SCENE_SENNTAKU:
 		senntaku_deinit();
+		break;
+	case SCENE_NORMAL:
+		normal_deinit();
+		break;
+	case SCENE_EASY:
+		easy_deinit();
+		break;
+	case SCENE_TUTORIAL:
+		tutorial_deinit();
 		break;
 	
 	}

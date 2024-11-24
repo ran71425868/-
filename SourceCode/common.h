@@ -10,6 +10,10 @@ using namespace GameLib;
 #define SCENE_GAME 1 
 #define SCENE_RESULT 2
 #define SCENE_SENNTAKU 3
+#define SCENE_TUTORIAL 4
+#define SCENE_EASY 5
+#define SCENE_NORMAL 6
+
 
 //’è”
 extern const FLOAT PI;
@@ -26,6 +30,10 @@ extern float(* const ToDegree)(float);// ƒ‰ƒWƒAƒ“‚ğŠp“x‚É
 extern int curScene;
 extern int nextScene;
 extern int nextScene1;
+extern int nextScene2;
+extern int nextScene3;
+extern int nextScene4;
+extern int nextScene5;
 
 
 #endif//COMMON_H

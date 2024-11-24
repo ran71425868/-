@@ -55,11 +55,24 @@ void senntaku_update() {
 
 	case 2:
 		//////// �ʏ펞 ////////
-		if (TRG(0) & PAD_START) {
-			nextScene = SCENE_GAME;
+		if (TRG(0) & PAD_L2) {
+			nextScene4 = SCENE_EASY;
 			break;
 		}
-		if (TRG(0) & PAD_SELECT) {
+		else if (TRG(0) & PAD_L3) {
+			nextScene3 = SCENE_NORMAL;
+			break;
+		}
+		else if (TRG(0) & PAD_R1) {
+			nextScene2 = SCENE_GAME;
+			break;
+		}
+		else if (TRG(0) & PAD_L1) {
+			nextScene5 = SCENE_TUTORIAL;
+			break;
+		}
+
+		else if (TRG(0) & PAD_SELECT) {
 			nextScene = SCENE_TITLE;
 			break;
 		}

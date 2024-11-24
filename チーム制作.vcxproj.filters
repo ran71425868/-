@@ -209,7 +209,11 @@
     <ClInclude Include="SourceCode\avalanche.h">
       <Filter>ヘッダー ファイル</Filter>
     </ClInclude>
+<<<<<<< HEAD
     <ClInclude Include="SourceCode\senntaku.h">
+=======
+    <ClInclude Include="SourceCode\flag.h">
+>>>>>>> 971f8fbd48d151ef4b586150243a1616c2c46a36
       <Filter>ヘッダー ファイル</Filter>
     </ClInclude>
   </ItemGroup>

@@ -138,7 +138,7 @@ void Obstacle0(OBJ2D* obj)
     switch (obj->state) {
     case 0:
 
-        obj->scale = { 1.0f, 1.0f };
+        obj->scale = { 0.7f, 0.7f };
         obj->color = { 1, 1, 1, 1 };
         obj->spr = obstacleData[0].spr;
         obj->texPos = obstacleData[0].texPos;
@@ -161,7 +161,7 @@ void Obstacle1(OBJ2D* obj)
     switch (obj->state) {
     case 0:
 
-        obj->scale = { 1.0f, 1.0f };
+        obj->scale = { 0.6f, 0.6f };
         obj->color = { 1, 1, 1, 1 };
         obj->spr = obstacleData[1].spr;
         obj->texPos = obstacleData[1].texPos;

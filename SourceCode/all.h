@@ -13,6 +13,7 @@
 #include "enemy.h"
 #include "avalanche.h"
 #include "obstacle.h"
+#include "flag.h"
 #include "judge.h"
 
 #include "scene_game.h"

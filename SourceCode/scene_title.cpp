@@ -34,7 +34,7 @@ void title_update() {
 	case 2:
 		//////// �ʏ펞 ////////
 		if (TRG(0) & PAD_START) {
-			nextScene = SCENE_GAME;
+			nextScene = SCENE_SENNTAKU;
 			break;
 		}
 

@@ -9,6 +9,7 @@ using namespace GameLib;
 #define SCENE_TITLE 0 
 #define SCENE_GAME 1 
 #define SCENE_RESULT 2
+#define SCENE_SENNTAKU 3
 
 //’è”
 extern const FLOAT PI;
@@ -24,5 +25,7 @@ extern float(* const ToDegree)(float);// ƒ‰ƒWƒAƒ“‚ğŠp“x‚É
 // •Ï”‚ÌéŒ¾
 extern int curScene;
 extern int nextScene;
+extern int nextScene1;
+
 
 #endif//COMMON_H

@@ -18,6 +18,7 @@
 #include "scene_game.h"
 #include "scene_title.h"
 #include "scene_result.h"
+#include "senntaku.h"
 
 
 using namespace GameLib;// using ディレクティブ

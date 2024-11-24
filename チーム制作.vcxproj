@@ -153,8 +153,10 @@
     <ClCompile Include="SourceCode\obstacle.cpp" />
     <ClCompile Include="SourceCode\player.cpp" />
     <ClCompile Include="SourceCode\scene_game.cpp" />
+    <ClCompile Include="SourceCode\scene_game_E.cpp" />
     <ClCompile Include="SourceCode\scene_result.cpp" />
     <ClCompile Include="SourceCode\scene_title.cpp" />
+    <ClCompile Include="SourceCode\senntaku.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="GameLib\blender.h" />
@@ -188,6 +190,7 @@
     <ClInclude Include="SourceCode\scene_game.h" />
     <ClInclude Include="SourceCode\scene_result.h" />
     <ClInclude Include="SourceCode\scene_title.h" />
+    <ClInclude Include="SourceCode\senntaku.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

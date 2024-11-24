@@ -3,6 +3,7 @@
 
 int curScene = SCENE_NONE;
 int nextScene = SCENE_TITLE;
+int nextScene1 = SCENE_SENNTAKU;
 void setFullScreenMode()
 {
 	HWND hwnd = GetForegroundWindow();  // 現在のウィンドウを取得
@@ -46,6 +47,9 @@ int APIENTRY wWinMain(HINSTANCE, HINSTANCE, LPWSTR, int) {
 			case SCENE_RESULT:
 				result_deinit();
 				break;
+			case SCENE_SENNTAKU:
+				senntaku_deinit();
+				break;
 			}
 
 			// 次のシーンに応じた初期設定処理
@@ -61,6 +65,10 @@ int APIENTRY wWinMain(HINSTANCE, HINSTANCE, LPWSTR, int) {
 			case SCENE_RESULT:
 				result_init();
 				break;
+			case SCENE_SENNTAKU:
+				senntaku_init();
+				break;
+			
 			}
 
 			// nextScene が curScene になる
@@ -86,6 +94,10 @@ int APIENTRY wWinMain(HINSTANCE, HINSTANCE, LPWSTR, int) {
 			result_update();
 			result_render();
 			break;
+		case SCENE_SENNTAKU:
+			senntaku_update();
+			senntaku_render();
+			break;
 
 		}
 
@@ -110,6 +122,10 @@ int APIENTRY wWinMain(HINSTANCE, HINSTANCE, LPWSTR, int) {
 	case SCENE_RESULT:
 		result_deinit();
 		break;
+	case SCENE_SENNTAKU:
+		senntaku_deinit();
+		break;
+	
 	}
 
 	//ゲームライブラリの終了処理

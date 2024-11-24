@@ -146,6 +146,7 @@
     <ClCompile Include="SourceCode\avalanche.cpp" />
     <ClCompile Include="SourceCode\common.cpp" />
     <ClCompile Include="SourceCode\enemy.cpp" />
+    <ClCompile Include="SourceCode\flag.cpp" />
     <ClCompile Include="SourceCode\judge.cpp" />
     <ClCompile Include="SourceCode\main.cpp" />
     <ClCompile Include="SourceCode\OBJ2D.cpp" />

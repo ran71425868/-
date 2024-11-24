@@ -28,5 +28,6 @@ void obstacle_update();
 void obstacle_render();
 
 void Obstacle0(OBJ2D* obj);
+void Obstacle1(OBJ2D* obj);
 
 #endif

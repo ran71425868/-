@@ -116,13 +116,13 @@ void player_update()
            }
         }
         
-        //player.speed.y += PLAYER_ACCEL_Y;
-        /*player.scale.y = 0.5f;
+        player.speed.y += PLAYER_ACCEL_Y;
+        player.scale.y = 0.5f;
         if (player.pos.y > SCREEN_H / 3.0f)
         {
             scrollValue -= player.speed.y;
             player.pos -= player.speed * 0.85;
-        }*/
+        }
 
 
         cooldown_timer++;
@@ -154,12 +154,6 @@ void player_moveY()
         player.scale.y = 0.5f;
 
     }
-    else if (STATE(0) & PAD_UP)
-    {
-        player.speed.y -= PLAYER_ACCEL_Y;
-        player.scale.y = 0.5f;
-
-    }
     else {
        
         if (player.speed.y < 0) {
@@ -180,18 +174,6 @@ void player_moveY()
     }
     player_boost = 0.0f;
 
-    if (player.speed.y <= -PLAYER_SPEED_Y_MAX) {
-        player.speed.y = -PLAYER_SPEED_Y_MAX-player_boost;
-        if (boost_timer < boost_timer_max && STATE(0) & PAD_TRG1 && STATE(0) & PAD_UP && !(STATE(0) & PAD_DOWN) && cooldown == 3) {
-            boost_timer++;
-            player_boost = 5.0f;
-            player.speed.y = -PLAYER_SPEED_Y_MAX - player_boost;
-        }
-
-    }
-    
-
-    
 }
 
 
@@ -257,6 +239,7 @@ void player_hp()
   /*  for (int i = 0; i < 3; i++) {
         if (enemy[i].moveAlg == -1) {
             hp -= 5;
+
         }
     }
     

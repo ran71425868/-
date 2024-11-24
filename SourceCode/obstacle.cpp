@@ -16,9 +16,9 @@ struct OBSTACLE_DATA {
     float            radius;
 }
 obstacleData[] = {
-       {NULL,   L"./Data/Images/dirt.png", { 0,0 }, { 64, 64 }, { 32, 32 }, {20}},
-       /*{NULL,   L"./Data/Images/Green_monster.png", { 0,0 }, { 160, 160 }, { 80, 80 }, {20}},
-       {NULL,   L"./Data/Images/Red_monster.png", { 0,0 }, { 160, 160 }, { 80, 80 }, {20}},*/
+       {NULL,   L"./Data/Images/stone_01.png", { 0,0 }, { 200, 200 }, { 100, 100 }, {20}},
+       {NULL,   L"./Data/Images/tree_01.png", { 0,0 }, { 100, 200 }, { 50, 100 }, {20}},
+       //{NULL,   L"./Data/Images/Red_monster.png", { 0,0 }, { 160, 160 }, { 80, 80 }, {20}},
 };
 OBJ2D obstacle[OBSTACLE_MAX];
 
@@ -31,10 +31,10 @@ obstacleSet[] = {
     {0,{  500, 720}},
     {0,{  100, 720}},
     {0,{  200, 720}},
-    {0,{  1000,720 }},
-    {0,{  700, 720}},
-    {0,{  800, 720}},
-    {0,{  400, 720}},
+    {1,{  1000,720 }},
+    {1,{  700, 720}},
+    {1,{  800, 720}},
+    {1,{  400, 720}},
     {-1,{  -1, -1 }},
 };
 
@@ -109,7 +109,9 @@ void obstacle_update()
             case 0:
                 Obstacle0(&obstacle[i]);
                 break;
-            
+            case 1:
+                Obstacle1(&obstacle[i]);
+                break;
             }
             ++obstacle[i].timer;
         }
@@ -143,6 +145,29 @@ void Obstacle0(OBJ2D* obj)
         obj->texSize = obstacleData[0].texSize;
         obj->pivot = obstacleData[0].pivot;
         obj->radius = obstacleData[0].radius;
+
+        ++obj->state;
+        /*fallthrough*/
+
+    case 1:
+        ////////�ʏ펞////////
+        break;
+    }
+}
+
+void Obstacle1(OBJ2D* obj)
+{
+
+    switch (obj->state) {
+    case 0:
+
+        obj->scale = { 1.0f, 1.0f };
+        obj->color = { 1, 1, 1, 1 };
+        obj->spr = obstacleData[1].spr;
+        obj->texPos = obstacleData[1].texPos;
+        obj->texSize = obstacleData[1].texSize;
+        obj->pivot = obstacleData[1].pivot;
+        obj->radius = obstacleData[1].radius;
 
         ++obj->state;
         /*fallthrough*/

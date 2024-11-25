@@ -11,12 +11,12 @@
 
 
 //プレイヤーの画像定義
-#define AVALANCHE_TEX_W                 1920.0f
-#define AVALANCHE_TEX_H                 1080.0f
-#define AVALANCHE_PIVOT_X               960.0f
-#define AVALANCHE_PIVOT_Y               540.0f
+#define AVALANCHE_TEX_W                 1280.0f
+#define AVALANCHE_TEX_H                 720.0f
+#define AVALANCHE_PIVOT_X               640.0f
+#define AVALANCHE_PIVOT_Y               360.0f
 
-#define COOL_DOWN_MAX				3	
+#define COOL_DOWN_MAX				1	
 
 
 

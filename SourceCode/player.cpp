@@ -143,6 +143,9 @@ void player_render()
     text_out(0, "cooldown", 0, 600, 2, 2);
     text_out(0, std::to_string(cooldown), 0, 650, 2, 2);
 
+    primitive::circle(player.pos + player.offset, player.radius, { 1, 1 }, ToRadian(0), { 1, 0, 0, 0.2f });
+
+
 }
 
 void player_moveY()

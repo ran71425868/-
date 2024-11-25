@@ -11,8 +11,6 @@ int score;
 float comboscore;
 int combo;
 
-extern int player_state;
-extern int enemy_state;
 extern OBJ2D enemy[ENEMY_MAX];
 extern OBJ2D flag[FLAG_MAX];
 
@@ -100,18 +98,14 @@ void game_update()
 }
 void game_render() {
 	
-	text_out(4, "Up:W Down:S Right: D Left: A", 0, 0, 1, 1);
-	//text_out(4, "angle++:Up Key angle--:Down Key", 0, 30, 1, 1);
+	sprite_render(sprBack, 0.0f, scrollValue); // ”wŒi‚ğƒJƒƒ‰‚ÌˆÊ’u‚É‡‚í‚¹‚Ä•`‰æ
+	sprite_render(sprBack, 0.0f, 10000.0f+scrollValue); // ”wŒi‚ğƒJƒƒ‰‚ÌˆÊ’u‚É‡‚í‚¹‚Ä•`‰æ
+
+	text_out(4, "Down:S Right: D Left: A", 0, 0, 1, 1);
 	text_out(0, "score", 1100, 0, 2, 2);
 	text_out(0, std::to_string(score), 1100, 50, 2, 2);
 	text_out(0, "combo", 0, 150, 2, 2);
 	text_out(0, std::to_string(combo), 0, 200, 2, 2);
-
-
-
-	sprite_render(sprBack, 0.0f, scrollValue); // ”wŒi‚ğƒJƒƒ‰‚ÌˆÊ’u‚É‡‚í‚¹‚Ä•`‰æ
-	sprite_render(sprBack, 0.0f, 10000.0f+scrollValue); // ”wŒi‚ğƒJƒƒ‰‚ÌˆÊ’u‚É‡‚í‚¹‚Ä•`‰æ
-
 	
 	player_render();
 	enemy_render();
@@ -133,7 +127,7 @@ void game_score()
 
 
 	for (int i = 0; i < FLAG_MAX; i++) {
-		if (enemy[i].moveAlg == -1)
+		if (flag[i].moveAlg == -1)
 			score += 100 * comboscore;
 
 	}

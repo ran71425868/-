@@ -18,7 +18,6 @@ struct OBSTACLE_DATA {
 obstacleData[] = {
        {NULL,   L"./Data/Images/stone_01.png", { 0,0 }, { 200, 200 }, { 100, 100 }, {20}},
        {NULL,   L"./Data/Images/tree_01.png", { 0,0 }, { 100, 200 }, { 50, 100 }, {20}},
-       //{NULL,   L"./Data/Images/Red_monster.png", { 0,0 }, { 160, 160 }, { 80, 80 }, {20}},
 };
 OBJ2D obstacle[OBSTACLE_MAX];
 
@@ -85,6 +84,7 @@ void obstacle_update()
             obstacle[i] = {};
             obstacle[i].moveAlg = -1;
         }
+
         ++obstacle_state;
         /*fallthrough*/
 

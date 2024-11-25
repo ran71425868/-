@@ -3,11 +3,7 @@
 
 int curScene = SCENE_NONE;
 int nextScene = SCENE_TITLE;
-int nextScene1 = SCENE_SENNTAKU;
-int nextScene2 = SCENE_GAME;
-int nextScene3 = SCENE_NORMAL;
-int nextScene4 = SCENE_EASY;
-int nextScene5 = SCENE_TUTORIAL;
+
 void setFullScreenMode()
 {
 	HWND hwnd = GetForegroundWindow();  // 現在のウィンドウを取得
@@ -30,7 +26,7 @@ void setFullScreenMode()
 // WinMain 関数を記述する
 int APIENTRY wWinMain(HINSTANCE, HINSTANCE, LPWSTR, int) {
 	//ゲームライブラリの初期設定
-	GameLib::init(L"ゲーム制作", SCREEN_W, SCREEN_H);
+	GameLib::init(L"Snowy Skiing", SCREEN_W, SCREEN_H);
 	setFullScreenMode();
 	//ゲームループ
 	while (GameLib::gameLoop())
@@ -51,15 +47,19 @@ int APIENTRY wWinMain(HINSTANCE, HINSTANCE, LPWSTR, int) {
 			case SCENE_RESULT:
 				result_deinit();
 				break;
+
 			case SCENE_SENNTAKU:
 				senntaku_deinit();
 				break;
+
 			case SCENE_NORMAL:
 				normal_deinit();
 				break;
+
 			case SCENE_EASY:
 				easy_deinit();
 				break;
+
 			case SCENE_TUTORIAL:
 				tutorial_deinit();
 				break;
@@ -79,15 +79,19 @@ int APIENTRY wWinMain(HINSTANCE, HINSTANCE, LPWSTR, int) {
 			case SCENE_RESULT:
 				result_init();
 				break;
+
 			case SCENE_SENNTAKU:
 				senntaku_init();
 				break;
+
 			case SCENE_NORMAL:
 				normal_init();
 				break;
+
 			case SCENE_EASY:
 				easy_init();
 				break;
+
 			case SCENE_TUTORIAL:
 				tutorial_init();
 				break;
@@ -117,22 +121,26 @@ int APIENTRY wWinMain(HINSTANCE, HINSTANCE, LPWSTR, int) {
 			result_update();
 			result_render();
 			break;
+
 		case SCENE_SENNTAKU:
 			senntaku_update();
 			senntaku_render();
 			break;
+
 		case SCENE_NORMAL:
-					normal_update();
-					normal_render();
-					break;
+			normal_update();
+			normal_render();
+			break;
+
 		case SCENE_EASY:
-					easy_update();
-					easy_render();
-					break;
+			easy_update();
+			easy_render();
+			break;
+
 		case SCENE_TUTORIAL:
-					tutorial_update();
-					tutorial_render();
-					break;
+			tutorial_update();
+			tutorial_render();
+			break;
 
 		}
 
@@ -157,15 +165,19 @@ int APIENTRY wWinMain(HINSTANCE, HINSTANCE, LPWSTR, int) {
 	case SCENE_RESULT:
 		result_deinit();
 		break;
+
 	case SCENE_SENNTAKU:
 		senntaku_deinit();
 		break;
+
 	case SCENE_NORMAL:
 		normal_deinit();
 		break;
+
 	case SCENE_EASY:
 		easy_deinit();
 		break;
+
 	case SCENE_TUTORIAL:
 		tutorial_deinit();
 		break;

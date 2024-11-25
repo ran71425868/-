@@ -29,11 +29,5 @@ extern float(* const ToDegree)(float);// ƒ‰ƒWƒAƒ“‚ğŠp“x‚É
 // •Ï”‚ÌéŒ¾
 extern int curScene;
 extern int nextScene;
-extern int nextScene1;
-extern int nextScene2;
-extern int nextScene3;
-extern int nextScene4;
-extern int nextScene5;
-
 
 #endif//COMMON_H

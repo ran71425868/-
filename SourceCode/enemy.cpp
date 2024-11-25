@@ -108,6 +108,7 @@ void enemy_update()
             enemy[i] = {};
             enemy[i].moveAlg = -1;
         }
+
         ++enemy_state;
         /*fallthrough*/
 
@@ -122,7 +123,7 @@ void enemy_update()
         }
 
         for (int i = 0; enemySet[i].enemyType >= 0; i++) {
-            rndX = rand() % 1281;
+            rndX = rand() % 1921;
             enemySet[i].pos.x = rndX;
         }
 
@@ -133,9 +134,6 @@ void enemy_update()
             }
             enemySet[i].pos.y = rndY;
         }
-
-      /*  enemy_moveX();
-        enemy_moveY();*/
 
 
         for (int i = 0; i < ENEMY_MAX; i++) {

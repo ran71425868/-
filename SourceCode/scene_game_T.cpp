@@ -11,8 +11,6 @@ int score3;
 float comboscore3;
 int combo3;
 
-extern int player_state;
-extern int enemy_state;
 extern OBJ2D enemy[ENEMY_MAX];
 extern OBJ2D flag[FLAG_MAX];
 

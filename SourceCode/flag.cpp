@@ -5,8 +5,6 @@
 int rnd_x;
 int flag_state;
 
-extern float angle;
-
 struct FLAG_DATA {
     Sprite* spr;
     const wchar_t* filePath;
@@ -16,7 +14,7 @@ struct FLAG_DATA {
     float            radius;
 }
 flagData[] = {
-       {NULL,   L"./Data/Images/flag_01.png", { 0,0 }, { 200, 230 }, { 100, 230 }, {20}},
+       {NULL,   L"./Data/Images/flag_01.png", { 0,0 }, { 200, 230 }, { 100, 200 }, {20}},
 };
 OBJ2D flag[FLAG_MAX];
 

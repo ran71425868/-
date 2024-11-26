@@ -14,7 +14,7 @@ struct FLAG_DATA {
     float            radius;
 }
 flagData[] = {
-       {NULL,   L"./Data/Images/flag_01.png", { 0,0 }, { 200, 230 }, { 100, 200 }, {20}},
+       {NULL,   L"./Data/Images/flag_01.png", { 0,0 }, { 200, 230 }, { 100, 200 }, {30}},
 };
 OBJ2D flag[FLAG_MAX];
 
@@ -23,14 +23,11 @@ struct FLAG_SET {
     VECTOR2 pos;
 }
 flagSet[] = {
-    {0,{  300, 540}},
-    {0,{  500, 540}},
-    {0,{  100, 540}},
-    {0,{  200, 540}},
-    {0,{  1000,540 }},
-    {0,{  700, 540}},
-    {0,{  800, 540}},
-    {0,{  400, 540}},
+    {0,{  300, 1400}},
+    {0,{  500, 1500}},
+    {0,{  100, 1700}},
+    {0,{  200, 1100}},
+    {0,{  1000,2000 }},
     {-1,{  -1, -1 }},
 };
 
@@ -41,7 +38,7 @@ void flag_init()
 
     srand((unsigned)time(NULL));
     for (int i = 0; flagSet[i].flagType >= 0; i++) {
-        rnd_x = rand() % 1921;
+        rnd_x = 300+rand() % 1401;
         flagSet[i].pos.x = rnd_x;
     }
 
@@ -93,8 +90,11 @@ void flag_update()
             if (!p) break;
         }
 
+        flag_moveY();
+
+
         for (int i = 0; flagSet[i].flagType >= 0; i++) {
-            rnd_x = rand() % 1281;
+            rnd_x = 300+rand() % 1401;
             flagSet[i].pos.x = rnd_x;
         }
 
@@ -123,7 +123,19 @@ void flag_render()
         //Šø‚Ì•`‰æ
         sprite_render(flag[i].spr, flag[i].pos.x, flag[i].pos.y, flag[i].scale.x, flag[i].scale.y, flag[i].texPos.x, flag[i].texPos.y, flag[i].texSize.x, flag[i].texSize.y, flag[i].pivot.x, flag[i].pivot.y, ToRadian(0),flag[i].color.x, flag[i].color.y,flag[i].color.z, flag[i].color.w);
 
+        primitive::circle(flag[i].pos + flag[i].offset,
+            flag[i].radius, {1, 1}, ToRadian(0), {1, 0, 0, 0.2f});
+
     }
+}
+
+void flag_moveY()
+{
+    for (int i = 0; i < FLAG_MAX; i++) {
+        flag[i].pos.y -= 0.3f;
+
+    }
+
 }
 
 void Flag0(OBJ2D* obj)

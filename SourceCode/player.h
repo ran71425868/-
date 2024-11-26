@@ -20,7 +20,7 @@
 #define COOL_DOWN_MAX				3	
 
 //ƒvƒŒƒCƒ„[‚Ì‰ÁŒ¸‘¬‚Ì’è”
-#define PLAYER_ACCEL_X      0.95f
+#define PLAYER_ACCEL_X      1.0f
 #define PLAYER_ACCEL_Y      1.0f
 #define PLAYER_DECEL_X      0.4f
 #define PLAYER_DECEL_Y      0.4f

@@ -9,7 +9,7 @@
 //
 //******************************************************************************
 
-#define FLAG_MAX   (8)
+#define FLAG_MAX   (5)
 
 
 //プレイヤーの画像定義
@@ -27,7 +27,8 @@ void flag_deinit();
 void flag_update();
 void flag_render();
 
-void Flag0(OBJ2D* obj);
+void flag_moveY();
 
+void Flag0(OBJ2D* obj);
 
 #endif

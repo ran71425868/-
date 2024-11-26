@@ -37,8 +37,8 @@ void normal_deinit() {
 	music::stop(0);
 	player_deinit();
 	obstacle_deinit();
-	avalanche_deinit();
 	flag_deinit();
+	avalanche_deinit();
 
 }
 void normal_update()
@@ -52,8 +52,8 @@ void normal_update()
 		player_init();
 		enemy_init();
 		obstacle_init();
-		avalanche_init();
 		flag_init();
+		avalanche_init();
 
 		normal_state++;
 		/*fallthrough*/
@@ -76,8 +76,8 @@ void normal_update()
 
 		player_update();
 		obstacle_update();
-		avalanche_update();
 		flag_update();
+		avalanche_update();
 
 
 		game_over();
@@ -102,8 +102,8 @@ void normal_render() {
 
 	player_render();
 	obstacle_render();
-	avalanche_render();
 	flag_render();
+	avalanche_render();
 
 }
 void normal_score()

@@ -61,7 +61,7 @@ void avalanche_update()
         avalanche.texSize = { AVALANCHE_TEX_W ,AVALANCHE_TEX_H };
         avalanche.pivot = { AVALANCHE_PIVOT_X,AVALANCHE_PIVOT_Y };
         avalanche.color = { 1.0f,1.0f,1.0f,1.0f };
-        avalanche.radius = 100.0f;
+        avalanche.radius = 500.0f;
         avalanche.offset = { 0,0 };
 
 
@@ -93,45 +93,45 @@ void avalanche_render()
         avalanche.pivot.x, avalanche.pivot.y,
         ToRadian(0), avalanche.color.x, avalanche.color.y);
 
-    while (1)
-    {
-        
-        if (avalanche_timer % 100 == 0) {
+    //while (1)
+    //{
+    //    
+    //    if (avalanche_timer % 100 == 0) {
 
-            if (avalanche_count >= 0)
-            {
-                //ê·ïˆÇÃï`âÊ
-                sprite_render(sprAvalanche2,
-                    avalanche.pos.x, avalanche.pos.y,
-                    avalanche.scale.x, avalanche.scale.y,
-                    avalanche.texPos.x, avalanche.texPos.y,
-                    avalanche.texSize.x, avalanche.texSize.y,
-                    avalanche.pivot.x, avalanche.pivot.y,
-                    ToRadian(0), avalanche.color.x, avalanche.color.y);
+    //        if (avalanche_count >= 0)
+    //        {
+    //            //ê·ïˆÇÃï`âÊ
+    //            sprite_render(sprAvalanche2,
+    //                avalanche.pos.x, avalanche.pos.y,
+    //                avalanche.scale.x, avalanche.scale.y,
+    //                avalanche.texPos.x, avalanche.texPos.y,
+    //                avalanche.texSize.x, avalanche.texSize.y,
+    //                avalanche.pivot.x, avalanche.pivot.y,
+    //                ToRadian(0), avalanche.color.x, avalanche.color.y);
 
-                avalanche_count--;
-            }
+    //            avalanche_count--;
+    //        }
 
-        }
-        else if (avalanche_count <= 0) {
+    //    }
+    //    else if (avalanche_count <= 0) {
 
-           
+    //       
 
-            sprite_render(sprAvalanche1,
-                avalanche.pos.x, avalanche.pos.y,
-                avalanche.scale.x, avalanche.scale.y,
-                avalanche.texPos.x, avalanche.texPos.y,
-                avalanche.texSize.x, avalanche.texSize.y,
-                avalanche.pivot.x, avalanche.pivot.y,
-                ToRadian(0), avalanche.color.x, avalanche.color.y);
-            avalanche_count = 2;
+    //        sprite_render(sprAvalanche1,
+    //            avalanche.pos.x, avalanche.pos.y,
+    //            avalanche.scale.x, avalanche.scale.y,
+    //            avalanche.texPos.x, avalanche.texPos.y,
+    //            avalanche.texSize.x, avalanche.texSize.y,
+    //            avalanche.pivot.x, avalanche.pivot.y,
+    //            ToRadian(0), avalanche.color.x, avalanche.color.y);
+    //        avalanche_count = 2;
 
-        }
+    //    }
 
-        break;
-    }
+    //    break;
+    //}
     
     text_out(0, "cooldown", 0, 800, 2, 2);
     text_out(0, std::to_string(avalanche_count), 0, 850, 2, 2);
-
+    
 }

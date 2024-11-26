@@ -16,25 +16,41 @@ struct OBSTACLE_DATA {
     float            radius;
 }
 obstacleData[] = {
-       {NULL,   L"./Data/Images/stone_01.png", { 0,0 }, { 200, 200 }, { 100, 100 }, {20}},
+       {NULL,   L"./Data/Images/stone_01.png", { 0,0 }, { 200, 200 }, { 100, 100 }, {25}},
        {NULL,   L"./Data/Images/tree_01.png", { 0,0 }, { 100, 200 }, { 50, 100 }, {20}},
+       {NULL,   L"./Data/Images/dirt.png", { 0,0 }, { 64, 64 }, { 32, 32 }, {30}},
 };
 OBJ2D obstacle[OBSTACLE_MAX];
 
 struct OBSTACLE_SET {
     int obstacleType;
     VECTOR2 pos;
+    int obstaclesort;
 }
 obstacleSet[] = {
-    {0,{  300, 720}},
-    {0,{  500, 720}},
-    {0,{  100, 720}},
-    {0,{  200, 720}},
-    {1,{  1000,720 }},
-    {1,{  700, 720}},
-    {1,{  800, 720}},
-    {1,{  400, 720}},
-    {-1,{  -1, -1 }},
+    {0,{  300, 1080},0},
+    {0,{  500, 1300},0},
+    {0,{  100, 1800},0},
+    {0,{  200, 1200},0},
+    {1,{  1000,1400 },0},
+    {1,{  700, 1100},0},
+    {1,{  800, 1600},0},
+    {2,{  300, 350},1},
+    {2,{  400, 350},1},
+    {2,{  500, 350},1},
+    {2,{  600, 350},1},
+    {2,{  700, 350},1},
+    {2,{  800, 350},1},
+    {2,{  900,350 },1},
+    {2,{  1000, 350},1},
+    {2,{  1100, 350},1},
+    {2,{  1200, 350},1},
+    {2,{  1300, 350},1},
+    {2,{  1400, 350},1},
+    {2,{  1500, 350},1},
+    {2,{  1600, 350},1},
+    {2,{  1700, 350},1},
+    {-1,{  -1, -1 },-1},
 };
 
 void obstacle_init()
@@ -44,8 +60,11 @@ void obstacle_init()
 
     srand((unsigned)time(NULL));
     for (int i = 0; obstacleSet[i].obstacleType >= 0; i++) {
-        rndx = rand() % 1921;
-        obstacleSet[i].pos.x = rndx;
+        if (obstacleSet[i].obstaclesort == 0) {
+            rndx = 300 + rand() % 1401;
+            obstacleSet[i].pos.x = rndx;
+
+        }
     }
 
 }
@@ -96,8 +115,10 @@ void obstacle_update()
             if (!p) break;
         }
 
+        obstacle_moveY();
+
         for (int i = 0; obstacleSet[i].obstacleType >= 0; i++) {
-            rndx = rand() % 1281;
+            rndx = 300+rand() % 1401;
             obstacleSet[i].pos.x = rndx;
         }
 
@@ -111,6 +132,9 @@ void obstacle_update()
                 break;
             case 1:
                 Obstacle1(&obstacle[i]);
+                break;
+            case 2:
+                Obstacle2(&obstacle[i]);
                 break;
             }
             ++obstacle[i].timer;
@@ -129,7 +153,18 @@ void obstacle_render()
         //è·äQï®ÇÃï`âÊ
         sprite_render(obstacle[i].spr, obstacle[i].pos.x, obstacle[i].pos.y, obstacle[i].scale.x, obstacle[i].scale.y, obstacle[i].texPos.x, obstacle[i].texPos.y, obstacle[i].texSize.x, obstacle[i].texSize.y,obstacle[i].pivot.x, obstacle[i].pivot.y, ToRadian(0), obstacle[i].color.x, obstacle[i].color.y,obstacle[i].color.z, obstacle[i].color.w);
 
+        primitive::circle(obstacle[i].pos + obstacle[i].offset,
+            obstacle[i].radius, { 1, 1 }, ToRadian(0), { 1, 0, 0, 0.2f });
     }
+}
+
+void obstacle_moveY()
+{
+    for (int i = 0; i < 7; i++)
+    {
+        obstacle[i].pos.y -= 0.3f;
+    }
+
 }
 
 void Obstacle0(OBJ2D* obj)
@@ -168,6 +203,28 @@ void Obstacle1(OBJ2D* obj)
         obj->texSize = obstacleData[1].texSize;
         obj->pivot = obstacleData[1].pivot;
         obj->radius = obstacleData[1].radius;
+
+        ++obj->state;
+        /*fallthrough*/
+
+    case 1:
+        ////////í èÌéû////////
+        break;
+    }
+}
+
+void Obstacle2(OBJ2D* obj)
+{
+    switch (obj->state) {
+    case 0:
+
+        obj->scale = { 1.0f, 1.0f };
+        obj->color = { 1, 1, 1, 1 };
+        obj->spr = obstacleData[2].spr;
+        obj->texPos = obstacleData[2].texPos;
+        obj->texSize = obstacleData[2].texSize;
+        obj->pivot = obstacleData[2].pivot;
+        obj->radius = obstacleData[2].radius;
 
         ++obj->state;
         /*fallthrough*/

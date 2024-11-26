@@ -39,8 +39,8 @@ void game_deinit() {
 	player_deinit();
 	enemy_deinit();
 	obstacle_deinit();
-	avalanche_deinit();
 	flag_deinit();
+	avalanche_deinit();
 	
 }
 void game_update()
@@ -54,8 +54,8 @@ void game_update()
 		player_init();
 		enemy_init();
 		obstacle_init();
-		avalanche_init();
 		flag_init();
+		avalanche_init();
 
 		game_state++;
 		/*fallthrough*/
@@ -83,8 +83,8 @@ void game_update()
 		player_update();
 		enemy_update();
 		obstacle_update();
-		avalanche_update();
 		flag_update();
+		avalanche_update();
 
 
 		game_over();
@@ -110,8 +110,8 @@ void game_render() {
 	player_render();
 	enemy_render();
 	obstacle_render();
-	avalanche_render();
 	flag_render();
+	avalanche_render();
 	
 }
 void game_score()

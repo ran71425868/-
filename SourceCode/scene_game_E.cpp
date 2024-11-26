@@ -36,8 +36,8 @@ void easy_init() {
 void easy_deinit() {
 	music::stop(0);
 	player_deinit();
-	avalanche_deinit();
 	flag_deinit();
+	avalanche_deinit();
 
 }
 void easy_update()
@@ -49,8 +49,8 @@ void easy_update()
 
 		audio_init();
 		player_init();
-		avalanche_init();
 		flag_init();
+		avalanche_init();
 
 		easy_state++;
 		/*fallthrough*/
@@ -71,8 +71,8 @@ void easy_update()
 		}
 
 		player_update();
-		avalanche_update();
 		flag_update();
+		avalanche_update();
 
 
 		game_over();
@@ -96,8 +96,8 @@ void easy_render() {
 	text_out(0, std::to_string(combo1), 0, 200, 2, 2);
 
 	player_render();
-	avalanche_render();
 	flag_render();
+	avalanche_render();
 
 }
 void easy_score()

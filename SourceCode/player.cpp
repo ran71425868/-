@@ -91,11 +91,11 @@ void player_update()
         player.pos += player.speed;
 
         // プレイヤーの上下左右のエリアチェック
-        if (player.pos.x < 0 + WALL_RIGHT) {
-            player.pos.x = 0 + WALL_RIGHT;
+        if (player.pos.x < 100 + WALL_RIGHT) {
+            player.pos.x = 100 + WALL_RIGHT;
         }
-        if (player.pos.x > WALL_LEFT) {
-            player.pos.x = WALL_LEFT;
+        if (player.pos.x > WALL_LEFT-100) {
+            player.pos.x = WALL_LEFT-100;
         }
 
         if (boost_timer>=boost_timer_max)
@@ -143,6 +143,9 @@ void player_render()
     text_out(0, "cooldown", 0, 600, 2, 2);
     text_out(0, std::to_string(cooldown), 0, 650, 2, 2);
 
+    primitive::circle(player.pos + player.offset, player.radius, { 1, 1 }, ToRadian(0), { 1, 0, 0, 0.2f });
+
+
 }
 
 void player_moveY()
@@ -154,15 +157,8 @@ void player_moveY()
         player.scale.y = 0.5f;
 
     }
-    
     else {
-        if (player.speed.y > 0) {
-            player.speed.y -= PLAYER_DECEL_Y;
-            if (player.speed.y < 0)
-                player.speed.y = 0.0f;
-
-        }
-
+       
         if (player.speed.y < 0) {
             player.speed.y += PLAYER_DECEL_Y;
             if (player.speed.y > 0)
@@ -181,18 +177,6 @@ void player_moveY()
     }
     player_boost = 0.0f;
 
-    if (player.speed.y <= -PLAYER_SPEED_Y_MAX) {
-        player.speed.y = -PLAYER_SPEED_Y_MAX-player_boost;
-        if (boost_timer < boost_timer_max && STATE(0) & PAD_TRG1 && STATE(0) & PAD_UP && !(STATE(0) & PAD_DOWN) && cooldown == 3) {
-            boost_timer++;
-            player_boost = 5.0f;
-            player.speed.y = -PLAYER_SPEED_Y_MAX - player_boost;
-        }
-
-    }
-    
-
-    
 }
 
 
@@ -258,6 +242,7 @@ void player_hp()
   /*  for (int i = 0; i < 3; i++) {
         if (enemy[i].moveAlg == -1) {
             hp -= 5;
+
         }
     }
     

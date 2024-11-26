@@ -11,12 +11,19 @@
 #include "obj2d.h"
 #include "player.h"
 #include "enemy.h"
+#include "avalanche.h"
 #include "obstacle.h"
+#include "flag.h"
 #include "judge.h"
 
 #include "scene_game.h"
+#include "scene_game_E.h"
+#include "scene_game_N.h"
+
+#include "scene_game_T.h"
 #include "scene_title.h"
 #include "scene_result.h"
+#include "senntaku.h"
 
 
 using namespace GameLib;// using ディレクティブ

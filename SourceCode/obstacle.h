@@ -9,7 +9,7 @@
 //
 //******************************************************************************
 
-#define OBSTACLE_MAX   (8)
+#define OBSTACLE_MAX   (22)
 
 
 //プレイヤーの画像定義
@@ -27,6 +27,10 @@ void obstacle_deinit();
 void obstacle_update();
 void obstacle_render();
 
+void obstacle_moveY();
+
 void Obstacle0(OBJ2D* obj);
+void Obstacle1(OBJ2D* obj);
+void Obstacle2(OBJ2D* obj);
 
 #endif

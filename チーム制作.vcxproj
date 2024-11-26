@@ -143,16 +143,22 @@
     <ClCompile Include="GameLib\view_settings.cpp" />
     <ClCompile Include="GameLib\wnd_proc.cpp" />
     <ClCompile Include="SourceCode\audio.cpp" />
+    <ClCompile Include="SourceCode\avalanche.cpp" />
     <ClCompile Include="SourceCode\common.cpp" />
     <ClCompile Include="SourceCode\enemy.cpp" />
+    <ClCompile Include="SourceCode\flag.cpp" />
     <ClCompile Include="SourceCode\judge.cpp" />
     <ClCompile Include="SourceCode\main.cpp" />
     <ClCompile Include="SourceCode\OBJ2D.cpp" />
     <ClCompile Include="SourceCode\obstacle.cpp" />
     <ClCompile Include="SourceCode\player.cpp" />
     <ClCompile Include="SourceCode\scene_game.cpp" />
+    <ClCompile Include="SourceCode\scene_game_E.cpp" />
+    <ClCompile Include="SourceCode\scene_game_N.cpp" />
+    <ClCompile Include="SourceCode\scene_game_T.cpp" />
     <ClCompile Include="SourceCode\scene_result.cpp" />
     <ClCompile Include="SourceCode\scene_title.cpp" />
+    <ClCompile Include="SourceCode\senntaku.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="GameLib\blender.h" />
@@ -176,16 +182,21 @@
     <ClInclude Include="GameLib\view_settings.h" />
     <ClInclude Include="SourceCode\all.h" />
     <ClInclude Include="SourceCode\audio.h" />
-    <ClInclude Include="SourceCode\camera.h" />
+    <ClInclude Include="SourceCode\avalanche.h" />
     <ClInclude Include="SourceCode\common.h" />
     <ClInclude Include="SourceCode\enemy.h" />
+    <ClInclude Include="SourceCode\flag.h" />
     <ClInclude Include="SourceCode\judge.h" />
     <ClInclude Include="SourceCode\obj2d.h" />
     <ClInclude Include="SourceCode\obstacle.h" />
     <ClInclude Include="SourceCode\player.h" />
     <ClInclude Include="SourceCode\scene_game.h" />
+    <ClInclude Include="SourceCode\scene_game_E.h" />
+    <ClInclude Include="SourceCode\scene_game_N.h" />
+    <ClInclude Include="SourceCode\scene_game_T.h" />
     <ClInclude Include="SourceCode\scene_result.h" />
     <ClInclude Include="SourceCode\scene_title.h" />
+    <ClInclude Include="SourceCode\senntaku.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

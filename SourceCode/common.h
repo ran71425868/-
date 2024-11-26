@@ -9,6 +9,11 @@ using namespace GameLib;
 #define SCENE_TITLE 0 
 #define SCENE_GAME 1 
 #define SCENE_RESULT 2
+#define SCENE_SENNTAKU 3
+#define SCENE_TUTORIAL 4
+#define SCENE_EASY 5
+#define SCENE_NORMAL 6
+
 
 //íËêî
 extern const FLOAT PI;

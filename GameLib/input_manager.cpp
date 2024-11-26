@@ -39,10 +39,15 @@ namespace GameLib
         { PAD_TRG2      , Keyboard::Down },         // VK_DOWN
         { PAD_TRG4      , Keyboard::K },            // 'K'
 
-        { PAD_L1        , Keyboard::F1 },           // VK_F1
-        { PAD_L3        , Keyboard::F2 },           // VK_F2
-        { PAD_R1        , Keyboard::F3 },           // VK_F3
-        { PAD_R3        , Keyboard::F4 },           // VK_F4
+        //{ PAD_L1        , Keyboard::F1 },           // VK_F1
+        //{ PAD_L3        , Keyboard::F2 },           // VK_F2
+        //{ PAD_R1        , Keyboard::F3 },           // VK_F3
+        //{ PAD_R3        , Keyboard::F4 },           // VK_F4
+
+        { PAD_L1        , Keyboard::T },           // 'T'(チュートリアル)
+        { PAD_L2        , Keyboard::Y },           // 'Y'(イージー)
+        { PAD_L3        , Keyboard::U },           // 'U'(ノーマル)
+        { PAD_R1        , Keyboard::I },           // 'I'(ハード)
 
         //{ PAD_START    , VK_LBUTTON },              // マウス左ボタン
         //{ PAD_TRG4     , VK_RBUTTON },              // マウス右ボタン

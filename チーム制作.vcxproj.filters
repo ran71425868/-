@@ -1,29 +1,15 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <ItemGroup>
-    <Filter Include="ソース ファイル">
-      <UniqueIdentifier>{4FC737F1-C7A5-4376-A066-2A32D752A2FF}</UniqueIdentifier>
-      <Extensions>cpp;c;cc;cxx;c++;cppm;ixx;def;odl;idl;hpj;bat;asm;asmx</Extensions>
-    </Filter>
-    <Filter Include="ヘッダー ファイル">
-      <UniqueIdentifier>{93995380-89BD-4b04-88EB-625FBE52EBFB}</UniqueIdentifier>
-      <Extensions>h;hh;hpp;hxx;h++;hm;inl;inc;ipp;xsd</Extensions>
-    </Filter>
-    <Filter Include="リソース ファイル">
-      <UniqueIdentifier>{67DA6AB6-F800-4c08-8B7A-83BB121AAD01}</UniqueIdentifier>
-      <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav;mfcribbon-ms</Extensions>
-    </Filter>
-    <Filter Include="GameLib">
-      <UniqueIdentifier>{2a139891-f36c-456e-afa4-8d70c4103591}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="GameLib\ヘッダーファイル">
-      <UniqueIdentifier>{e5b2d826-3614-434c-a0bc-b55827386430}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="GameLib\ソースファイル">
-      <UniqueIdentifier>{e394f036-c633-4acf-b02b-6bfe7a805cdb}</UniqueIdentifier>
-    </Filter>
-  </ItemGroup>
-  <ItemGroup>
+    <ClCompile Include="SourceCode\audio.cpp">
+      <Filter>ソースファイル</Filter>
+    </ClCompile>
+    <ClCompile Include="SourceCode\avalanche.cpp">
+      <Filter>ソースファイル</Filter>
+    </ClCompile>
+    <ClCompile Include="SourceCode\common.cpp">
+      <Filter>ソースファイル</Filter>
+    </ClCompile>
     <ClCompile Include="GameLib\debug.cpp">
       <Filter>GameLib\ソースファイル</Filter>
     </ClCompile>
@@ -32,6 +18,12 @@
     </ClCompile>
     <ClCompile Include="GameLib\dxtk_audio.cpp">
       <Filter>GameLib\ソースファイル</Filter>
+    </ClCompile>
+    <ClCompile Include="SourceCode\enemy.cpp">
+      <Filter>ソースファイル</Filter>
+    </ClCompile>
+    <ClCompile Include="SourceCode\flag.cpp">
+      <Filter>ソースファイル</Filter>
     </ClCompile>
     <ClCompile Include="GameLib\font.cpp">
       <Filter>GameLib\ソースファイル</Filter>
@@ -45,6 +37,21 @@
     <ClCompile Include="GameLib\input_manager.cpp">
       <Filter>GameLib\ソースファイル</Filter>
     </ClCompile>
+    <ClCompile Include="SourceCode\judge.cpp">
+      <Filter>ソースファイル</Filter>
+    </ClCompile>
+    <ClCompile Include="SourceCode\main.cpp">
+      <Filter>ソースファイル</Filter>
+    </ClCompile>
+    <ClCompile Include="SourceCode\OBJ2D.cpp">
+      <Filter>ソースファイル</Filter>
+    </ClCompile>
+    <ClCompile Include="SourceCode\obstacle.cpp">
+      <Filter>ソースファイル</Filter>
+    </ClCompile>
+    <ClCompile Include="SourceCode\player.cpp">
+      <Filter>ソースファイル</Filter>
+    </ClCompile>
     <ClCompile Include="GameLib\obj2d_data.cpp">
       <Filter>GameLib\ソースファイル</Filter>
     </ClCompile>
@@ -53,6 +60,27 @@
     </ClCompile>
     <ClCompile Include="GameLib\resource_manager.cpp">
       <Filter>GameLib\ソースファイル</Filter>
+    </ClCompile>
+    <ClCompile Include="SourceCode\scene_game.cpp">
+      <Filter>ソースファイル</Filter>
+    </ClCompile>
+    <ClCompile Include="SourceCode\scene_game_E.cpp">
+      <Filter>ソースファイル</Filter>
+    </ClCompile>
+    <ClCompile Include="SourceCode\scene_game_N.cpp">
+      <Filter>ソースファイル</Filter>
+    </ClCompile>
+    <ClCompile Include="SourceCode\scene_game_T.cpp">
+      <Filter>ソースファイル</Filter>
+    </ClCompile>
+    <ClCompile Include="SourceCode\scene_result.cpp">
+      <Filter>ソースファイル</Filter>
+    </ClCompile>
+    <ClCompile Include="SourceCode\scene_title.cpp">
+      <Filter>ソースファイル</Filter>
+    </ClCompile>
+    <ClCompile Include="SourceCode\senntaku.cpp">
+      <Filter>ソースファイル</Filter>
     </ClCompile>
     <ClCompile Include="GameLib\sprite.cpp">
       <Filter>GameLib\ソースファイル</Filter>
@@ -69,41 +97,20 @@
     <ClCompile Include="GameLib\wnd_proc.cpp">
       <Filter>GameLib\ソースファイル</Filter>
     </ClCompile>
-    <ClCompile Include="SourceCode\main.cpp">
-      <Filter>ソース ファイル</Filter>
-    </ClCompile>
-    <ClCompile Include="SourceCode\audio.cpp">
-      <Filter>ソース ファイル</Filter>
-    </ClCompile>
-    <ClCompile Include="SourceCode\common.cpp">
-      <Filter>ソース ファイル</Filter>
-    </ClCompile>
-    <ClCompile Include="SourceCode\enemy.cpp">
-      <Filter>ソース ファイル</Filter>
-    </ClCompile>
-    <ClCompile Include="SourceCode\judge.cpp">
-      <Filter>ソース ファイル</Filter>
-    </ClCompile>
-    <ClCompile Include="SourceCode\OBJ2D.cpp">
-      <Filter>ソース ファイル</Filter>
-    </ClCompile>
-    <ClCompile Include="SourceCode\player.cpp">
-      <Filter>ソース ファイル</Filter>
-    </ClCompile>
-    <ClCompile Include="SourceCode\scene_game.cpp">
-      <Filter>ソース ファイル</Filter>
-    </ClCompile>
-    <ClCompile Include="SourceCode\scene_title.cpp">
-      <Filter>ソース ファイル</Filter>
-    </ClCompile>
-    <ClCompile Include="SourceCode\scene_result.cpp">
-      <Filter>ソース ファイル</Filter>
-    </ClCompile>
-    <ClCompile Include="SourceCode\obstacle.cpp">
-      <Filter>ソース ファイル</Filter>
-    </ClCompile>
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="SourceCode\all.h">
+      <Filter>ヘッダーファイル</Filter>
+    </ClInclude>
+    <ClInclude Include="SourceCode\audio.h">
+      <Filter>ヘッダーファイル</Filter>
+    </ClInclude>
+    <ClInclude Include="SourceCode\avalanche.h">
+      <Filter>ヘッダーファイル</Filter>
+    </ClInclude>
+    <ClInclude Include="SourceCode\common.h">
+      <Filter>ヘッダーファイル</Filter>
+    </ClInclude>
     <ClInclude Include="GameLib\blender.h">
       <Filter>GameLib\ヘッダーファイル</Filter>
     </ClInclude>
@@ -113,8 +120,14 @@
     <ClInclude Include="GameLib\depth_stencil.h">
       <Filter>GameLib\ヘッダーファイル</Filter>
     </ClInclude>
+    <ClInclude Include="SourceCode\enemy.h">
+      <Filter>ヘッダーファイル</Filter>
+    </ClInclude>
     <ClInclude Include="GameLib\dxtk_audio.h">
       <Filter>GameLib\ヘッダーファイル</Filter>
+    </ClInclude>
+    <ClInclude Include="SourceCode\flag.h">
+      <Filter>ヘッダーファイル</Filter>
     </ClInclude>
     <ClInclude Include="GameLib\font.h">
       <Filter>GameLib\ヘッダーファイル</Filter>
@@ -131,17 +144,50 @@
     <ClInclude Include="GameLib\input_manager.h">
       <Filter>GameLib\ヘッダーファイル</Filter>
     </ClInclude>
+    <ClInclude Include="SourceCode\judge.h">
+      <Filter>ヘッダーファイル</Filter>
+    </ClInclude>
+    <ClInclude Include="SourceCode\obj2d.h">
+      <Filter>ヘッダーファイル</Filter>
+    </ClInclude>
     <ClInclude Include="GameLib\misc.h">
       <Filter>GameLib\ヘッダーファイル</Filter>
     </ClInclude>
     <ClInclude Include="GameLib\obj2d_data.h">
       <Filter>GameLib\ヘッダーファイル</Filter>
     </ClInclude>
+    <ClInclude Include="SourceCode\obstacle.h">
+      <Filter>ヘッダーファイル</Filter>
+    </ClInclude>
+    <ClInclude Include="SourceCode\player.h">
+      <Filter>ヘッダーファイル</Filter>
+    </ClInclude>
     <ClInclude Include="GameLib\primitive.h">
       <Filter>GameLib\ヘッダーファイル</Filter>
     </ClInclude>
     <ClInclude Include="GameLib\resource_manager.h">
       <Filter>GameLib\ヘッダーファイル</Filter>
+    </ClInclude>
+    <ClInclude Include="SourceCode\scene_game.h">
+      <Filter>ヘッダーファイル</Filter>
+    </ClInclude>
+    <ClInclude Include="SourceCode\scene_game_E.h">
+      <Filter>ヘッダーファイル</Filter>
+    </ClInclude>
+    <ClInclude Include="SourceCode\scene_game_N.h">
+      <Filter>ヘッダーファイル</Filter>
+    </ClInclude>
+    <ClInclude Include="SourceCode\scene_game_T.h">
+      <Filter>ヘッダーファイル</Filter>
+    </ClInclude>
+    <ClInclude Include="SourceCode\scene_result.h">
+      <Filter>ヘッダーファイル</Filter>
+    </ClInclude>
+    <ClInclude Include="SourceCode\scene_title.h">
+      <Filter>ヘッダーファイル</Filter>
+    </ClInclude>
+    <ClInclude Include="SourceCode\senntaku.h">
+      <Filter>ヘッダーファイル</Filter>
     </ClInclude>
     <ClInclude Include="GameLib\sprite.h">
       <Filter>GameLib\ヘッダーファイル</Filter>
@@ -161,41 +207,22 @@
     <ClInclude Include="GameLib\view_settings.h">
       <Filter>GameLib\ヘッダーファイル</Filter>
     </ClInclude>
-    <ClInclude Include="SourceCode\all.h">
-      <Filter>ヘッダー ファイル</Filter>
-    </ClInclude>
-    <ClInclude Include="SourceCode\audio.h">
-      <Filter>ヘッダー ファイル</Filter>
-    </ClInclude>
-    <ClInclude Include="SourceCode\common.h">
-      <Filter>ヘッダー ファイル</Filter>
-    </ClInclude>
-    <ClInclude Include="SourceCode\enemy.h">
-      <Filter>ヘッダー ファイル</Filter>
-    </ClInclude>
-    <ClInclude Include="SourceCode\judge.h">
-      <Filter>ヘッダー ファイル</Filter>
-    </ClInclude>
-    <ClInclude Include="SourceCode\obj2d.h">
-      <Filter>ヘッダー ファイル</Filter>
-    </ClInclude>
-    <ClInclude Include="SourceCode\player.h">
-      <Filter>ヘッダー ファイル</Filter>
-    </ClInclude>
-    <ClInclude Include="SourceCode\scene_game.h">
-      <Filter>ヘッダー ファイル</Filter>
-    </ClInclude>
-    <ClInclude Include="SourceCode\scene_title.h">
-      <Filter>ヘッダー ファイル</Filter>
-    </ClInclude>
-    <ClInclude Include="SourceCode\scene_result.h">
-      <Filter>ヘッダー ファイル</Filter>
-    </ClInclude>
-    <ClInclude Include="SourceCode\obstacle.h">
-      <Filter>ヘッダー ファイル</Filter>
-    </ClInclude>
-    <ClInclude Include="SourceCode\camera.h">
-      <Filter>ヘッダー ファイル</Filter>
-    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <Filter Include="GameLib">
+      <UniqueIdentifier>{46eef6e0-e273-4fe4-beef-807b1882cdda}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="ヘッダーファイル">
+      <UniqueIdentifier>{b0f946e0-f303-4c0a-81e8-24cffcbe669d}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="ソースファイル">
+      <UniqueIdentifier>{63ac2b2c-504f-42cc-b216-fec574015e62}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="GameLib\ソースファイル">
+      <UniqueIdentifier>{698e3e42-4779-43bb-a549-b14e721a9c8a}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="GameLib\ヘッダーファイル">
+      <UniqueIdentifier>{f501169d-81e0-4e8d-a70b-d1fae73d8a2f}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
 </Project>

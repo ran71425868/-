@@ -3,6 +3,7 @@
 
 int curScene = SCENE_NONE;
 int nextScene = SCENE_TITLE;
+
 void setFullScreenMode()
 {
 	HWND hwnd = GetForegroundWindow();  // 現在のウィンドウを取得
@@ -25,7 +26,7 @@ void setFullScreenMode()
 // WinMain 関数を記述する
 int APIENTRY wWinMain(HINSTANCE, HINSTANCE, LPWSTR, int) {
 	//ゲームライブラリの初期設定
-	GameLib::init(L"ゲーム制作", SCREEN_W, SCREEN_H);
+	GameLib::init(L"Snowy Skiing", SCREEN_W, SCREEN_H);
 	setFullScreenMode();
 	//ゲームループ
 	while (GameLib::gameLoop())
@@ -46,6 +47,23 @@ int APIENTRY wWinMain(HINSTANCE, HINSTANCE, LPWSTR, int) {
 			case SCENE_RESULT:
 				result_deinit();
 				break;
+
+			case SCENE_SENNTAKU:
+				senntaku_deinit();
+				break;
+
+			case SCENE_NORMAL:
+				normal_deinit();
+				break;
+
+			case SCENE_EASY:
+				easy_deinit();
+				break;
+
+			case SCENE_TUTORIAL:
+				tutorial_deinit();
+				break;
+			
 			}
 
 			// 次のシーンに応じた初期設定処理
@@ -61,6 +79,23 @@ int APIENTRY wWinMain(HINSTANCE, HINSTANCE, LPWSTR, int) {
 			case SCENE_RESULT:
 				result_init();
 				break;
+
+			case SCENE_SENNTAKU:
+				senntaku_init();
+				break;
+
+			case SCENE_NORMAL:
+				normal_init();
+				break;
+
+			case SCENE_EASY:
+				easy_init();
+				break;
+
+			case SCENE_TUTORIAL:
+				tutorial_init();
+				break;
+			
 			}
 
 			// nextScene が curScene になる
@@ -87,6 +122,26 @@ int APIENTRY wWinMain(HINSTANCE, HINSTANCE, LPWSTR, int) {
 			result_render();
 			break;
 
+		case SCENE_SENNTAKU:
+			senntaku_update();
+			senntaku_render();
+			break;
+
+		case SCENE_NORMAL:
+			normal_update();
+			normal_render();
+			break;
+
+		case SCENE_EASY:
+			easy_update();
+			easy_render();
+			break;
+
+		case SCENE_TUTORIAL:
+			tutorial_update();
+			tutorial_render();
+			break;
+
 		}
 
 		debug::display(1, 1, 1, 1, 1);
@@ -110,6 +165,23 @@ int APIENTRY wWinMain(HINSTANCE, HINSTANCE, LPWSTR, int) {
 	case SCENE_RESULT:
 		result_deinit();
 		break;
+
+	case SCENE_SENNTAKU:
+		senntaku_deinit();
+		break;
+
+	case SCENE_NORMAL:
+		normal_deinit();
+		break;
+
+	case SCENE_EASY:
+		easy_deinit();
+		break;
+
+	case SCENE_TUTORIAL:
+		tutorial_deinit();
+		break;
+	
 	}
 
 	//ゲームライブラリの終了処理

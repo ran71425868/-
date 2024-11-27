@@ -97,6 +97,9 @@
     <ClCompile Include="GameLib\wnd_proc.cpp">
       <Filter>GameLib\ソースファイル</Filter>
     </ClCompile>
+    <ClCompile Include="SourceCode\goal.cpp">
+      <Filter>ソースファイル</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="SourceCode\all.h">
@@ -206,6 +209,9 @@
     </ClInclude>
     <ClInclude Include="GameLib\view_settings.h">
       <Filter>GameLib\ヘッダーファイル</Filter>
+    </ClInclude>
+    <ClInclude Include="SourceCode\goal.h">
+      <Filter>ヘッダーファイル</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

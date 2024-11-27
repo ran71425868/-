@@ -16,6 +16,7 @@ extern OBJ2D flag[FLAG_MAX];
 extern int hp;
 
 Sprite* sprBack2;
+Sprite* sprGoal2;
 
 std::ostringstream oss2;                                 // •¶š—ñƒXƒgƒŠ[ƒ€
 POINT point2;
@@ -47,6 +48,7 @@ void normal_update()
 	{
 	case 0:
 		sprBack2 = sprite_load(L"./Data/Images/map_04.png");
+		sprGoal2 = sprite_load(L"./Data/Images/goal.png");
 
 		audio_init();
 		player_init();
@@ -93,6 +95,9 @@ void normal_render() {
 
 	sprite_render(sprBack2, 0.0f, scrollValue2); // ”wŒi‚ğƒJƒƒ‰‚ÌˆÊ’u‚É‡‚í‚¹‚Ä•`‰æ
 	sprite_render(sprBack2, 0.0f, 10000.0f + scrollValue2); // ”wŒi‚ğƒJƒƒ‰‚ÌˆÊ’u‚É‡‚í‚¹‚Ä•`‰æ
+	sprite_render(sprBack2, 0.0f, 20000.0f + scrollValue2); // ”wŒi‚ğƒJƒƒ‰‚ÌˆÊ’u‚É‡‚í‚¹‚Ä•`‰æ
+	sprite_render(sprGoal2, 0.0f, 20000.0 + scrollValue2); // ”wŒi‚ğƒJƒƒ‰‚ÌˆÊ’u‚É‡‚í‚¹‚Ä•`‰æ
+
 
 	text_out(4, "Down:S Right: D Left: A", 0, 0, 1, 1);
 	text_out(0, "score", 1100, 0, 2, 2);

@@ -18,7 +18,7 @@ struct OBSTACLE_DATA {
 obstacleData[] = {
        {NULL,   L"./Data/Images/stone_01.png", { 0,0 }, { 200, 200 }, { 100, 100 }, {25}},
        {NULL,   L"./Data/Images/tree_01.png", { 0,0 }, { 100, 200 }, { 50, 100 }, {20}},
-       {NULL,   L"./Data/Images/dirt.png", { 0,0 }, { 64, 64 }, { 32, 32 }, {30}},
+       {NULL,   L"./Data/Images/dirt.png", { 0,0 }, { 64, 64 }, { 32, 32 }, {40}},
 };
 OBJ2D obstacle[OBSTACLE_MAX];
 

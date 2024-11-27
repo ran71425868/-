@@ -58,7 +58,7 @@ void avalanche_update()
         //avalancheÇÃÉpÉâÉÅÅ[É^ê›íË
         avalanche = {};
         avalanche.timer = 0;
-        avalanche.pos = { SCREEN_W/2.0f,-100.0f };
+        avalanche.pos = { SCREEN_W/2.0f,-50.0f };
         avalanche.scale = { 1.5f,1.5f };
         avalanche.texPos = { 0,0 };
         avalanche.texSize = { AVALANCHE_TEX_W ,AVALANCHE_TEX_H };

@@ -41,6 +41,7 @@ void game_deinit() {
 	enemy_deinit();
 	obstacle_deinit();
 	flag_deinit();
+	goal_deinit();
 	avalanche_deinit();
 	
 }
@@ -50,12 +51,14 @@ void game_update()
 	{
 	case 0:
 		sprBack = sprite_load(L"./Data/Images/map_04.png");
+		
 
 		audio_init();
 		player_init();
 		enemy_init();
 		obstacle_init();
 		flag_init();
+		goal_init();
 		avalanche_init();
 
 		game_state++;
@@ -85,6 +88,7 @@ void game_update()
 		enemy_update();
 		obstacle_update();
 		flag_update();
+		goal_update();
 		avalanche_update();
 
 
@@ -101,6 +105,7 @@ void game_render() {
 	
 	sprite_render(sprBack, 0.0f, scrollValue); // ”wŒi‚ğƒJƒƒ‰‚ÌˆÊ’u‚É‡‚í‚¹‚Ä•`‰æ
 	sprite_render(sprBack, 0.0f, 10000.0f+scrollValue); // ”wŒi‚ğƒJƒƒ‰‚ÌˆÊ’u‚É‡‚í‚¹‚Ä•`‰æ
+	sprite_render(sprBack, 0.0f, 20000.0f+scrollValue); // ”wŒi‚ğƒJƒƒ‰‚ÌˆÊ’u‚É‡‚í‚¹‚Ä•`‰æ
 
 	text_out(4, "Down:S Right: D Left: A", 0, 0, 1, 1);
 	text_out(0, "score", 1100, 0, 2, 2);
@@ -112,6 +117,7 @@ void game_render() {
 	enemy_render();
 	obstacle_render();
 	flag_render();
+	goal_render();
 	avalanche_render();
 	
 }

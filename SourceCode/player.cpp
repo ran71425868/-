@@ -239,7 +239,7 @@ void player_moveX()
 
 void player_hp()
 {
-  /*  for (int i = 0; i < 3; i++) {
+    for (int i = 0; i < 3; i++) {
         if (enemy[i].moveAlg == -1) {
             hp -= 5;
 
@@ -256,6 +256,6 @@ void player_hp()
         if (enemy[i].moveAlg == -1) {
             hp -= 15;
         }
-    }*/
+    }
    
 }

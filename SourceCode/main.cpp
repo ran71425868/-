@@ -27,7 +27,7 @@ void setFullScreenMode()
 // WinMain 関数を記述する
 int APIENTRY wWinMain(HINSTANCE, HINSTANCE, LPWSTR, int) {
 	//ゲームライブラリの初期設定
-	GameLib::init(L"Snowy Skiing", SCREEN_W, SCREEN_H);
+	GameLib::init(L"Skiing in Escape", SCREEN_W, SCREEN_H);
 	setFullScreenMode();
 
 	audio_init();
@@ -66,6 +66,9 @@ int APIENTRY wWinMain(HINSTANCE, HINSTANCE, LPWSTR, int) {
 			case SCENE_TUTORIAL:
 				tutorial_deinit();
 				break;
+			case SCENE_RESULT_OVER:
+				result_over_deinit();
+				break;
 			
 			}
 
@@ -97,6 +100,10 @@ int APIENTRY wWinMain(HINSTANCE, HINSTANCE, LPWSTR, int) {
 
 			case SCENE_TUTORIAL:
 				tutorial_init();
+				break;
+
+			case SCENE_RESULT_OVER:
+				result_over_init();
 				break;
 			
 			}
@@ -144,6 +151,10 @@ int APIENTRY wWinMain(HINSTANCE, HINSTANCE, LPWSTR, int) {
 			tutorial_update();
 			tutorial_render();
 			break;
+		case SCENE_RESULT_OVER:
+			result_over_update();
+			result_over_render();
+			break;
 
 		}
 
@@ -184,7 +195,10 @@ int APIENTRY wWinMain(HINSTANCE, HINSTANCE, LPWSTR, int) {
 	case SCENE_TUTORIAL:
 		tutorial_deinit();
 		break;
-	
+
+	case SCENE_RESULT_OVER:
+		result_over_deinit();
+		break;
 	}
 
 	//ゲームライブラリの終了処理

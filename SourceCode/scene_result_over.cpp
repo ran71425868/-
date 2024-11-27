@@ -47,7 +47,7 @@ void result_over_update()
 
 void result_over_render()
 {
-	GameLib::clear(0, 0, 3);
+	GameLib::clear(0, 0, 0);
 	
 	text_out(4, "score", 490, 250, 3, 3);
 	text_out(0, std::to_string(score), 570, 320, 3, 3);

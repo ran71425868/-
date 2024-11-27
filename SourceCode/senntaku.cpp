@@ -56,18 +56,22 @@ void senntaku_update() {
 	case 2:
 		//////// �ʏ펞 ////////
 		if (TRG(0) & PAD_L2) {
+			music::play(4, false);
 			nextScene = SCENE_EASY;
 			break;
 		}
 		if (TRG(0) & PAD_L3) {
+			music::play(4, false);
 			nextScene = SCENE_NORMAL;
 			break;
 		}
 		if (TRG(0) & PAD_R1) {
+			music::play(4, false);
 			nextScene = SCENE_GAME;
 			break;
 		}
 		if (TRG(0) & PAD_L1) {
+			music::play(4, false);
 			nextScene = SCENE_TUTORIAL;
 			break;
 		}
@@ -106,7 +110,4 @@ void senntaku_render() {
 		sprite_render(sprI, 1400, 600, 1.0f, 1.0f);
 		sprite_render(sprT, SCREEN_W / 2.0f-100, 300, 1.0f, 1.0f);
 	}
-	/*if (senntaku_timer / 32 % 2 == 1) {
-		text_out(4, "Push Enter Key", 350, 450, 2, 2, 1, 1, 1);
-	}*/
 }

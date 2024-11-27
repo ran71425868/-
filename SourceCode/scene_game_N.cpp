@@ -16,6 +16,7 @@ extern OBJ2D flag[FLAG_MAX];
 extern int hp;
 
 Sprite* sprBack2;
+Sprite* sprGoal2;
 
 std::ostringstream oss2;                                 // •¶Žš—ñƒXƒgƒŠ[ƒ€
 POINT point2;
@@ -47,6 +48,7 @@ void normal_update()
 	{
 	case 0:
 		sprBack2 = sprite_load(L"./Data/Images/map_04.png");
+		sprGoal2 = sprite_load(L"./Data/Images/goal.png");
 
 		audio_init();
 		player_init();
@@ -93,6 +95,9 @@ void normal_render() {
 
 	sprite_render(sprBack2, 0.0f, scrollValue2); // ”wŒi‚ðƒJƒƒ‰‚ÌˆÊ’u‚É‡‚í‚¹‚Ä•`‰æ
 	sprite_render(sprBack2, 0.0f, 10000.0f + scrollValue2); // ”wŒi‚ðƒJƒƒ‰‚ÌˆÊ’u‚É‡‚í‚¹‚Ä•`‰æ
+	sprite_render(sprBack2, 0.0f, 20000.0f + scrollValue2); // ”wŒi‚ðƒJƒƒ‰‚ÌˆÊ’u‚É‡‚í‚¹‚Ä•`‰æ
+	sprite_render(sprGoal2, 0.0f, 20000.0 + scrollValue2); // ”wŒi‚ðƒJƒƒ‰‚ÌˆÊ’u‚É‡‚í‚¹‚Ä•`‰æ
+
 
 	text_out(4, "Down:S Right: D Left: A", 0, 0, 1, 1);
 	text_out(0, "score", 1100, 0, 2, 2);
@@ -105,36 +110,4 @@ void normal_render() {
 	flag_render();
 	avalanche_render();
 
-}
-void normal_score()
-{
-	if (combo2 >= 30)
-		comboscore1 = 2.5f;
-	else if (combo2>= 20)
-		comboscore1 = 2.0f;
-	else if (combo2>= 10)
-		comboscore1 = 1.5f;
-	else
-		comboscore1 = 1.0f;
-
-
-	for (int i = 0; i < FLAG_MAX; i++) {
-		if (flag[i].moveAlg == -1)
-			score2 += 100 * comboscore1;
-
-	}
-	combo2++;
-}
-
-void normal_clear()
-{
-
-}
-
-void normal_over()
-{
-	if (player.pos.y < 300.0f)
-	{
-		nextScene = SCENE_RESULT;
-	}
 }

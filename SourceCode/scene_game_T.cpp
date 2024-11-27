@@ -17,7 +17,8 @@ extern OBJ2D flag[FLAG_MAX];
 extern int hp;
 
 Sprite* sprBack3;
-
+Sprite* sprSousa;
+Sprite* sprBusuto;
 std::ostringstream oss1;                                 // •¶Žš—ñƒXƒgƒŠ[ƒ€
 POINT point3;
 
@@ -49,6 +50,8 @@ void tutorial_update()
 	{
 	case 0:
 		sprBack3 = sprite_load(L"./Data/Images/map_04.png");
+		sprSousa = sprite_load(L"./Data/Images/sousa.png");
+		sprBusuto = sprite_load(L"./Data/Images/busuto.png");
 
 		audio_init();
 		player_init();
@@ -71,7 +74,7 @@ void tutorial_update()
 
 	case 2:
 		if (TRG(0) & PAD_SELECT) {
-			nextScene = SCENE_RESULT;
+			nextScene = SCENE_SENNTAKU;
 			break;
 		}
 
@@ -81,9 +84,9 @@ void tutorial_update()
 		}
 
 		player_update();
-		enemy_update();
+		/*enemy_update();
 		obstacle_update();
-		avalanche_update();
+		avalanche_update();*/
 		flag_update();
 
 
@@ -96,20 +99,13 @@ void tutorial_update()
 
 	tutorial_timer++;
 }
-void tutorial_render() {
-
-	text_out(4, "Up:W Down:S Right: D Left: A", 0, 0, 1, 1);
-	//text_out(4, "angle++:Up Key angle--:Down Key", 0, 30, 1, 1);
-	text_out(0, "score", 1100, 0, 2, 2);
-	text_out(0, std::to_string(score3), 1100, 50, 2, 2);
-	text_out(0, "combo", 0, 150, 2, 2);
-	text_out(0, std::to_string(combo3), 0, 200, 2, 2);
-
-
+void tutorial_render() 
+{
 
 	sprite_render(sprBack3, 0.0f, scrollValue1); // ”wŒi‚ðƒJƒƒ‰‚ÌˆÊ’u‚É‡‚í‚¹‚Ä•`‰æ
 	sprite_render(sprBack3, 0.0f, 10000.0f + scrollValue1); // ”wŒi‚ðƒJƒƒ‰‚ÌˆÊ’u‚É‡‚í‚¹‚Ä•`‰æ
-
+	sprite_render(sprSousa, 300, 0, 1.3f, 1.3f);
+	sprite_render(sprBusuto, 1000, 0, 1.0f, 1.0f);
 
 	player_render();
 	//enemy_render();
@@ -117,36 +113,4 @@ void tutorial_render() {
 	//avalanche_render();
 	flag_render();
 
-}
-void tutorial_score()
-{
-	if (combo3>= 30)
-		comboscore3 = 2.5f;
-	else if (combo3 >= 20)
-		comboscore3 = 2.0f;
-	else if (combo3 >= 10)
-		comboscore3 = 1.5f;
-	else
-		comboscore3 = 1.0f;
-
-
-	for (int i = 0; i < FLAG_MAX; i++) {
-		if (enemy[i].moveAlg == -1)
-			score3 += 100 * comboscore3;
-
-	}
-	combo3++;
-}
-
-void tutorial_clear()
-{
-
-}
-
-void tutorial_over()
-{
-	if (player.pos.y < 300.0f)
-	{
-		nextScene = SCENE_RESULT;
-	}
 }

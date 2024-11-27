@@ -136,7 +136,7 @@ void player_render()
     //ÉvÉåÉCÉÑÅ[ÇÃï`âÊ
     sprite_render(sprPlayer, player.pos.x + scroll_position_X, player.pos.y + scroll_position_Y, player.scale.x, player.scale.y, player.texPos.x, player.texPos.y, player.texSize.x, player.texSize.y, player.pivot.x, player.pivot.y,
         ToRadian(0), player.color.x, player.color.y);
-    primitive::rect(player.pos.x-100, player.pos.y-150, 200 * hp / 100, 15, 0, 0, ToRadian(0), 0, 1, 0);
+    primitive::rect(player.pos.x-100, player.pos.y-100, 200 * hp / 100, 15, 0, 0, ToRadian(0), 0, 1, 0);
     
     text_out(0, "boost", 0, 500, 2, 2);
     text_out(0, std::to_string(boost_timer), 0, 550, 2, 2);
@@ -254,7 +254,8 @@ void player_hp()
 
     for (int i = 6; i < 8; i++) {
         if (enemy[i].moveAlg == -1) {
-            hp -= 30;
+            hp -= 15;
         }
     }*/
+   
 }

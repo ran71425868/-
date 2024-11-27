@@ -11,6 +11,7 @@
 #include "obj2d.h"
 #include "player.h"
 #include "enemy.h"
+#include "goal.h"
 #include "avalanche.h"
 #include "obstacle.h"
 #include "flag.h"
@@ -23,6 +24,7 @@
 #include "scene_game_T.h"
 #include "scene_title.h"
 #include "scene_result.h"
+#include "scene_result_over.h"
 #include "senntaku.h"
 
 
@@ -30,4 +32,4 @@ using namespace GameLib;// using ディレクティブ
 using namespace input;
 
 //インクルードガード終了
-#endif//ALL_
+#endif//ALL_H

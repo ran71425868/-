@@ -203,8 +203,8 @@ void moveEnemy0(OBJ2D* obj)
 
             obj->speed = { dx / dist * 1, dy / dist * 1 };
         }
-        obj->pos += obj->speed*4;
-        obj->pos -= obj->speed*4*0.85;
+        obj->pos += obj->speed*2.5;
+        obj->pos -= obj->speed*2.5*0.85;
 
         
         break;
@@ -240,8 +240,8 @@ void moveEnemy1(OBJ2D* obj)
 
         obj->speed = { dx / dist * 1, dy / dist * 1 };
     }
-    obj->pos += obj->speed * 5;
-    obj->pos -= obj->speed*5*0.85;
+    obj->pos += obj->speed * 3;
+    obj->pos -= obj->speed*3*0.85;
    
         break;
     }

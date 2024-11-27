@@ -1,6 +1,7 @@
 //必要なファイルをインクルード
 #include "all.h"
 
+
 int curScene = SCENE_NONE;
 int nextScene = SCENE_TITLE;
 
@@ -28,6 +29,8 @@ int APIENTRY wWinMain(HINSTANCE, HINSTANCE, LPWSTR, int) {
 	//ゲームライブラリの初期設定
 	GameLib::init(L"Snowy Skiing", SCREEN_W, SCREEN_H);
 	setFullScreenMode();
+
+	audio_init();
 	//ゲームループ
 	while (GameLib::gameLoop())
 	{

@@ -37,6 +37,7 @@ void easy_deinit() {
 	music::stop(0);
 	player_deinit();
 	flag_deinit();
+	goal_deinit();
 	avalanche_deinit();
 
 }
@@ -47,9 +48,11 @@ void easy_update()
 	case 0:
 		sprBack1 = sprite_load(L"./Data/Images/map_04.png");
 
+
 		audio_init();
 		player_init();
 		flag_init();
+		goal_init();
 		avalanche_init();
 
 		easy_state++;
@@ -72,6 +75,7 @@ void easy_update()
 
 		player_update();
 		flag_update();
+		goal_update();
 		avalanche_update();
 
 
@@ -88,6 +92,7 @@ void easy_render() {
 
 	sprite_render(sprBack1, 0.0f, scrollValue3); // ”wŒi‚ðƒJƒƒ‰‚ÌˆÊ’u‚É‡‚í‚¹‚Ä•`‰æ
 	sprite_render(sprBack1, 0.0f, 10000.0f + scrollValue3); // ”wŒi‚ðƒJƒƒ‰‚ÌˆÊ’u‚É‡‚í‚¹‚Ä•`‰æ
+	sprite_render(sprBack1, 0.0f, 20000.0f + scrollValue3); // ”wŒi‚ðƒJƒƒ‰‚ÌˆÊ’u‚É‡‚í‚¹‚Ä•`‰æ
 
 	text_out(4, "Down:S Right: D Left: A", 0, 0, 1, 1);
 	text_out(0, "score", 1100, 0, 2, 2);
@@ -97,38 +102,7 @@ void easy_render() {
 
 	player_render();
 	flag_render();
+	goal_render();
 	avalanche_render();
 
-}
-void easy_score()
-{
-	if (combo1 >= 30)
-		comboscore2 = 2.5f;
-	else if (combo1 >= 20)
-		comboscore2 = 2.0f;
-	else if (combo1 >= 10)
-		comboscore2 = 1.5f;
-	else
-		comboscore2 = 1.0f;
-
-
-	for (int i = 0; i < FLAG_MAX; i++) {
-		if (flag[i].moveAlg == -1)
-			score1 += 100 * comboscore2;
-
-	}
-	combo1++;
-}
-
-void easy_clear()
-{
-
-}
-
-void easy_over()
-{
-	if (player.pos.y < 300.0f)
-	{
-		nextScene = SCENE_RESULT;
-	}
 }

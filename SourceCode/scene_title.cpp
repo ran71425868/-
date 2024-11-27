@@ -9,6 +9,7 @@ int title_second;
 Sprite* sprTitle1;
 Sprite* sprTitle2;
 Sprite* sprTitle_name;
+Sprite* sprTitle_Push;
 
 void title_init() {
 	title_state = 0;
@@ -28,14 +29,15 @@ void title_update() {
 		audio_init();
 		sprTitle1 = sprite_load(L"./Data/Images/title_a.png");
 		sprTitle2 = sprite_load(L"./Data/Images/title_b.png");
-		sprTitle_name = sprite_load(L"./Data/Images/title_name.png");
+		sprTitle_name = sprite_load(L"./Data/Images/BPush.png");
+		sprTitle_Push = sprite_load(L"./Data/Images/Push.png");
 		title_state++;
 		/*fallthrough*/
 
 	case 1:
 		//////// ÉpÉâÉÅÅ[É^ÇÃê›íË ////////
 		GameLib::setBlendMode(Blender::BS_ALPHA);
-		music::play(2);
+		music::play(0);
 		music::setVolume(2, 0.5f);
 		title_state++;
 		/*fallthrough*/
@@ -43,6 +45,7 @@ void title_update() {
 	case 2:
 		//////// í èÌéû ////////
 		if (TRG(0) & PAD_START) {
+			music::play(4, false);
 			nextScene = SCENE_SENNTAKU;
 			break;
 		}
@@ -81,10 +84,10 @@ void title_render() {
 		break;
 	}
 
-	sprite_render(sprTitle_name, 200, 200, 3.0f, 3.0f);
+	sprite_render(sprTitle_name, 200, 100, 3.0f, 3.0f);
 	
 	if (title_timer / 32 % 2 == 1) {
-		text_out(4, "Push Enter Key", 960, 720, 2, 2, 1, 1, 1);
+		sprite_render(sprTitle_Push, 300, 800, 2.0f, 2.0f);
 	}
 	
 }

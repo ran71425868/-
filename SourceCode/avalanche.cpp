@@ -56,7 +56,7 @@ void avalanche_update()
         avalanche = {};
         avalanche.timer = 0;
         avalanche.pos = { SCREEN_W/2.0f,-0.0f };
-        avalanche.scale = { 1.5f,1.5f };
+        avalanche.scale = { 2.0f,1.1f };
         avalanche.texPos = { 0,0 };
         avalanche.texSize = { AVALANCHE_TEX_W ,AVALANCHE_TEX_H };
         avalanche.pivot = { AVALANCHE_PIVOT_X,AVALANCHE_PIVOT_Y };

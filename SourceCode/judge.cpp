@@ -43,7 +43,7 @@ void judge()
             player_hp();
             player.speed.y = -20.0f;
             combo = 0;
-
+            music::play(3, false);
         }
     }
 
@@ -54,6 +54,7 @@ void judge()
             hp -= 5;
             player.speed.y = -20.0f;
             combo = 0;
+            music::play(6, false);
         }
 
        
@@ -64,7 +65,7 @@ void judge()
         if (flag[i].moveAlg == -1)continue;
         if (hitCheck(&player, &flag[i])) {
             flag[i].moveAlg = -1;
-
+            music::play(5, false);
             game_score();
         }
 
@@ -72,11 +73,14 @@ void judge()
     }
 
     //エネミーと障害物の判定
-    for (int i = 0; i < ENEMY_MAX; i++) {
+    for (int i = 0; i < ENEMY_MAX; i++) 
+    {
         if (enemy[i].moveAlg == -1)continue;
 
-        for (int j = 0; j < OBSTACLE_MAX; j++) {
-            if (hitCheck(&obstacle[j], &enemy[i])) {
+        for (int j = 0; j < OBSTACLE_MAX; j++) 
+        {
+            if (hitCheck(&obstacle[j], &enemy[i])) 
+            {
                 enemy[i].moveAlg = -1;
 
 

@@ -4,6 +4,8 @@ int title_state;
 int title_timer;
 
 Sprite* sprTitle;
+Sprite* sprTitle_name;
+Sprite* sprEnter;
 
 void title_init() {
 	title_state = 0;
@@ -19,7 +21,9 @@ void title_update() {
 		//////// èâä˙ê›íË ////////
 
 		audio_init();
-		sprTitle = sprite_load(L"./Data/Images/title.png");
+		sprTitle = sprite_load(L"./Data/Images/title_a.png");
+		sprEnter = sprite_load(L"./Data/Images/Push.png");
+		sprTitle_name= sprite_load(L"./Data/Images/title_name.png");
 		title_state++;
 		/*fallthrough*/
 
@@ -47,12 +51,14 @@ void title_update() {
 }
 void title_render() {
 	GameLib::clear(0, 0, 0);
-	sprite_render(sprTitle, 0,0,1.5f,1.5f);
+	sprite_render(sprTitle, 0,0,1.0f,1.0f);
+	sprite_render(sprTitle_name, 100,700,1.5f,1.5f);
 
-	GameLib::text_out(3, "repel it", 225, 80, 5, 5, 1, 1, 0);
-	GameLib::text_out(3, "the aliens", 404, 180, 5, 5, 1, 1, 0);
+	/*GameLib::text_out(3, "repel it", 225, 80, 5, 5, 1, 1, 0);
+	GameLib::text_out(3, "the aliens", 404, 180, 5, 5, 1, 1, 0);*/
 
-	if (title_timer / 32 % 2 == 1) {
-		text_out(4, "Push Enter Key", 350, 450, 2, 2, 1, 1, 1);
+	if (title_timer / 32 % 2 == 1) 
+	{
+		sprite_render(sprEnter, 350, 850, 2, 2);
 	}
 }

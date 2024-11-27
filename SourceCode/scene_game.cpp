@@ -144,5 +144,6 @@ void game_over()
 	if (player.pos.y < 300.0f)
 	{
 		nextScene = SCENE_RESULT;
+		music::play(7, false);
 	}
 }

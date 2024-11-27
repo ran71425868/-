@@ -31,7 +31,7 @@ void result_update() {
 		GameLib::setBlendMode(Blender::BS_ALPHA);
 		sound::play(XWB_SYSTEM, XWB_SYSTEM_DONPATU);
 
-		music::play(1);
+		/*music::play(1);*/
 		music::setVolume(1, 0.5f);
 		result_state++;
 		/*fallthrough*/

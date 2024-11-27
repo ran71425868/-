@@ -110,11 +110,6 @@ void game_render() {
 	sprite_render(sprBack, 0.0f, 10000.0f+scrollValue); // ”wŒi‚ğƒJƒƒ‰‚ÌˆÊ’u‚É‡‚í‚¹‚Ä•`‰æ
 	sprite_render(sprBack, 0.0f, 20000.0f+scrollValue); // ”wŒi‚ğƒJƒƒ‰‚ÌˆÊ’u‚É‡‚í‚¹‚Ä•`‰æ
 
-	text_out(4, "Down:S Right: D Left: A", 0, 0, 1, 1);
-	text_out(0, "score", 1100, 0, 2, 2);
-	text_out(0, std::to_string(score), 1100, 50, 2, 2);
-	text_out(0, "combo", 0, 150, 2, 2);
-	text_out(0, std::to_string(combo), 0, 200, 2, 2);
 	
 	player_render();
 	enemy_render();
@@ -123,6 +118,10 @@ void game_render() {
 	goal_render();
 	avalanche_render();
 	
+	text_out(0, "score", 1800, 450, 2, 2);
+	text_out(0, std::to_string(score), 1800, 500, 2, 2);
+	text_out(0, "combo", 1800, 550, 2, 2);
+	text_out(0, std::to_string(combo), 1800, 600, 2, 2);
 }
 void game_score()
 {
@@ -139,15 +138,11 @@ void game_score()
 			score += 100 * comboscore;
 
 	}
-
-	
-
 	combo++;
 }
 
 void game_clear()
 {
-	nextScene = SCENE_RESULT;
 
 	if (goalflug == 1) {
 		if (hp == 100) {
@@ -158,6 +153,7 @@ void game_clear()
 		}
 
 	}
+	nextScene = SCENE_RESULT;
 }
 
 void game_over()

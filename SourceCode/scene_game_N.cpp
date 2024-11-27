@@ -39,6 +39,7 @@ void normal_deinit() {
 	player_deinit();
 	obstacle_deinit();
 	flag_deinit();
+	goal_deinit();
 	avalanche_deinit();
 
 }
@@ -52,9 +53,10 @@ void normal_update()
 
 		audio_init();
 		player_init();
-		enemy_init();
+		//enemy_init();
 		obstacle_init();
 		flag_init();
+		goal_init();
 		avalanche_init();
 
 		normal_state++;
@@ -73,12 +75,13 @@ void normal_update()
 
 		if (hp <= 0)
 		{
-			nextScene = SCENE_RESULT;
+			nextScene = SCENE_RESULT_OVER;
 		}
 
 		player_update();
 		obstacle_update();
 		flag_update();
+		goal_update();
 		avalanche_update();
 
 
@@ -99,15 +102,16 @@ void normal_render() {
 	sprite_render(sprGoal2, 0.0f, 20000.0 + scrollValue2); // ”wŒi‚ðƒJƒƒ‰‚ÌˆÊ’u‚É‡‚í‚¹‚Ä•`‰æ
 
 
-	text_out(4, "Down:S Right: D Left: A", 0, 0, 1, 1);
-	text_out(0, "score", 1100, 0, 2, 2);
-	text_out(0, std::to_string(score2), 1100, 50, 2, 2);
-	text_out(0, "combo", 0, 150, 2, 2);
-	text_out(0, std::to_string(combo2), 0, 200, 2, 2);
+	
+	text_out(0, "score", 1800, 450, 2, 2);
+	text_out(0, std::to_string(score2), 1800, 500, 2, 2);
+	text_out(0, "combo", 1800, 550, 2, 2);
+	text_out(0, std::to_string(combo2), 0, 600, 2, 2);
 
 	player_render();
 	obstacle_render();
 	flag_render();
+	goal_render();
 	avalanche_render();
 
 }

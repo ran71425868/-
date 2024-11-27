@@ -5,7 +5,7 @@
 int rndx;
 int obstacle_state;
 
-extern float angle;
+int gameflug;
 
 struct OBSTACLE_DATA {
     Sprite* spr;
@@ -19,6 +19,7 @@ obstacleData[] = {
        {NULL,   L"./Data/Images/stone_01.png", { 0,0 }, { 200, 200 }, { 100, 100 }, {25}},
        {NULL,   L"./Data/Images/tree_01.png", { 0,0 }, { 100, 200 }, { 50, 100 }, {20}},
        {NULL,   L"./Data/Images/dirt.png", { 0,0 }, { 64, 64 }, { 32, 32 }, {40}},
+       {NULL,   L"./Data/Images/dirt.png", { 0,0 }, { 64, 64 }, { 32, 32 }, {300}},
 };
 OBJ2D obstacle[OBSTACLE_MAX];
 
@@ -35,21 +36,23 @@ obstacleSet[] = {
     {1,{  1000,1400 },0},
     {1,{  700, 1100},0},
     {1,{  800, 1600},0},
-    {2,{  300, 350},1},
-    {2,{  400, 350},1},
-    {2,{  500, 350},1},
-    {2,{  600, 350},1},
-    {2,{  700, 350},1},
-    {2,{  800, 350},1},
-    {2,{  900,350 },1},
-    {2,{  1000, 350},1},
-    {2,{  1100, 350},1},
-    {2,{  1200, 350},1},
-    {2,{  1300, 350},1},
-    {2,{  1400, 350},1},
-    {2,{  1500, 350},1},
-    {2,{  1600, 350},1},
-    {2,{  1700, 350},1},
+    {2,{  300, 300},1},
+    {2,{  400, 300},1},
+    {2,{  500, 300},1},
+    {2,{  600, 300},1},
+    {2,{  700, 300},1},
+    {2,{  800, 300},1},
+    {2,{  900,300 },1},
+    {2,{  1000, 300},1},
+    {2,{  1100, 300},1},
+    {2,{  1200, 300},1},
+    {2,{  1300, 300},1},
+    {2,{  1400, 300},1},
+    {2,{  1500, 300},1},
+    {2,{  1600, 300},1},
+    {2,{  1700, 300},1},
+    {3,{  300, 20500},1},
+    {3,{  1700, 20500},1},
     {-1,{  -1, -1 },-1},
 };
 
@@ -57,6 +60,7 @@ void obstacle_init()
 {
     //obstacle_state‚ð0
     obstacle_state = 0;
+    gameflug = 0;
 
     srand((unsigned)time(NULL));
     for (int i = 0; obstacleSet[i].obstacleType >= 0; i++) {
@@ -136,6 +140,9 @@ void obstacle_update()
             case 2:
                 Obstacle2(&obstacle[i]);
                 break;
+            case 3:
+                Obstacle3(&obstacle[i]);
+                break;
             }
             ++obstacle[i].timer;
         }
@@ -146,16 +153,30 @@ void obstacle_update()
 
 void obstacle_render()
 {
-    for (int i = 0; i < OBSTACLE_MAX; ++i)
+    if (gameflug == 0) 
     {
-        if (obstacle[i].moveAlg == -1)continue;
+        for (int i = 0; i < OBSTACLE_MAX; ++i)
+        {
+            if (obstacle[i].moveAlg == -1)continue;
 
-        //áŠQ•¨‚Ì•`‰æ
-        sprite_render(obstacle[i].spr, obstacle[i].pos.x, obstacle[i].pos.y, obstacle[i].scale.x, obstacle[i].scale.y, obstacle[i].texPos.x, obstacle[i].texPos.y, obstacle[i].texSize.x, obstacle[i].texSize.y,obstacle[i].pivot.x, obstacle[i].pivot.y, ToRadian(0), obstacle[i].color.x, obstacle[i].color.y,obstacle[i].color.z, obstacle[i].color.w);
+            //áŠQ•¨‚Ì•`‰æ
+            sprite_render(obstacle[i].spr, obstacle[i].pos.x, obstacle[i].pos.y, obstacle[i].scale.x, obstacle[i].scale.y, obstacle[i].texPos.x, obstacle[i].texPos.y, obstacle[i].texSize.x, obstacle[i].texSize.y, obstacle[i].pivot.x, obstacle[i].pivot.y, ToRadian(0), obstacle[i].color.x, obstacle[i].color.y, obstacle[i].color.z, obstacle[i].color.w);
 
-        primitive::circle(obstacle[i].pos + obstacle[i].offset,
-            obstacle[i].radius, { 1, 1 }, ToRadian(0), { 1, 0, 0, 0.2f });
+        }
     }
+    
+    
+    if (gameflug == 1) 
+    {
+        for (int i = 7; i < OBSTACLE_MAX; ++i)
+        {
+            if (obstacle[i].moveAlg == -1)continue;
+
+            //áŠQ•¨‚Ì•`‰æ
+            sprite_render(obstacle[i].spr, obstacle[i].pos.x, obstacle[i].pos.y, obstacle[i].scale.x, obstacle[i].scale.y, obstacle[i].texPos.x, obstacle[i].texPos.y, obstacle[i].texSize.x, obstacle[i].texSize.y, obstacle[i].pivot.x, obstacle[i].pivot.y, ToRadian(0), obstacle[i].color.x, obstacle[i].color.y, obstacle[i].color.z, obstacle[i].color.w);
+        }
+    }
+    
 }
 
 void obstacle_moveY()
@@ -163,6 +184,11 @@ void obstacle_moveY()
     for (int i = 0; i < 7; i++)
     {
         obstacle[i].pos.y -= 0.3f;
+    }
+
+    for (int i = 22; i < OBSTACLE_MAX; i++)
+    {
+        obstacle[i].pos.y -= 3;
     }
 
 }
@@ -225,6 +251,28 @@ void Obstacle2(OBJ2D* obj)
         obj->texSize = obstacleData[2].texSize;
         obj->pivot = obstacleData[2].pivot;
         obj->radius = obstacleData[2].radius;
+
+        ++obj->state;
+        /*fallthrough*/
+
+    case 1:
+        ////////’ÊíŽž////////
+        break;
+    }
+}
+
+void Obstacle3(OBJ2D* obj)
+{
+    switch (obj->state) {
+    case 0:
+
+        obj->scale = { 1.0f, 1.0f };
+        obj->color = { 1, 1, 1, 1 };
+        obj->spr = obstacleData[3].spr;
+        obj->texPos = obstacleData[3].texPos;
+        obj->texSize = obstacleData[3].texSize;
+        obj->pivot = obstacleData[3].pivot;
+        obj->radius = obstacleData[3].radius;
 
         ++obj->state;
         /*fallthrough*/

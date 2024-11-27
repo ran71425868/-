@@ -123,8 +123,7 @@ void flag_render()
         //Šø‚Ì•`‰æ
         sprite_render(flag[i].spr, flag[i].pos.x, flag[i].pos.y, flag[i].scale.x, flag[i].scale.y, flag[i].texPos.x, flag[i].texPos.y, flag[i].texSize.x, flag[i].texSize.y, flag[i].pivot.x, flag[i].pivot.y, ToRadian(0),flag[i].color.x, flag[i].color.y,flag[i].color.z, flag[i].color.w);
 
-        primitive::circle(flag[i].pos + flag[i].offset,
-            flag[i].radius, {1, 1}, ToRadian(0), {1, 0, 0, 0.2f});
+        
 
     }
 }

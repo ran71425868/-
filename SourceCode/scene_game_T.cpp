@@ -40,8 +40,8 @@ void tutorial_deinit() {
 	player_deinit();
 	/*enemy_deinit();
 	obstacle_deinit();*/
-	avalanche_deinit();
 	flag_deinit();
+	//avalanche_deinit();
 
 }
 void tutorial_update()
@@ -55,10 +55,10 @@ void tutorial_update()
 
 		audio_init();
 		player_init();
-		enemy_init();
-		obstacle_init();
-		avalanche_init();
+		/*enemy_init();
+		obstacle_init();*/
 		flag_init();
+		//avalanche_init();
 
 		tutorial_state++;
 		/*fallthrough*/
@@ -80,7 +80,7 @@ void tutorial_update()
 
 		if (hp <= 0)
 		{
-			nextScene = SCENE_RESULT;
+			nextScene = SCENE_RESULT_OVER;
 		}
 
 		player_update();

@@ -73,8 +73,6 @@ void goal_render()
         goal.pivot.x, goal.pivot.y,
         ToRadian(0), goal.color.x, goal.color.y);
 
-    primitive::circle(goal.pos + goal.offset, goal.radius, { 1, 1 }, ToRadian(0), { 1, 0, 0, 0.2f });
-
 }
 
 void goal_moveY()

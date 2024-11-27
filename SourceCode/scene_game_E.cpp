@@ -14,6 +14,7 @@ int combo1;
 extern OBJ2D flag[FLAG_MAX];
 
 extern int hp;
+extern int gameflug;
 
 Sprite* sprBack1;
 
@@ -37,6 +38,7 @@ void easy_deinit() {
 	music::stop(0);
 	player_deinit();
 	flag_deinit();
+	obstacle_deinit();
 	goal_deinit();
 	avalanche_deinit();
 
@@ -48,10 +50,10 @@ void easy_update()
 	case 0:
 		sprBack1 = sprite_load(L"./Data/Images/map_04.png");
 
-
 		audio_init();
 		player_init();
 		flag_init();
+		obstacle_init();
 		goal_init();
 		avalanche_init();
 
@@ -68,13 +70,15 @@ void easy_update()
 		/*fallthrough*/
 
 	case 2:
+		gameflug = 1;
 		if (hp <= 0)
 		{
-			nextScene = SCENE_RESULT;
+			nextScene = SCENE_RESULT_OVER;
 		}
 
 		player_update();
 		flag_update();
+		obstacle_update();
 		goal_update();
 		avalanche_update();
 
@@ -94,15 +98,16 @@ void easy_render() {
 	sprite_render(sprBack1, 0.0f, 10000.0f + scrollValue3); // ”wŒi‚ðƒJƒƒ‰‚ÌˆÊ’u‚É‡‚í‚¹‚Ä•`‰æ
 	sprite_render(sprBack1, 0.0f, 20000.0f + scrollValue3); // ”wŒi‚ðƒJƒƒ‰‚ÌˆÊ’u‚É‡‚í‚¹‚Ä•`‰æ
 
-	text_out(4, "Down:S Right: D Left: A", 0, 0, 1, 1);
-	text_out(0, "score", 1100, 0, 2, 2);
-	text_out(0, std::to_string(score1), 1100, 50, 2, 2);
-	text_out(0, "combo", 0, 150, 2, 2);
-	text_out(0, std::to_string(combo1), 0, 200, 2, 2);
 
 	player_render();
 	flag_render();
+	obstacle_render();
 	goal_render();
 	avalanche_render();
-
+	
+	text_out(0, "score", 1800, 450, 2, 2);
+	text_out(0, std::to_string(score1), 1800, 500, 2, 2);
+	text_out(0, "combo", 1800, 550, 2, 2);
+	text_out(0, std::to_string(combo1), 1800, 600, 2, 2);
+	
 }

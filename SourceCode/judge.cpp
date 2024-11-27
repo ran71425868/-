@@ -10,6 +10,7 @@ extern OBJ2D flag[FLAG_MAX];
 extern int combo;
 extern int hp;
 extern int goalflug;
+extern int gameflug;
 
 //当たり判定
 bool hitCheckCircle(VECTOR2 pos1, float r1, VECTOR2 pos2, float r2) {
@@ -49,16 +50,17 @@ void judge()
     }
 
     //プレイヤーと障害物の判定
-    for (int i = 0; i < OBSTACLE_MAX; i++) {
+    for (int i = 0; i < 7; i++) {
         if (obstacle[i].moveAlg == -1)continue;
-        if (hitCheck(&player, &obstacle[i])) {
-            hp -= 3;
-            player.speed.y = -20.0f;
-            combo = 0;
-            music::play(6, false);
+        if (gameflug == 0) {
+            if (hitCheck(&player, &obstacle[i])) {
+                hp -= 3;
+                player.speed.y = -20.0f;
+                combo = 0;
+                music::play(6, false);
+            }
         }
 
-       
     }
 
     //プレイヤーと旗の判定
@@ -74,29 +76,29 @@ void judge()
     }
 
     //エネミーと障害物の判定
-    for (int i = 0; i < ENEMY_MAX; i++) 
+    for (int i = 0; i < ENEMY_MAX; i++)
     {
         if (enemy[i].moveAlg == -1)continue;
 
-        for (int j = 0; j < OBSTACLE_MAX; j++) 
+        for (int j = 0; j < OBSTACLE_MAX; j++)
         {
-            if (hitCheck(&obstacle[j], &enemy[i])) 
+            if (hitCheck(&obstacle[j], &enemy[i]))
             {
                 enemy[i].moveAlg = -1;
 
 
             }
         }
-        
+
     }
 
     for (int i = 0; i < FLAG_MAX; i++) {
         if (flag[i].moveAlg == -1)continue;
         for (int j = 7; j < OBSTACLE_MAX; j++) {
             if (hitCheck(&obstacle[j], &flag[i])) {
-                
-                    flag[i].moveAlg = -1;
-               
+
+                flag[i].moveAlg = -1;
+
             }
         }
     }
@@ -112,10 +114,17 @@ void judge()
         }
     }
 
+    if (hitCheck(&player, &goal)) {
+        goalflug = 1;
+        game_clear();
+    }
 
+    for (int i = 22; i < OBSTACLE_MAX; i++) {
+        if (obstacle[i].moveAlg == -1)continue;
+        if (hitCheck(&player, &obstacle[i])) {
+            nextScene = SCENE_RESULT_OVER;
 
-        if (hitCheck(&player, &goal)) {
-            goalflug = 1;
-            game_clear();
         }
+    }
+
 }

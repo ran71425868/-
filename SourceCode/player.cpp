@@ -254,7 +254,7 @@ void player_hp()
 
     for (int i = 6; i < 8; i++) {
         if (enemy[i].moveAlg == -1) {
-            hp -= 30;
+            hp -= 15;
         }
     }*/
 }

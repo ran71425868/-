@@ -51,7 +51,7 @@ void judge()
     for (int i = 0; i < OBSTACLE_MAX; i++) {
         if (obstacle[i].moveAlg == -1)continue;
         if (hitCheck(&player, &obstacle[i])) {
-            hp -= 5;
+            hp -= 3;
             player.speed.y = -20.0f;
             combo = 0;
         }

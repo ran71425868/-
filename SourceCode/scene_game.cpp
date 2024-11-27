@@ -8,6 +8,7 @@ float playerX;
 float playerY;
 
 int score;
+int goalflag = 0;
 float comboscore;
 int combo;
 
@@ -116,12 +117,10 @@ void game_render() {
 }
 void game_score()
 {
-	if (combo >= 30)
+	if (combo >= 10)
 		comboscore = 2.5f;
-	else if (combo >= 20)
+	else if (combo >=5)
 		comboscore = 2.0f;
-	else if (combo >= 10)
-		comboscore = 1.5f;
 	else
 		comboscore = 1.0f;
 
@@ -136,6 +135,8 @@ void game_score()
 
 void game_clear()
 {
+	goalflag = 1;
+
 
 }
 

@@ -15,7 +15,7 @@
 #define GOAL_TEX_W                 1280.0f
 #define GOAL_TEX_H                 720.0f
 #define GOAL_PIVOT_X               640.0f
-#define GOAL_PIVOT_Y               450.0f
+#define GOAL_PIVOT_Y               490.0f
 //------< •Ï” >----------------------------------------------------------------
 
 extern OBJ2D goal;

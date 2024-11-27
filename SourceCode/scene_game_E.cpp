@@ -17,8 +17,6 @@ extern int hp;
 
 Sprite* sprBack1;
 
-
-
 std::ostringstream oss3;                                 // •¶Žš—ñƒXƒgƒŠ[ƒ€
 POINT point1;
 
@@ -107,36 +105,4 @@ void easy_render() {
 	goal_render();
 	avalanche_render();
 
-}
-void easy_score()
-{
-	if (combo1 >= 30)
-		comboscore2 = 2.5f;
-	else if (combo1 >= 20)
-		comboscore2 = 2.0f;
-	else if (combo1 >= 10)
-		comboscore2 = 1.5f;
-	else
-		comboscore2 = 1.0f;
-
-
-	for (int i = 0; i < FLAG_MAX; i++) {
-		if (flag[i].moveAlg == -1)
-			score1 += 100 * comboscore2;
-
-	}
-	combo1++;
-}
-
-void easy_clear()
-{
-
-}
-
-void easy_over()
-{
-	if (player.pos.y < 300.0f)
-	{
-		nextScene = SCENE_RESULT;
-	}
 }

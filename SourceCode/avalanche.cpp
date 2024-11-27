@@ -84,7 +84,7 @@ void avalanche_update()
 void avalanche_render()
 {
     //ê·ïˆÇÃï`âÊ
-    if (avalanche_flag == 0) {
+    /*if (avalanche_flag == 0) {
         sprite_render(sprAvalanche1,
             avalanche.pos.x, avalanche.pos.y,
             avalanche.scale.x, avalanche.scale.y,
@@ -101,7 +101,7 @@ void avalanche_render()
             avalanche.texSize.x, avalanche.texSize.y,
             avalanche.pivot.x, avalanche.pivot.y,
             ToRadian(0), avalanche.color.x, avalanche.color.y);
-    }
+    }*/
 
     while (1) {
         if (avalanche_timer % 100 == 0)

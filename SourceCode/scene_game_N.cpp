@@ -111,35 +111,3 @@ void normal_render() {
 	avalanche_render();
 
 }
-void normal_score()
-{
-	if (combo2 >= 30)
-		comboscore1 = 2.5f;
-	else if (combo2>= 20)
-		comboscore1 = 2.0f;
-	else if (combo2>= 10)
-		comboscore1 = 1.5f;
-	else
-		comboscore1 = 1.0f;
-
-
-	for (int i = 0; i < FLAG_MAX; i++) {
-		if (flag[i].moveAlg == -1)
-			score2 += 100 * comboscore1;
-
-	}
-	combo2++;
-}
-
-void normal_clear()
-{
-
-}
-
-void normal_over()
-{
-	if (player.pos.y < 300.0f)
-	{
-		nextScene = SCENE_RESULT;
-	}
-}

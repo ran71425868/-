@@ -99,12 +99,8 @@ void tutorial_update()
 
 	tutorial_timer++;
 }
-void tutorial_render() {
-	
-	
-
-
-
+void tutorial_render() 
+{
 
 	sprite_render(sprBack3, 0.0f, scrollValue1); // ”wŒi‚ðƒJƒƒ‰‚ÌˆÊ’u‚É‡‚í‚¹‚Ä•`‰æ
 	sprite_render(sprBack3, 0.0f, 10000.0f + scrollValue1); // ”wŒi‚ðƒJƒƒ‰‚ÌˆÊ’u‚É‡‚í‚¹‚Ä•`‰æ
@@ -117,36 +113,4 @@ void tutorial_render() {
 	//avalanche_render();
 	flag_render();
 
-}
-void tutorial_score()
-{
-	if (combo3>= 30)
-		comboscore3 = 2.5f;
-	else if (combo3 >= 20)
-		comboscore3 = 2.0f;
-	else if (combo3 >= 10)
-		comboscore3 = 1.5f;
-	else
-		comboscore3 = 1.0f;
-
-
-	for (int i = 0; i < FLAG_MAX; i++) {
-		if (enemy[i].moveAlg == -1)
-			score3 += 100 * comboscore3;
-
-	}
-	combo3++;
-}
-
-void tutorial_clear()
-{
-
-}
-
-void tutorial_over()
-{
-	if (player.pos.y < 300.0f)
-	{
-		nextScene = SCENE_RESULT;
-	}
 }

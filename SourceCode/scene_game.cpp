@@ -8,7 +8,8 @@ float playerX;
 float playerY;
 
 int score;
-int goalflag = 0;
+int hp_score;
+int goalflug;
 float comboscore;
 int combo;
 
@@ -29,8 +30,10 @@ void game_init() {
 	game_state = 0;
 	game_timer = 0;
 	score = 0;
+	hp_score = 0;
 	combo = 0;
 	comboscore = 1.0f;
+	goalflug = 0;
 
 	playerX = SCREEN_W /2.0f;
 	playerY = SCREEN_H /2.0f;
@@ -136,21 +139,32 @@ void game_score()
 			score += 100 * comboscore;
 
 	}
+
+	
+
 	combo++;
 }
 
 void game_clear()
 {
-	goalflag = 1;
+	nextScene = SCENE_RESULT;
 
+	if (goalflug == 1) {
+		if (hp == 100) {
+			hp_score = 1500;
+		}
+		else {
+			hp_score += hp * 10;
+		}
 
+	}
 }
 
 void game_over()
 {
 	if (player.pos.y < 300.0f)
 	{
-		nextScene = SCENE_RESULT;
+		nextScene = SCENE_RESULT_OVER;
 		music::play(7, false);
 	}
 }

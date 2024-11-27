@@ -158,6 +158,7 @@
     <ClCompile Include="SourceCode\scene_game_N.cpp" />
     <ClCompile Include="SourceCode\scene_game_T.cpp" />
     <ClCompile Include="SourceCode\scene_result.cpp" />
+    <ClCompile Include="SourceCode\scene_result_over.cpp" />
     <ClCompile Include="SourceCode\scene_title.cpp" />
     <ClCompile Include="SourceCode\senntaku.cpp" />
   </ItemGroup>
@@ -197,6 +198,7 @@
     <ClInclude Include="SourceCode\scene_game_N.h" />
     <ClInclude Include="SourceCode\scene_game_T.h" />
     <ClInclude Include="SourceCode\scene_result.h" />
+    <ClInclude Include="SourceCode\scene_result_over.h" />
     <ClInclude Include="SourceCode\scene_title.h" />
     <ClInclude Include="SourceCode\senntaku.h" />
   </ItemGroup>

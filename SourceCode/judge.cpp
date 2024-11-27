@@ -9,6 +9,7 @@ extern OBJ2D flag[FLAG_MAX];
 
 extern int combo;
 extern int hp;
+extern int goalflug;
 
 //“–‚½‚è”»’è
 bool hitCheckCircle(VECTOR2 pos1, float r1, VECTOR2 pos2, float r2) {
@@ -110,4 +111,11 @@ void judge()
             }
         }
     }
+
+
+
+        if (hitCheck(&player, &goal)) {
+            goalflug = 1;
+            game_clear();
+        }
 }

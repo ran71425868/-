@@ -45,7 +45,7 @@ void goal_update()
         goal.texSize = { GOAL_TEX_W ,GOAL_TEX_H };
         goal.pivot = { GOAL_PIVOT_X,GOAL_PIVOT_Y };
         goal.color = { 1.0f,1.0f,1.0f,1.0f };
-        goal.radius = 100.0f;
+        goal.radius = 450.0f;
         goal.offset = { 0,0 };
 
 

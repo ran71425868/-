@@ -50,8 +50,8 @@ void result_render() {
 	GameLib::clear(0, 0, 2);
 	sprite_render(sprResult, 0, 0);
 
-	text_out(4, "score", 490, 250, 3, 3);
-	text_out(0, std::to_string(score), 570, 320, 3, 3);
+	text_out(4, "score", 490, 250, 3, 3,1,1,1,1);
+	text_out(0, std::to_string(score), 570, 320, 3, 3,1,1,1,1);
 
 	if (result_timer / 32 % 2 == 1) {
 		text_out(4, "Push Enter Key", 500, 500, 2, 2, 1, 1, 1);

@@ -110,7 +110,4 @@ void senntaku_render() {
 		sprite_render(sprI, 1400, 600, 1.0f, 1.0f);
 		sprite_render(sprT, SCREEN_W / 2.0f-100, 300, 1.0f, 1.0f);
 	}
-	/*if (senntaku_timer / 32 % 2 == 1) {
-		text_out(4, "Push Enter Key", 350, 450, 2, 2, 1, 1, 1);
-	}*/
 }

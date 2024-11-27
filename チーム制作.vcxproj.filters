@@ -100,6 +100,9 @@
     <ClCompile Include="SourceCode\goal.cpp">
       <Filter>ソースファイル</Filter>
     </ClCompile>
+    <ClCompile Include="SourceCode\scene_result_over.cpp">
+      <Filter>ソースファイル</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="SourceCode\all.h">
@@ -211,6 +214,9 @@
       <Filter>GameLib\ヘッダーファイル</Filter>
     </ClInclude>
     <ClInclude Include="SourceCode\goal.h">
+      <Filter>ヘッダーファイル</Filter>
+    </ClInclude>
+    <ClInclude Include="SourceCode\scene_result_over.h">
       <Filter>ヘッダーファイル</Filter>
     </ClInclude>
   </ItemGroup>

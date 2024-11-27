@@ -8,9 +8,5 @@ void normal_init();
 void normal_deinit();
 void normal_update();
 void normal_render();
-void normal_score();
-
-void normal_clear();
-void normal_over();
 
 #endif//SCENE_GAME_H

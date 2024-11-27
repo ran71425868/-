@@ -13,6 +13,7 @@ using namespace GameLib;
 #define SCENE_TUTORIAL 4
 #define SCENE_EASY 5
 #define SCENE_NORMAL 6
+#define SCENE_RESULT_OVER 7
 
 
 //íËêî

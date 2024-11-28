@@ -115,7 +115,6 @@ void judge()
     }
 
     if (hitCheck(&player, &goal)) {
-        goalflug = 1;
         game_clear();
     }
 

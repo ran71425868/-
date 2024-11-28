@@ -122,10 +122,10 @@ void game_render() {
 	goal_render();
 	avalanche_render();
 	
-	text_out(0, "score", 1800, 450, 2, 2);
-	text_out(0, std::to_string(score), 1800, 500, 2, 2);
-	text_out(0, "combo", 1800, 550, 2, 2);
-	text_out(0, std::to_string(combo), 1800, 600, 2, 2);
+	text_out(0, "score", 1700, 450, 2, 2);
+	text_out(0, std::to_string(score), 1700, 500, 2, 2);
+	text_out(0, "combo", 1700, 550, 2, 2);
+	text_out(0, std::to_string(combo), 1700, 600, 2, 2);
 }
 void game_score()
 {
@@ -147,13 +147,16 @@ void game_score()
 
 void game_clear()
 {
+	goalflug = 1;
 
 	if (goalflug == 1) {
 		if (hp == 100) {
 			hp_score = 1500;
+			score += hp_score;
 		}
 		else {
 			hp_score += hp * 10;
+			score += hp_score;
 		}
 
 	}

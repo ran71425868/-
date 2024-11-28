@@ -3,8 +3,6 @@
 int result_over_state;
 int result_over_timer;
 
-Sprite* sprResult_over;
-Sprite* sprScore_over;
 Sprite* sprGame_over;
 
 extern int score;
@@ -24,8 +22,6 @@ void result_over_update()
 	switch (result_over_state) {
 	case 0:
 		////////‰Šúİ’è////////
-		sprResult_over = sprite_load(L"./Data/Images/result.png");
-		sprScore_over = sprite_load(L"./Data/Images/Score.png");
 		sprGame_over = sprite_load(L"./Data/Images/GameOver.png");
 
 		audio_init();
@@ -35,10 +31,9 @@ void result_over_update()
 	case 1:
 		//////// ƒpƒ‰ƒ[ƒ^‚Ìİ’è ////////
 		GameLib::setBlendMode(Blender::BS_ALPHA);
-		sound::play(XWB_SYSTEM, XWB_SYSTEM_DONPATU);
 
-		music::play(8);
-		music::setVolume(8, 0.5f);
+		music::play(10);
+		music::setVolume(10, 0.5f);
 		result_over_state++;
 		/*fallthrough*/
 
@@ -55,11 +50,9 @@ void result_over_update()
 void result_over_render()
 {
 	GameLib::clear(0, 0, 0);
-	sprite_render(sprResult_over, 0, 0);
-	sprite_render(sprScore_over, 700, 100,2,2);
 	sprite_render(sprGame_over, 680, 50);
 	
-	
+	text_out(4, "Score", 750, 200, 4, 4);
 	text_out(0, std::to_string(score), 900, 300, 3, 3);
 
 	if (result_over_timer / 32 % 2 == 1) {

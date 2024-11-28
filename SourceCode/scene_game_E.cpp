@@ -7,9 +7,9 @@ int easy_timer;
 float playerX1;
 float playerY1;
 
-int score1;
-float comboscore2;
-int combo1;
+extern int score;
+extern float comboscore;
+extern int combo;
 
 extern OBJ2D flag[FLAG_MAX];
 
@@ -27,9 +27,6 @@ float scrollValue3 = 0.0f;
 void easy_init() {
 	easy_state = 0;
 	easy_timer = 0;
-	score1 = 0;
-	combo1 = 0;
-	comboscore2 = 1.0f;
 
 	playerX1 = SCREEN_W / 2.0f;
 	playerY1 = SCREEN_H / 2.0f;
@@ -110,9 +107,9 @@ void easy_render() {
 	goal_render();
 	avalanche_render();
 	
-	text_out(0, "score", 1800, 450, 2, 2);
-	text_out(0, std::to_string(score1), 1800, 500, 2, 2);
-	text_out(0, "combo", 1800, 550, 2, 2);
-	text_out(0, std::to_string(combo1), 1800, 600, 2, 2);
+	text_out(0, "score", 1700, 450, 2, 2);
+	text_out(0, std::to_string(score), 1700, 500, 2, 2);
+	text_out(0, "combo", 1700, 550, 2, 2);
+	text_out(0, std::to_string(combo), 1700, 600, 2, 2);
 	
 }

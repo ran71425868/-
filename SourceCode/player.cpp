@@ -74,7 +74,7 @@ void player_update()
         player.color = { 1.0f,1.0f,1.0f,1.0f };
         player.radius = 20.0f;
         player.offset = { 0,0 };
-
+        player.HitBack = 0;
 
 
         ++player_state;
@@ -89,6 +89,7 @@ void player_update()
 
         // 位置に速度を足す
         player.pos += player.speed;
+        player.pos.y += player.HitBack;
 
         // プレイヤーの上下左右のエリアチェック
         if (player.pos.x < 100 + WALL_RIGHT) {
@@ -124,9 +125,11 @@ void player_update()
             player.pos -= player.speed * 0.85;
         }
 
-
         cooldown_timer++;
         
+
+
+
         break;
     }
 }
@@ -147,10 +150,13 @@ void player_render()
 
 void player_moveY()
 {
-    
+    if (STATE(0) & PAD_UP && !(STATE(0) & PAD_DOWN))
+    {
+        player.HitBack -= PLAYER_ACCEL_Y / 2; 
+    }
     if (STATE(0) & PAD_DOWN && !(STATE(0) & PAD_UP)) 
     {
-        player.speed.y += PLAYER_ACCEL_Y;
+        player.speed.y += PLAYER_ACCEL_Y * 2;
         player.scale.y = 0.5f;
 
     }
@@ -167,12 +173,19 @@ void player_moveY()
         player.speed.y = PLAYER_SPEED_Y_MAX+player_boost; 
         if (boost_timer < boost_timer_max && STATE(0) & PAD_TRG1 && STATE(0) & PAD_DOWN && !(STATE(0) & PAD_UP) && cooldown == 3) {
             boost_timer++;
-            player_boost = 5.0f;
+            player_boost = 10.0f;
             player.speed.y = PLAYER_SPEED_Y_MAX + player_boost;
         }
 
     }
     player_boost = 0.0f;
+
+
+    player.HitBack += PLAYER_DECEL_Y;
+    if (player.HitBack >= 0)
+    {
+        player.HitBack = 0;
+    }
 
 }
 
@@ -214,7 +227,7 @@ void player_moveX()
         if (boost_timer < boost_timer_max && STATE(0) & PAD_TRG1&&STATE(0) & PAD_RIGHT && !(STATE(0) & PAD_LEFT)&&cooldown==3) {
 
             boost_timer++;
-            player_boost = 5.0f;
+            player_boost = 15.0f;
             player.speed.x = PLAYER_SPEED_X_MAX + player_boost;
         }
         player_boost = 0.0f;
@@ -227,7 +240,7 @@ void player_moveX()
 
         if (boost_timer < boost_timer_max&&STATE(0) & PAD_TRG1&& STATE(0) & PAD_LEFT && !(STATE(0) & PAD_RIGHT)&&cooldown==3) {
             boost_timer++;
-            player_boost = 5.0f;
+            player_boost = 15.0f;
             player.speed.x = -PLAYER_SPEED_X_MAX - player_boost;
         }
         player_boost = 0.0f;

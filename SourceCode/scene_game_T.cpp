@@ -92,11 +92,15 @@ void tutorial_update()
 
 		game_over();
 		judge();
+		
 		break;
 	}
 
 	scrollValue1 -= 3;
-
+	if (scrollValue1 < -10000)
+	{
+		scrollValue1 = 0;
+	}
 	tutorial_timer++;
 }
 void tutorial_render() 

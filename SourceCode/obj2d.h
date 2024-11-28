@@ -23,7 +23,7 @@ struct OBJ2D
 
     VECTOR2 speed;
     int moveAlg;
-
+    float HitBack;
     GameLib::Sprite* spr;
     int state;
 

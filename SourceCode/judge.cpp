@@ -43,7 +43,7 @@ void judge()
             enemy[i].moveAlg = -1;
 
             player_hp();
-            player.speed.y = -20.0f;
+            player.HitBack = -10.0f;
             combo = 0;
             music::play(3, false);
         }
@@ -55,7 +55,7 @@ void judge()
         if (gameflug == 0) {
             if (hitCheck(&player, &obstacle[i])) {
                 hp -= 3;
-                player.speed.y = -20.0f;
+                player.HitBack = -10.0f;
                 combo = 0;
                 music::play(6, false);
             }

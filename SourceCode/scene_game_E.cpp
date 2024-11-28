@@ -41,6 +41,7 @@ void easy_deinit() {
 	obstacle_deinit();
 	goal_deinit();
 	avalanche_deinit();
+	
 
 }
 void easy_update()
@@ -85,11 +86,15 @@ void easy_update()
 
 		game_over();
 		judge();
+		
 		break;
 	}
 
 	scrollValue3 -= 3;
-
+	if (scrollValue3 < -9000)
+	{
+		scrollValue3 = 0;
+	}
 	easy_timer++;
 }
 void easy_render() {

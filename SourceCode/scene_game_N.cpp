@@ -87,11 +87,15 @@ void normal_update()
 
 		game_over();
 		judge();
+		
 		break;
 	}
 
 	scrollValue2 -= 3;
-
+	if (scrollValue2 < -9000)
+	{
+		scrollValue2 = 0;
+	}
 	normal_timer++;
 }
 void normal_render() {

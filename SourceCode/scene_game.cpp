@@ -100,7 +100,11 @@ void game_update()
 		break;
 	}
 
-	scrollValue-=3;
+	scrollValue -=3;
+	if (scrollValue < -9000)
+	{
+		scrollValue = 0;
+	}
 
 	game_timer++;
 }

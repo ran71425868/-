@@ -11,10 +11,12 @@ extern int score;
 extern float comboscore;
 extern int combo;
 
+
 extern OBJ2D enemy[ENEMY_MAX];
 extern OBJ2D flag[FLAG_MAX];
 
 extern int hp;
+extern int gameflug;
 
 Sprite* sprBack3;
 Sprite* sprSousa;
@@ -68,6 +70,9 @@ void tutorial_update()
 
 		music::play(0);
 		music::setVolume(0, 0.3f);
+
+		score = 0;
+		gameflug = 2;
 
 		tutorial_state++;
 		/*fallthrough*/

@@ -66,6 +66,8 @@ void normal_update()
 		music::play(0);
 		music::setVolume(0, 0.3f);
 
+		score = 0;
+
 		normal_state++;
 		/*fallthrough*/
 

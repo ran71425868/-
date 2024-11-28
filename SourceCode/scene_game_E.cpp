@@ -87,7 +87,7 @@ void easy_update()
 		break;
 	}
 
-	scrollValue3 -= 3;
+	scrollValue3 -= 5;
 	if (scrollValue3 < -9000)
 	{
 		scrollValue3 = 0;

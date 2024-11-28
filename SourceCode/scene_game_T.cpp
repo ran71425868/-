@@ -7,9 +7,9 @@ int tutorial_timer;
 float playerX3;
 float playerY3;
 
-int score3;
-float comboscore3;
-int combo3;
+extern int score;
+extern float comboscore;
+extern int combo;
 
 extern OBJ2D enemy[ENEMY_MAX];
 extern OBJ2D flag[FLAG_MAX];
@@ -19,6 +19,8 @@ extern int hp;
 Sprite* sprBack3;
 Sprite* sprSousa;
 Sprite* sprBusuto;
+Sprite* sprW;
+
 std::ostringstream oss1;                                 // •¶š—ñƒXƒgƒŠ[ƒ€
 POINT point3;
 
@@ -28,9 +30,6 @@ float scrollValue1 = 0.0f;
 void tutorial_init() {
 	tutorial_state = 0;
 	tutorial_timer = 0;
-	score3 = 0;
-	combo3 = 0;
-	comboscore3 = 1.0f;
 
 	playerX3 = SCREEN_W / 2.0f;
 	playerY3 = SCREEN_H / 2.0f;
@@ -52,6 +51,7 @@ void tutorial_update()
 		sprBack3 = sprite_load(L"./Data/Images/map_04.png");
 		sprSousa = sprite_load(L"./Data/Images/sousa.png");
 		sprBusuto = sprite_load(L"./Data/Images/busuto.png");
+		sprW = sprite_load(L"./Data/Images/W.png");
 
 		audio_init();
 		player_init();
@@ -109,6 +109,7 @@ void tutorial_render()
 	sprite_render(sprBack3, 0.0f, scrollValue1); // ”wŒi‚ğƒJƒƒ‰‚ÌˆÊ’u‚É‡‚í‚¹‚Ä•`‰æ
 	sprite_render(sprBack3, 0.0f, 10000.0f + scrollValue1); // ”wŒi‚ğƒJƒƒ‰‚ÌˆÊ’u‚É‡‚í‚¹‚Ä•`‰æ
 	sprite_render(sprSousa, 300, 0, 1.3f, 1.3f);
+	sprite_render(sprW, 200, 0, 1.3f, 1.3f);
 	sprite_render(sprBusuto, 1000, 0, 1.0f, 1.0f);
 
 	player_render();

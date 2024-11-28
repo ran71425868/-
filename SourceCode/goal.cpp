@@ -77,5 +77,5 @@ void goal_render()
 
 void goal_moveY()
 {
-    goal.pos.y -= 3;
+    goal.pos.y -= 5;
 }

@@ -131,7 +131,7 @@ void flag_render()
 void flag_moveY()
 {
     for (int i = 0; i < FLAG_MAX; i++) {
-        flag[i].pos.y -= 0.3f;
+        flag[i].pos.y -= 1.0f;
 
     }
 

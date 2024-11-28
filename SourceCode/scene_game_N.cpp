@@ -89,7 +89,7 @@ void normal_update()
 		break;
 	}
 
-	scrollValue2 -= 3;
+	scrollValue2 -= 5;
 	if (scrollValue2 < -9000)
 	{
 		scrollValue2 = 0;

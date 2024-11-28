@@ -99,6 +99,10 @@ void player_update()
             player.pos.x = WALL_LEFT-100;
         }
 
+        if (player.pos.y > WALL_DOWN) {
+            player.pos.y = WALL_DOWN;
+        }
+
         if (boost_timer>=boost_timer_max)
         {
            if(cooldown_timer%100==0){
@@ -117,13 +121,7 @@ void player_update()
            }
         }
         
-        player.speed.y += PLAYER_ACCEL_Y;
-        player.scale.y = 0.5f;
-        if (player.pos.y > SCREEN_H / 3.0f)
-        {
-            scrollValue -= player.speed.y;
-            player.pos -= player.speed * 0.85;
-        }
+       
 
         cooldown_timer++;
         
@@ -161,7 +159,13 @@ void player_moveY()
 
     }
     else {
-       
+        if (player.speed.y > 0) {
+            player.speed.y -= PLAYER_DECEL_Y;
+            if (player.speed.y < 0)
+                player.speed.y = 0.0f;
+
+        }
+
         if (player.speed.y < 0) {
             player.speed.y += PLAYER_DECEL_Y;
             if (player.speed.y > 0)
@@ -173,7 +177,7 @@ void player_moveY()
         player.speed.y = PLAYER_SPEED_Y_MAX+player_boost; 
         if (boost_timer < boost_timer_max && STATE(0) & PAD_TRG1 && STATE(0) & PAD_DOWN && !(STATE(0) & PAD_UP) && cooldown == 3) {
             boost_timer++;
-            player_boost = 10.0f;
+            player_boost = 3.0f;
             player.speed.y = PLAYER_SPEED_Y_MAX + player_boost;
         }
 
@@ -227,7 +231,7 @@ void player_moveX()
         if (boost_timer < boost_timer_max && STATE(0) & PAD_TRG1&&STATE(0) & PAD_RIGHT && !(STATE(0) & PAD_LEFT)&&cooldown==3) {
 
             boost_timer++;
-            player_boost = 15.0f;
+            player_boost = 3.0f;
             player.speed.x = PLAYER_SPEED_X_MAX + player_boost;
         }
         player_boost = 0.0f;
@@ -240,7 +244,7 @@ void player_moveX()
 
         if (boost_timer < boost_timer_max&&STATE(0) & PAD_TRG1&& STATE(0) & PAD_LEFT && !(STATE(0) & PAD_RIGHT)&&cooldown==3) {
             boost_timer++;
-            player_boost = 15.0f;
+            player_boost = 3.0f;
             player.speed.x = -PLAYER_SPEED_X_MAX - player_boost;
         }
         player_boost = 0.0f;

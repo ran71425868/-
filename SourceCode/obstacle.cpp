@@ -183,12 +183,12 @@ void obstacle_moveY()
 {
     for (int i = 0; i < 7; i++)
     {
-        obstacle[i].pos.y -= 0.3f;
+        obstacle[i].pos.y -= 1.5f;
     }
 
     for (int i = 22; i < OBSTACLE_MAX; i++)
     {
-        obstacle[i].pos.y -= 3;
+        obstacle[i].pos.y -= 5;
     }
 
 }

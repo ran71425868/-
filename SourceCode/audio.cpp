@@ -16,6 +16,7 @@ void audio_init()
     music::load(7, L"./Data/Musics/1234.wav");
     music::load(8, L"./Data/Musics/kati.wav");
     music::load(9, L"./Data/Musics/make.wav");
+    music::load(10, L"./Data/Musics/ゲームオーバー.wav");
    
 
     sound::load(XWB_SYSTEM, L"./Data/Sounds/system.xwb");    // システム音

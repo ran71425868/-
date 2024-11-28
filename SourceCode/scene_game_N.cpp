@@ -7,9 +7,10 @@ int normal_timer;
 float playerX2;
 float playerY2;
 
-int score2;
-float comboscore1;
-int combo2;
+extern int score;
+extern float comboscore;
+extern int combo;
+
 
 extern OBJ2D flag[FLAG_MAX];
 
@@ -27,9 +28,6 @@ float scrollValue2 = 0.0f;
 void normal_init() {
 	normal_state = 0;
 	normal_timer = 0;
-	score2 = 0;
-	combo2 = 0;
-	comboscore1 = 1.0f;
 
 	playerX2 = SCREEN_W / 2.0f;
 	playerY2 = SCREEN_H / 2.0f;
@@ -103,10 +101,10 @@ void normal_render() {
 
 
 	
-	text_out(0, "score", 1800, 450, 2, 2);
-	text_out(0, std::to_string(score2), 1800, 500, 2, 2);
-	text_out(0, "combo", 1800, 550, 2, 2);
-	text_out(0, std::to_string(combo2), 0, 600, 2, 2);
+	text_out(0, "score", 1700, 450, 2, 2);
+	text_out(0, std::to_string(score), 1700, 500, 2, 2);
+	text_out(0, "combo", 1700, 550, 2, 2);
+	text_out(0, std::to_string(combo), 1700, 600, 2, 2);
 
 	player_render();
 	obstacle_render();
